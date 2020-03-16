@@ -1,0 +1,36 @@
+@import '../../misc-styles/fonts-mixins.scss';
+@import '../../misc-styles/variables.scss';
+
+.performance {
+	width: 50vw;
+	font-size: 1.8rem;
+	&__all-sections-header-container {
+		display: flex;
+		flex-direction: column;
+		width: 110%;
+	}
+	&__section-header-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	&__section-header {
+		margin: 2vw;
+		&:hover {
+			color: white;
+		}
+	}
+	&__autocatalytica-header {
+		font-family: 'October Guard';
+	}
+	&__hosana-header {
+		font-family: 'Comfortaa';
+	}
+	&__solo-header {
+		font-family: 'Montserrat';
+	}
+	&__ex-kathedra-header {
+		font-family: 'Righteous';
+	}
+}

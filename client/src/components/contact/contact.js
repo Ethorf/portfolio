@@ -3,11 +3,14 @@ import axios from 'axios';
 import { TimelineMax } from 'gsap';
 
 import './contact.scss';
+import SocialButtons from '../socialButtons/socialButtons';
 
 function Contact() {
 	const contentTl = new TimelineMax({ paused: true });
 	let modalContentContainer = useRef(null);
 	const [contentAnimation, setContentAnimation] = useState(null);
+	let [contactOpen, setContactOpen] = useState(false);
+
 	const openModalContentAnimation = () => {
 		setContentAnimation(
 			contentTl
@@ -43,50 +46,64 @@ function Contact() {
 		submitContact({ name, email, message });
 		openModalContentAnimation();
 	};
-
+	const openContact = () => {
+		if (contactOpen) {
+			setContactOpen(false);
+		} else {
+			setContactOpen(true);
+		}
+	};
 	return (
-		<div className={`contact`}>
-			<h2 className={'contact__header'}>Get In Touch</h2>
-			<form onSubmit={(e) => onSubmit(e)} className={'contact__form'}>
-				<div className={`contact__form-name-email-input-modalize-container`}>
-					<div className={`contact__form-name-email-input-container`}>
-						<h3 className={'contact__form-identifier'}>Name</h3>
-						<input
-							name="name"
-							value={name}
-							onChange={(e) => onChange(e)}
-							placeholder="Your name here"
-							className={`contact__input contact__name`}
-							required
-						></input>
-						<h3 className={'contact__form-identifier'}>Email</h3>
-						<input
-							placeholder="Your email here"
-							type="email"
-							name="email"
-							className={`contact__input`}
-							onChange={(e) => onChange(e)}
-							required
-						></input>
+		<>
+			<h2 onClick={openContact} className={'contact__header'}>
+				Get In Touch
+			</h2>
+			<div className={`contact ${contactOpen ? 'open' : 'closed'}`}>
+				<form onSubmit={(e) => onSubmit(e)} className={`contact__form ${contactOpen ? 'open' : 'closed'}`}>
+					<div className={`contact__form-name-email-input-modalize-container`}>
+						<div className={`contact__form-name-email-input-container`}>
+							<div className={`contact__input-container`}>
+								<h3 className={'contact__form-identifier'}>Name</h3>
+								<input
+									name="name"
+									value={name}
+									onChange={(e) => onChange(e)}
+									placeholder="Your name here"
+									className={`contact__input contact__name`}
+									required
+								></input>
+							</div>
+							<div className={`contact__input-container`}>
+								<h3 className={`contact__form-identifier`}>Email</h3>
+								<input
+									placeholder="Your email here"
+									type="email"
+									name="email"
+									className={`contact__input contact__email`}
+									onChange={(e) => onChange(e)}
+									required
+								></input>
+							</div>
+						</div>
 					</div>
-				</div>
 
-				<h3 className={'contact__form-identifier'}>Message</h3>
-				<textarea
-					required
-					placeholder="Your message here"
-					name="message"
-					onChange={(e) => onChange(e)}
-					className={`contact__input contact__message`}
-				></textarea>
-				<button className={'contact__form-submit-button'} type="submit">
-					Submit
-				</button>
-				<h2 ref={(h2) => (modalContentContainer = h2)} className={'contact__modalize'}>
-					Message Submitted
-				</h2>
-			</form>
-		</div>
+					<h3 className={'contact__form-identifier'}>Message</h3>
+					<textarea
+						required
+						placeholder="Your message here"
+						name="message"
+						onChange={(e) => onChange(e)}
+						className={`contact__input contact__message`}
+					></textarea>
+					<button className={'contact__form-submit-button'} type="submit">
+						Submit
+					</button>
+					<h2 ref={(h2) => (modalContentContainer = h2)} className={'contact__modalize'}>
+						Message Submitted
+					</h2>
+				</form>
+			</div>
+		</>
 	);
 }
 

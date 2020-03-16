@@ -1,0 +1,22 @@
+@import '../../misc-styles/fonts-mixins.scss';
+@import '../../misc-styles/variables.scss';
+
+.social-buttons {
+	width: 25%;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	bottom: 0vh;
+	z-index: 3;
+	margin: 2vh 0;
+
+	&__button {
+	}
+	&__button-img {
+		height: 4vh;
+		// &:hover {
+		// 	box-shadow: whitesmoke;
+		// 	background-color: grey;
+		// }
+	}
+}

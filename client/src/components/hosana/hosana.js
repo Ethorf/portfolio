@@ -1,5 +1,7 @@
 import React from 'react';
 import './hosana.scss';
+import '../performance/performance.scss';
+
 import HosanaAlbumArt from '../../assets/album-art/Hosana-AlbumArt(small).jpg';
 import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 import SoundcloudIcon from '../../assets/Icons/silver/soundcloud-silver.png';
@@ -7,7 +9,7 @@ import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';
 
 export default function Hosana(props) {
 	return (
-		<div className={`hosana ${props.hosanaOpen ? '' : 'invisible'}`}>
+		<div className={`hosana expanded-section ${props.hosanaOpen ? '' : 'invisible'}`}>
 			<h2 className={`hosana__section-header`}>Bio</h2>
 			<h3 className={`hosana__bio-description`}>
 				Hosana was formed in 2019 by Eric Thorfinnson and Scott Carruthers. They are an experimental indie band

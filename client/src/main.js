@@ -19,6 +19,8 @@ function Main() {
 	const dividerTl = new TimelineMax({ paused: true });
 	const arrowTl = new TimelineMax({ paused: true });
 	const musicHeaderTl = new TimelineMax({ paused: true });
+	const allNotHeaderTl = new TimelineMax({ paused: true });
+	const [allNotHeaderAnimation, setAllNotHeaderAnimation] = useState(null);
 	const [headersAnimation, setHeadersAnimation] = useState(null);
 	let [webSectionOpen, setWebSectionOpen] = useState(false);
 	let [musicSectionOpen, setMusicSectionOpen] = useState(false);
@@ -32,6 +34,7 @@ function Main() {
 	const [headersOpen, setHeadersOpen] = useState(false);
 	const [bioOpen, setBioOpen] = useState(false);
 
+	let allNotHeader = useRef(null);
 	let nameContainer = useRef(null);
 	let headersContainer = useRef(null);
 	let webHeaderContainer = useRef(null);
@@ -163,7 +166,7 @@ function Main() {
 			toggleHeadersOpen();
 		} else {
 			setHeadersAnimation(
-				headersTl.to(headersContainer, { height: '14vh', y: 0, duration: 0.5, opacity: 1 }).play()
+				headersTl.to(headersContainer, { height: '10vh', y: 0, duration: 0.5, opacity: 1 }).play()
 			);
 			toggleHeadersOpen();
 		}
@@ -180,25 +183,29 @@ function Main() {
 			toggleNameSmall();
 		}
 	};
-	const homeAnimation = () => {};
+	const homeAnimation = () => {
+		setAllNotHeaderAnimation(allNotHeaderTl.to(allNotHeader, { duration: 4, opacity: 0 }).play());
+	};
 	useEffect(() => {
 		headersContainerAnimation();
 	}, []);
 	return (
 		<div className="main">
 			<div className={`main__bg`}></div>
+
 			<header className="main__header-container">
 				<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
-				<h1
+				<a
 					ref={(h1) => (nameContainer = h1)}
 					onMouseEnter={faceAnimationOpen}
 					onMouseLeave={faceAnimationClose}
 					className="main__header"
+					href="http://localhost:3000"
 				>
 					Eric Thorfinnson
-				</h1>
-				{/* <button className={'test-button'} onClick={nameSmallAnimation}>
-					headers
+				</a>
+				{/* <button className={'test-button'} onClick={homeAnimation}>
+					Test
 				</button> */}
 			</header>
 
@@ -210,8 +217,7 @@ function Main() {
 					ref={(h2) => (webHeaderContainer = h2)}
 					className={`main__web-section-header main__section-header`}
 				>
-					<h2 className={` main__web-header-title hover hover-1`}>Full-stack Web Developer</h2>
-
+					<h2 className={`main__web-header-title`}>Full-stack Web Developer</h2>
 					<h2
 						className={`main__right-arrow main__arrow ${
 							webSectionOpen === false && musicSectionOpen === false ? 'invisible' : ''

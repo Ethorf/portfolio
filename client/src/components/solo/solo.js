@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import './solo.scss';
+import '../performance/performance.scss';
 import QwagAlbumArt from '../../assets/album-art/eric-thorfinnson-qwag-artwork.jpg';
 import JuanAlbumArt from '../../assets/album-art/eric-thorfinnson-juan-artwork.jpg';
 import SoloGuitarAlbumArt from '../../assets/album-art/eric-thorfinnson-solo-guitar-artwork.jpg';
@@ -16,7 +17,7 @@ export default function Solo(props) {
 		}
 	};
 	return (
-		<div className={`solo ${props.soloOpen ? '' : 'invisible'}`}>
+		<div className={`solo expanded-section ${props.soloOpen ? '' : 'invisible'}`}>
 			<h2 className={`solo__section-header`}>Bio</h2>
 			<h3 className={`solo__bio-description`}>
 				Eric Thorfinnson has been composing, recording, and releasing songs since he was roughly 12 years old.

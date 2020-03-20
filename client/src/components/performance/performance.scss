@@ -1,42 +1,109 @@
 @import '../../misc-styles/fonts-mixins.scss';
 @import '../../misc-styles/variables.scss';
 
+.expanded-section {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-family: 'Montserrat';
+	font-size: 1.5rem;
+	background-color: black;
+	width: 50%;
+	margin-top: -10vh;
+}
+
 .performance {
-	width: 50vw;
-	font-size: 1.8rem;
+	width: 100vw;
+	font-size: 1.7rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
 	&__all-sections-header-container {
 		display: flex;
 		flex-direction: column;
-		width: 110%;
+		width: 100%;
 	}
 	&__section-header-container {
 		display: flex;
 		flex-direction: row;
+		width: 100%;
+		height: 10vh;
 		justify-content: center;
 		align-items: center;
 	}
 	&__section-header {
 		margin-left: 0vw;
 		margin-right: 2vw;
-
 		&:hover {
 			color: white;
 		}
 	}
+	&__section-container-left {
+		width: 33%;
+		display: flex;
+		justify-content: flex-end;
+	}
+	&__section-container-right {
+		width: 33%;
+		display: flex;
+	}
+	&__divider {
+		font-size: 3.3rem;
+		font-family: 'Syncopate';
+		color: white;
+		justify-self: center;
+	}
 	&__autocatalytica-header {
+		font-size: 3.2rem;
 		font-family: 'October Guard';
-		margin-left: 0;
 	}
 	&__hosana-header {
 		font-family: 'Comfortaa';
+		margin-left: 2vw;
+		font-size: 3.7rem;
 	}
 	&__solo-header {
 		font-family: 'Montserrat';
 	}
+	&__solo-header-open {
+		font-family: 'Montserrat';
+		margin-left: 27vw;
+		font-size: 4rem;
+		margin-top: -11vh;
+		width: 100%;
+	}
 	&__ex-kathedra-header {
 		font-family: 'Righteous';
+		margin-left: 2vw;
+		font-size: 4rem;
+	}
+	&__ex-kathedra-header-open {
+		font-family: 'Righteous';
+		margin-left: -10vw;
+		font-size: 4rem;
+		margin-top: -12vh;
+	}
+	&__back-button {
+		font-family: 'Montserrat';
+		opacity: 1;
+		font-size: 1.2rem;
+		margin-left: 2vw;
+		display: flex;
+		align-items: center;
+		&:hover {
+			color: white;
+		}
+	}
+	&__back-button-bottom {
+		margin-top: -11vh;
+		// margin-left: 5vw;
+		margin-right: -8vw;
 	}
 }
+
 .invisible {
 	opacity: 0;
 	display: none;
@@ -44,4 +111,19 @@
 	overflow: hidden;
 	color: black;
 	transition: all 1s;
+}
+.centered-section-header-left {
+	width: 450%;
+	display: flex;
+	justify-content: center;
+	padding-left: 9vw;
+}
+.centered-section-header-right {
+	width: 450%;
+	display: flex;
+	justify-content: center;
+	padding-right: 9vw;
+}
+.white {
+	color: white;
 }

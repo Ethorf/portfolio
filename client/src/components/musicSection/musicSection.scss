@@ -12,42 +12,53 @@
 	font-family: 'Maven Pro';
 	transition: all 2s;
 
-	&__sections-header-container {
+	&__headers-container {
 		display: flex;
-		width: 60%;
-		height: 30%;
+		flex-direction: row;
+		justify-content: center;
+		width: 80%;
 		color: whitesmoke;
-		justify-content: space-between;
 		margin-top: 1vh;
 		font-family: 'Poppins';
 	}
 	&__sections-header {
 		font-size: 3.3rem;
-		height: 100%;
 		margin: 0;
-		justify-content: space-between;
-		&:hover {
-			color: grey;
-		}
+	}
+	&__performance-header {
+		@include hover-underline-left;
+		margin-bottom: 2vh;
+	}
+	&__engineering-header {
+		@include hover-underline-right;
+		margin-bottom: 2vh;
 	}
 	&__back-home-container {
 		display: flex;
 		align-items: center;
 		font-family: 'Lekton';
 		justify-content: space-between;
-		// border: 1px solid red;
 		width: 10%;
 		height: 8%;
 	}
 	&__back-button {
 		margin: 1% 0;
 	}
+	&__home-button {
+		margin: 1% 0;
+		font-size: 1.4rem;
+		text-decoration: none;
+		color: silver;
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
 	&__small-divider {
-		font-size: 1.6rem;
+		font-family: 'Lekton';
+		color: white;
 	}
 	&__divider {
 		font-size: 3rem;
-		margin: 1vh 0 0 0;
+		margin: 1vh 2vw;
 	}
 }
 .center {

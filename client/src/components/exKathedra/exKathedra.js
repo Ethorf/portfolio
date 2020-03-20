@@ -1,16 +1,19 @@
 import React from 'react';
 import './exKathedra.scss';
+import '../performance/performance.scss';
 import exKathedraAlbumArt from '../../assets/album-art/ex-kathedra-album-artwork.jpg';
 import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 
 export default function ExKathedra(props) {
 	return (
-		<div className={`exKathedra ${props.exKathedraOpen ? '' : 'invisible'}`}>
+		<div className={`exKathedra expanded-section ${props.exKathedraOpen ? '' : 'invisible'}`}>
 			<h2 className={`exKathedra__section-header`}>Bio</h2>
 			<h3 className={`exKathedra__bio-description`}>
 				Ex Kathedra was formed in 2005 by Eric Thorfinnson, Rei Tanaka, Mike Gray, Alex Athaas, and Alex Medley.
-				They are an experimental indie band from Toronto, ON. Their eponymous EP harmonizes ethereal soundscapes
-				with undercurrents of curated chaos while pawing at catharsis via hope, desperation and emergent madness
+				They were a progressive-metal band fueled exclusively by Delissio and House of Carters that played a
+				series of shows around the GTA that were way more meaningful to the band members than anyone in the
+				audience. They channeled all of their adolescent illusions of grandeur into the singular opus "This Is
+				Where", and catastrophically imploded shortly thereafter.
 			</h3>
 			<h2 className={`exKathedra__section-header`}>Records</h2>
 			<div className={`exKathedra__album-container`}>

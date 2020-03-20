@@ -16,6 +16,19 @@
 		height: 4vh;
 		margin: 0 1vw;
 	}
+
+	&__bandcamp {
+		content: url('../../assets/Icons/silver/bandcamp-silver.png');
+		&:hover {
+			content: url('../../assets/Icons/silver/bandcamp-light-silver.png');
+		}
+	}
+	&__soundcloud {
+		content: url('../../assets/Icons/silver/soundcloud-silver.png');
+		&:hover {
+			content: url('../../assets/Icons/silver/soundcloud-light-silver.png');
+		}
+	}
 }
 
 .invisible {

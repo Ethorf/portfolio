@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import './autocatalytica.scss';
+import '../performance/performance.scss';
 import VicissitudesAlbumArt from '../../assets/album-art/autocatalytica-vicissitudes-artwork.jpg';
 import AutocatalyticaAlbumArt from '../../assets/album-art/autocatalytica-eponymous-artwork.jpg';
 import HorrorVacuiAlbumArt from '../../assets/album-art/autocatalytica-horror-vacui-artwork.jpg';
@@ -15,7 +16,7 @@ export default function Autocatalytica(props) {
 		}
 	};
 	return (
-		<div className={`autocatalytica ${props.autocatalyticaOpen ? '' : 'invisible'}`}>
+		<div className={`expanded-section autocatalytica ${props.autocatalyticaOpen ? '' : 'invisible'}`}>
 			<h2 className={`autocatalytica__section-header`}>Bio</h2>
 			<h3 className={`autocatalytica__bio-description`}>
 				Autocatalytica was formed in 2009 as Eric Thorfinnson's neo-post-progressive-grind-funk bedroom project.
@@ -32,8 +33,8 @@ export default function Autocatalytica(props) {
 			<h3 className={`autocatalytica__bio-description`}>
 				{' '}
 				Tragically, on October 22nd 2015, Guitarist Erik Sorensen suddenly passed away. The group played one
-				more show before disbanding it's current iteration. Currently, Eric is putting the finishing touches on
-				a 3rd EP featuring a smattering of collaborators, including drummer Neilroy Miranda.
+				more show before disbanding it's Brooklyn-based iteration. Currently, Eric is putting the finishing
+				touches on a 3rd EP featuring a smattering of collaborators, including drummer Neilroy Miranda.
 			</h3>
 			<h2 className={`autocatalytica__section-header autocatalytica__records-header`}>Records</h2>
 			<div className={`autocatalytica__album-container`}>

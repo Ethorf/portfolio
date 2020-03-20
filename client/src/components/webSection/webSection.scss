@@ -48,3 +48,11 @@
 	position: relative;
 	margin-top: 20%;
 }
+.invisible {
+	opacity: 0;
+	display: none;
+	width: 0.01vw;
+	overflow: hidden;
+	color: black;
+	transition: all 1s;
+}

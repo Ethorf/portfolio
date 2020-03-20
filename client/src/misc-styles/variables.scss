@@ -18,3 +18,15 @@ $mobile-only: 'screen and (max-width: #{$mobile-max})';
 $tablet-only: 'screen and (min-width:#{$tablet-min}) and (max-width: #{$tablet-max})';
 $laptop-small: 'screen and (min-width:#{$laptop-small-min}) and (max-width: #{$laptop-small-max})';
 $laptop-large: 'screen and (min-width: #{$laptop-large-min})';
+$animate: all 0.2s ease-in-out;
+
+.invisible {
+	opacity: 0;
+	display: none;
+	width: 0.01vw;
+	overflow: hidden;
+	color: black;
+	transition: all 3s;
+	position: relative;
+	margin-top: 20%;
+}

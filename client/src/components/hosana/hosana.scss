@@ -1,0 +1,48 @@
+@import '../../misc-styles/fonts-mixins.scss';
+@import '../../misc-styles/variables.scss';
+
+.hosana {
+	position: relative;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Montserrat';
+	font-size: 1.5rem;
+	background-color: black;
+	width: 100%;
+	&__bio-description {
+		font-size: 1.3rem;
+	}
+	&__album-container {
+		color: white;
+		margin-bottom: 2vh;
+	}
+	&__album-header {
+		font-size: 1.8rem;
+	}
+	&__album-artwork {
+		height: 35vh;
+	}
+	&__album-art-description-container {
+		display: flex;
+		font-size: 1.1rem;
+	}
+	&__album-description {
+		width: 50%;
+		list-style: square;
+	}
+	&__section-header {
+		margin: 2vh 0;
+		font-size: 2.5rem;
+		color: white;
+	}
+	&__link-icon {
+		height: 3vh;
+		margin-right: 1vw;
+	}
+	&__links {
+		margin-top: 3vh;
+		list-style: none;
+	}
+	//gotta be a way to not repeat myself here, use this shit in the variables
+}

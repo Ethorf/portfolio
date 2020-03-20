@@ -1,0 +1,34 @@
+@import '../../misc-styles/fonts-mixins.scss';
+@import '../../misc-styles/variables.scss';
+
+.engineering {
+	&__album-container {
+		color: white;
+		margin-bottom: 2vh;
+		display: flex;
+	}
+	&__album-header {
+		font-size: 1.8rem;
+	}
+	&__album-artwork {
+		height: 35vh;
+	}
+	&__link-icon {
+		height: 5vh;
+		margin-right: 1vw;
+		&:hover {
+			content: url('../../assets/Icons/silver/spotify-light-silver.png');
+		}
+	}
+	&__links-container {
+		font-size: 1.3rem;
+		width: 40%;
+	}
+	&__links {
+		margin-top: 3vh;
+		list-style: none;
+	}
+}
+li {
+	margin-bottom: 1vh;
+}

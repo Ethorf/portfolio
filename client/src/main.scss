@@ -4,12 +4,13 @@
 .main {
 	width: 100vw;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	color: white;
 	flex-direction: column;
 	background-color: black;
 	font-family: 'Lekton';
+	height: 100vh;
+
 	&__bg {
 		background-color: black;
 		position: absolute;
@@ -38,8 +39,8 @@
 		margin-top: 10vh;
 	}
 	&__header {
-		margin-top: 4vh;
-		font-size: 4.2rem;
+		margin: 1vh 0vw;
+		font-size: 4.4rem;
 		position: relative;
 		z-index: 3;
 		font-family: 'Poppins';
@@ -50,14 +51,18 @@
 		width: 11vw;
 		height: 12vh;
 		top: 12vh;
-		left: 44w;
+		// left: 44w;
 		opacity: 0;
 	}
-	&__sections-container {
+	&__headers-container {
 		width: 100%;
 		display: flex;
-		font-size: 1.8rem;
+		opacity: 0;
+		font-size: 1.4rem;
 		justify-content: center;
+		transition: all 1s;
+		position: relative;
+		z-index: 3;
 	}
 	&__section-header {
 		display: flex;
@@ -68,6 +73,46 @@
 		justify-content: space-around;
 		&:hover {
 			text-shadow: 1px white;
+		}
+	}
+	&__web-header-title {
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 3px;
+			display: block;
+			margin-top: 5px;
+			left: 0;
+			background: #fff;
+			transition: width 0.5s ease;
+			-webkit-transition: width 0.5s ease;
+		}
+
+		&:hover:after {
+			width: 100%;
+			left: 0;
+			background: #fff;
+		}
+	}
+	&__music-header-title {
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 3px;
+			display: block;
+			margin-top: 5px;
+			right: 0;
+			background: #fff;
+			transition: width 0.5s ease;
+			-webkit-transition: width 0.5s ease;
+		}
+
+		&:hover:after {
+			width: 100%;
+			right: 0;
+			background: #fff;
 		}
 	}
 	&__section-divider {
@@ -84,20 +129,72 @@
 		color: Silver;
 		text-decoration: none;
 		margin-top: 4vh;
+		margin-left: -3.9vw;
+		transition: all 0.3s;
+
 		font-size: 2.5rem;
+		&:hover {
+			transition: all 0.3s;
+			color: white;
+		}
+	}
+	&__bio-container {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: -10px;
+	}
+	&__bio-header {
+		font-size: 2.1rem;
+		color: silver;
+		margin-left: -5vw;
+		margin-bottom: 0;
+		align-self: center;
+		transition: all 0.3s;
+
 		&:hover {
 			color: white;
 		}
+		transition: all 0.3s;
+	}
+	&__bio-description {
+		width: 60%;
+		text-align: center;
+		font-size: 1.4rem;
 	}
 }
 .invisible {
 	opacity: 0;
 	display: none;
 	width: 0.01vw;
+	height: 0px;
 	overflow: hidden;
 	color: black;
 	transition: all 1s;
 }
 .visible {
+	transition: all 1s;
+	opacity: 1;
+}
+
+.test-button {
+	position: relative;
+	z-index: 3;
+}
+
+.bio-invisible {
+	opacity: 0;
+	display: none;
+	width: 0.01vw;
+	height: 0px;
+	overflow: hidden;
+	color: black;
+	transition: all 3s;
+}
+.bio-visible {
+	transition: all 1s;
 	opacity: 1;
 }

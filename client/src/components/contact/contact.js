@@ -5,7 +5,7 @@ import { TimelineMax } from 'gsap';
 import './contact.scss';
 import SocialButtons from '../socialButtons/socialButtons';
 
-function Contact() {
+function Contact(props) {
 	const contentTl = new TimelineMax({ paused: true });
 	let modalContentContainer = useRef(null);
 	const [contentAnimation, setContentAnimation] = useState(null);
@@ -54,7 +54,7 @@ function Contact() {
 		}
 	};
 	return (
-		<>
+		<div className={`${props.webSectionOpen || props.musicSectionOpen ? 'invisible' : ''}`}>
 			<h2 onClick={openContact} className={'contact__header'}>
 				Get In Touch
 			</h2>
@@ -87,7 +87,7 @@ function Contact() {
 						</div>
 					</div>
 
-					<h3 className={'contact__form-identifier'}>Message</h3>
+					<h3 className={'contact__form-identifier contact__message-identifier'}>Message</h3>
 					<textarea
 						required
 						placeholder="Your message here"
@@ -98,12 +98,12 @@ function Contact() {
 					<button className={'contact__form-submit-button'} type="submit">
 						Submit
 					</button>
-					<h2 ref={(h2) => (modalContentContainer = h2)} className={'contact__modalize'}>
-						Message Submitted
-					</h2>
 				</form>
+				<h2 ref={(h2) => (modalContentContainer = h2)} className={'contact__modalize'}>
+					Message Submitted! Thank you!
+				</h2>
 			</div>
-		</>
+		</div>
 	);
 }
 

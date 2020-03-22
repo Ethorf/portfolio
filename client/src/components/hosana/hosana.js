@@ -10,7 +10,7 @@ import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';
 export default function Hosana(props) {
 	return (
 		<div className={`hosana expanded-section ${props.hosanaOpen ? '' : 'invisible'}`}>
-			<h2 className={`hosana__section-header`}>Bio</h2>
+			<h2 className={`hosana__section-header hosana__bio-header`}>Bio</h2>
 			<h3 className={`hosana__bio-description`}>
 				Hosana was formed in 2019 by Eric Thorfinnson and Scott Carruthers. They are an experimental indie band
 				from Toronto, ON. Their eponymous EP harmonizes ethereal soundscapes with undercurrents of curated chaos

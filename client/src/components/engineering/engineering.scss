@@ -28,6 +28,34 @@
 		margin-top: 3vh;
 		list-style: none;
 	}
+
+	@include mobile-small-only() {
+		&__sections-header {
+			font-size: 1.2rem;
+			width: 70%;
+			display: flex;
+			justify-content: center;
+		}
+		&__engineering-header {
+			margin-left: 20vw;
+		}
+		&__album-header {
+			font-size: 1.1rem;
+		}
+		&__album-container {
+			flex-direction: column;
+			align-items: center;
+		}
+		&__album-artwork {
+			width: 70%;
+		}
+		&__links-container {
+			font-size: 1.3rem;
+			width: 80%;
+			height: 100%;
+			margin-bottom: 10vh;
+		}
+	}
 }
 li {
 	margin-bottom: 1vh;

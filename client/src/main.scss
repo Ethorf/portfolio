@@ -2,7 +2,7 @@
 @import './misc-styles/variables.scss';
 
 .main {
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	color: white;
@@ -25,6 +25,9 @@
 		flex-direction: column;
 		align-items: center;
 		opacity: 1;
+	}
+	&__headers-container-mobile {
+		display: none;
 	}
 	&__arrow {
 		color: white;
@@ -84,12 +87,7 @@
 			text-shadow: 1px white;
 		}
 	}
-	&__web-header-title {
-		@include hover-underline-left;
-	}
-	&__music-header-title {
-		@include hover-underline-right-absolute;
-	}
+
 	&__section-divider {
 		color: white;
 		position: relative;
@@ -106,6 +104,7 @@
 		margin-top: 4vh;
 		margin-left: -3.9vw;
 		transition: all 0.3s;
+		font-weight: bold;
 
 		font-size: 2.5rem;
 		&:hover {
@@ -140,6 +139,81 @@
 		text-align: center;
 		font-size: 1.4rem;
 	}
+	@include mobile-small-only() {
+		&__header {
+			font-size: 2rem;
+			margin-left: 7vw;
+			align-items: center;
+		}
+		&__face-img {
+			width: 35vw;
+			top: 12vh;
+		}
+		&__headers-container {
+			display: none;
+		}
+		&__headers-container-mobile {
+			width: 84%;
+			display: flex;
+			justify-content: center;
+			height: 11vh;
+			position: relative;
+			z-index: 5;
+			opacity: 1;
+			font-size: 1rem;
+			justify-self: center;
+		}
+		&__section-divider {
+			font-size: 1.8rem;
+		}
+		&__section-header {
+			font-size: 1.2rem;
+		}
+		&__music-header-title {
+			// margin-left: 3vw;
+			// font-size: 1.5rem;
+		}
+		&__web-header-title {
+			// margin-right: 2vw;
+		}
+		&__bio-header {
+			margin-left: 3vw;
+			margin-top: 3vh;
+
+			font-size: 1.6rem;
+		}
+		&__resume {
+			font-size: 1.6rem;
+			margin-left: 3vw;
+		}
+		&__bio-description {
+			width: 80%;
+			text-align: center;
+			font-size: 1.2rem;
+			line-height: 1.2;
+		}
+	}
+	@include tablet-only {
+		&__headers-container-mobile {
+			display: none;
+		}
+	}
+	@include laptop-small() {
+		&__web-header-title {
+			@include hover-underline-left;
+		}
+		&__music-header-title {
+			@include hover-underline-right-absolute;
+		}
+	}
+	@include laptop-large() {
+		&__web-header-title {
+			@include hover-underline-left;
+		}
+		&__music-header-title {
+			@include hover-underline-right-absolute;
+		}
+	}
 }
 .invisible {
 	opacity: 0;
@@ -157,7 +231,9 @@
 
 .test-button {
 	position: relative;
-	z-index: 3;
+	z-index: 15;
+	top: 10%;
+	border: 1px solid white;
 }
 
 .bio-invisible {

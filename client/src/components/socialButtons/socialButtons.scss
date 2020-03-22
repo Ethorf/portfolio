@@ -29,6 +29,13 @@
 			content: url('../../assets/Icons/silver/soundcloud-light-silver.png');
 		}
 	}
+	@include mobile-small-only() {
+		justify-content: space-evenly;
+		width: 100%;
+		&__button-img {
+			height: 4vh;
+		}
+	}
 }
 
 .invisible {
@@ -38,5 +45,4 @@
 	height: 0px;
 	overflow: hidden;
 	color: black;
-	transition: all 1s;
 }

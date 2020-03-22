@@ -21,6 +21,7 @@
 		font-size: 2.3rem;
 		font-family: 'Syncopate';
 		text-decoration: none;
+		text-align: center;
 		color: silver;
 		margin-bottom: 2vh;
 		&:hover {
@@ -29,14 +30,24 @@
 	}
 	&__not-your-thoughts-description {
 		text-align: center;
-		font-family: 'Maven Pro';
+		font-family: 'Montserrat';
+		font-size: 1.3rem;
+
 		width: 70%;
 	}
 	&__not-your-thoughts-image {
 		width: 40vw;
-		height: 30%;
+		padding: 0.5vw;
 		border: 1px solid white;
 		border-radius: 10px;
+	}
+	@include mobile-small-only() {
+		&__not-your-thoughts-image {
+			display: none;
+		}
+		&__not-your-thoughts-description {
+			width: 120%;
+		}
 	}
 }
 .invisible {

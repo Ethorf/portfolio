@@ -7,13 +7,22 @@ import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 export default function ExKathedra(props) {
 	return (
 		<div className={`exKathedra expanded-section ${props.exKathedraOpen ? '' : 'invisible'}`}>
-			<h2 className={`exKathedra__section-header`}>Bio</h2>
+			<h3 className={`performance__solo-back-button`} onClick={props.toggleExKathedraOpen}>
+				Back
+			</h3>
+			<h1
+				// onClick={props.toggleExKathedraOpen}
+				className={`exKathedra__header-open`}
+			>
+				Ex Kathedra
+			</h1>
+			<h2 className={`exKathedra__section-header exKathedra__bio-header`}>Bio</h2>
 			<h3 className={`exKathedra__bio-description`}>
 				Ex Kathedra was formed in 2005 by Eric Thorfinnson, Rei Tanaka, Mike Gray, Alex Athaas, and Alex Medley.
-				They were a progressive-metal band fueled exclusively by Delissio and House of Carters that played a
-				series of shows around the GTA that were way more meaningful to the band members than anyone in the
-				audience. They channeled all of their adolescent illusions of grandeur into the singular opus "This Is
-				Where", and catastrophically imploded shortly thereafter.
+				They were a progressive-metal band fueled exclusively by Delissio and House of Carters.
+				<p /> They played a series of shows throughout the GTA that were way more meaningful to the band members
+				than anyone in the audience. They channeled all of their adolescent illusions of grandeur into the
+				singular opus "This Is Where", and catastrophically imploded shortly thereafter.
 			</h3>
 			<h2 className={`exKathedra__section-header`}>Records</h2>
 			<div className={`exKathedra__album-container`}>
@@ -25,9 +34,12 @@ export default function ExKathedra(props) {
 						alt="exKathedra Album Artwork"
 					/>
 					<ul className={`exKathedra__album-description`}>
-						<li>First LP ever released by Eric Thorfinnson</li>
-						<li>Vocals, Engineering, Mixing, and Guitar by Eric Thorfinnson</li>
-						<li>Vocals by Scott Carruthers, Violin by Nicole Yoshimura</li>
+						<li>
+							First LP ever released by Eric Thorfinnson, recorded all Guitar, some Vox, and some bass
+						</li>
+						<li>Bass and Clean Vox by Rei Tanaka, Screams by Alex Medley, and Drums by Alex Medley</li>
+						<li>Recorded / Mixed / Mastered and Mastermind Studios in Hamilton, ON </li>
+
 						<li>"Good if not exactly my thing - 80%."-Noktorn</li>
 						<li>Artwork by Wyatt Clough</li>
 						<li className={`exKathedra__links`}>

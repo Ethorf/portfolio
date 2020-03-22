@@ -36,5 +36,28 @@
 		margin-top: 3vh;
 		list-style: none;
 	}
-	//gotta be a way to not repeat myself here, use this shit in the variables
+	@include mobile-small-only() {
+		&__album-art-description-container {
+			display: flex;
+			flex-direction: column;
+		}
+		&__album-description {
+			width: 80%;
+			margin-bottom: 9vh;
+		}
+		&__section-header {
+			margin-top: 5vh;
+			font-size: 2.1rem;
+		}
+		&__link-icon {
+			height: 5vh;
+			margin-right: 3vw;
+		}
+		&__bio-description {
+			margin-top: 0;
+		}
+		&__bio-header {
+			margin-top: 16vh;
+		}
+	}
 }

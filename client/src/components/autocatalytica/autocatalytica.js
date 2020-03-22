@@ -17,7 +17,7 @@ export default function Autocatalytica(props) {
 	};
 	return (
 		<div className={`expanded-section autocatalytica ${props.autocatalyticaOpen ? '' : 'invisible'}`}>
-			<h2 className={`autocatalytica__section-header`}>Bio</h2>
+			<h2 className={`autocatalytica__section-header autocatalytica__bio-header`}>Bio</h2>
 			<h3 className={`autocatalytica__bio-description`}>
 				Autocatalytica was formed in 2009 as Eric Thorfinnson's neo-post-progressive-grind-funk bedroom project.
 				Upon starting school at the Berklee College of Music in Boston, MA, Eric was joined by Drummer Emmett

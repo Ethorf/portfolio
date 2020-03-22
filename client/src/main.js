@@ -15,10 +15,10 @@ function Main() {
 	const nameTl = new TimelineMax({ paused: true });
 	const headersTl = new TimelineMax({ paused: true });
 	const webHeaderTl = new TimelineMax({ paused: true });
+	const musicHeaderTl = new TimelineMax({ paused: true });
 	const faceTl = new TimelineMax({ paused: true });
 	const dividerTl = new TimelineMax({ paused: true });
 	const arrowTl = new TimelineMax({ paused: true });
-	const musicHeaderTl = new TimelineMax({ paused: true });
 	const allNotHeaderTl = new TimelineMax({ paused: true });
 	const [allNotHeaderAnimation, setAllNotHeaderAnimation] = useState(null);
 	const [headersAnimation, setHeadersAnimation] = useState(null);
@@ -39,11 +39,62 @@ function Main() {
 	let headersContainer = useRef(null);
 	let webHeaderContainer = useRef(null);
 	let musicHeaderContainer = useRef(null);
+	let webHeaderContainerMobile = useRef(null);
+	let musicHeaderContainerMobile = useRef(null);
+	let headersContainerMobile = useRef(null);
+
 	let faceContainer = useRef(null);
 	let dividerContainer = useRef(null);
+	let dividerContainerMobile = useRef(null);
 	let arrowRightContainer = useRef(null);
 	let arrowLeftContainer = useRef(null);
 
+	const webHeaderOpenAnimationMobile = () => {
+		if (webSectionOpen === false) {
+			setWebHeaderAnimation(
+				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: '25vw', justifySelf: 'center' }).play()
+			);
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
+			);
+			setMusicHeaderAnimation(
+				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1.2, x: 280, opacity: 0 }).play()
+			);
+			setWebSectionOpen(true);
+			setBothOpen(false);
+		} else {
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: 1 }).play());
+			setMusicHeaderAnimation(
+				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1.2, x: 1, opacity: 1 }).play()
+			);
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 1, opacity: 0.9, fontSize: '1.8rem' }).play()
+			);
+			setWebSectionOpen(false);
+			setBothOpen(true);
+		}
+	};
+	const musicHeaderOpenAnimationMobile = () => {
+		if (musicSectionOpen === false) {
+			setWebHeaderAnimation(
+				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: '-25vw', opacity: 0 }).play()
+			);
+			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: '-25vw' }).play());
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
+			);
+			setMusicSectionOpen(true);
+			setBothOpen(false);
+		} else {
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1, x: 0, opacity: 1 }).play());
+			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: 0 }).play());
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: 1, x: 0, opacity: 0.9, fontSize: '1.8rem' }).play()
+			);
+			setMusicSectionOpen(false);
+			setBothOpen(true);
+		}
+	};
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
 			setWebHeaderAnimation(
@@ -85,6 +136,22 @@ function Main() {
 			setMusicSectionOpen(false);
 			setBothOpen(true);
 		}
+	};
+	const musicHeaderFadeOutAnimation = () => {
+		setMusicHeaderAnimation(
+			musicHeaderTl
+				.to(headersContainerMobile, { duration: 0.5, opacity: 0, y: '-10vh' })
+				.to(headersContainerMobile, { display: 'none' })
+				.play()
+		);
+	};
+	const musicHeaderFadeInAnimation = () => {
+		setMusicHeaderAnimation(
+			musicHeaderTl
+				.to(headersContainerMobile, { display: 'flex' })
+				.to(headersContainerMobile, { duration: 1, opacity: 1, y: 0 })
+				.play()
+		);
 	};
 	const arrowRightFadeAnimation = () => {
 		if (webSectionOpen === true && bothOpen === false) {
@@ -183,9 +250,6 @@ function Main() {
 			toggleNameSmall();
 		}
 	};
-	const homeAnimation = () => {
-		setAllNotHeaderAnimation(allNotHeaderTl.to(allNotHeader, { duration: 4, opacity: 0 }).play());
-	};
 	useEffect(() => {
 		headersContainerAnimation();
 	}, []);
@@ -204,7 +268,7 @@ function Main() {
 				>
 					Eric Thorfinnson
 				</a>
-				{/* <button className={'test-button'} onClick={homeAnimation}>
+				{/* <button className={'test-button'} onClick={musicHeaderFadeOutAnimation}>
 					Test
 				</button> */}
 			</header>
@@ -249,11 +313,42 @@ function Main() {
 					<h2 className={` main__music-header-title`}>Guitarist, Composer, Engineer</h2>
 				</div>
 			</div>
+			{/* Mobile Headers */}
+			<div ref={(div) => (headersContainerMobile = div)} className={`main__headers-container-mobile`}>
+				<div
+					onClick={webHeaderOpenAnimationMobile}
+					ref={(h2) => (webHeaderContainerMobile = h2)}
+					className={`main__web-section-header main__section-header`}
+				>
+					<h2 className={`main__web-header-title`}>Developer</h2>
+				</div>
+				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainerMobile = h2)}>
+					||{' '}
+				</h2>
+
+				<div
+					onClick={musicHeaderOpenAnimationMobile}
+					ref={(h2) => (musicHeaderContainerMobile = h2)}
+					className={`main__music-section-header main__section-header`}
+				>
+					<h2
+						className={`main__left-arrow main__arrow  ${
+							webSectionOpen === false && musicSectionOpen === false ? 'invisible' : ''
+						}`}
+						// ref={(h2) => (arrowLeftContainer = h2)}
+					>
+						{'<<'}
+					</h2>
+					<h2 className={` main__music-header-title`}>Musician</h2>
+				</div>
+			</div>
 			<WebSection headersContainerAnimation={headersContainerAnimation} webSectionOpen={webSectionOpen} />
 			<MusicSection
 				headersContainerMusicOpenAnimation={headersContainerMusicOpenAnimation}
 				musicSectionOpen={musicSectionOpen}
 				nameSmallAnimation={nameSmallAnimation}
+				musicHeaderFadeInAnimation={musicHeaderFadeInAnimation}
+				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
 			/>
 			<div className={`main__bio-container ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}>
 				<h2 onClick={toggleBioOpen} className={'main__bio-header'}>
@@ -262,11 +357,11 @@ function Main() {
 				<p className={`main__bio-description ${bioOpen ? 'bio-visible' : 'bio-invisible'}`}>
 					I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my preternatural
 					obsession with videogames at around age 10, and have been an avid guitar player, composer, and
-					general recording nerd since about 13. I'm a compassionately pretentious coffee nerd, omnivorous
-					beer neophilliac, and an incorrigble glutton for literature. I am also an avid meditator who is for
-					better or worse deeply convinced in the power of mindfulness to effect positive change. I would love
-					nothing more than to help empower people through technology, and perhaps churn out a tasty riff or
-					two along the way.{' '}
+					general recording nerd since about 13.
+					<p /> I'm a compassionately pretentious coffee nerd, omnivorous beer neophilliac, and an incorrigble
+					glutton for literature. I am also an avid meditator who is for better or worse deeply convinced in
+					the power of mindfulness to effect positive change. I would love nothing more than to help empower
+					people through technology, and perhaps churn out a tasty riff or two along the way.{' '}
 				</p>
 			</div>
 			<a

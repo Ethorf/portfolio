@@ -16,11 +16,14 @@ export default function WebSection(webSectionOpen) {
 				alt="not your thoughts preview image"
 			/>
 			<h3 className={`webSection__not-your-thoughts-description`}>
-				Not Your Thoughts is a mindfulness-based gamified journaling website dedicated to empowering the average
-				human to develop a healthy relationship with the whirlwind of thoughts they find themselves inside
-				daily. Through a consistent daily journaling practice and engagement with mindfulness prompts, the user
-				will unlock new modes, features, and achievements as they progress towards the solidification of their
-				practice. Developed with React + Redux + Node + MondoDB{' '}
+				<p>
+					Not Your Thoughts is a mindfulness-based gamified journaling website dedicated to empowering the
+					average human to develop a healthy relationship with the whirlwind of thoughts they find themselves
+					inside daily.
+				</p>
+				Through a consistent daily journaling practice and engagement with mindfulness prompts, the user will
+				unlock new modes, features, and achievements as they progress towards the solidification of their
+				practice.<p>Developed by Eric Thorfinnson with React + Redux + Node + MondoDB </p>
 			</h3>
 		</div>
 	);

@@ -6,7 +6,6 @@ import Solo from '../solo/solo.js';
 import ExKathedra from '../exKathedra/exKathedra';
 
 export default function Performance(props) {
-	console.log(props.autocatalyticaOpen);
 	return (
 		<div className={`performance ${props.open ? '' : 'invisible'}`}>
 			<div className={`performance__all-sections-header-container`}>
@@ -58,7 +57,11 @@ export default function Performance(props) {
 							Hosana
 						</h1>
 						<h3
-							className={`${props.hosanaOpen === true ? 'performance__back-button' : 'invisible'}`}
+							className={`${
+								props.hosanaOpen === true
+									? 'performance__back-button performance__hosana-back-button'
+									: 'invisible'
+							}`}
 							onClick={props.toggleHosanaOpen}
 						>
 							Back
@@ -69,10 +72,14 @@ export default function Performance(props) {
 					<div className={`performance__section-container-left`}>
 						<h1
 							onClick={props.toggleSoloOpen}
-							className={`performance__section-header performance__solo-header ${
+							className={`${
 								props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : ''
 							}
-                            ${props.soloOpen ? 'performance__solo-header-open' : 'performance__solo-header'}`}
+                             ${
+									props.soloOpen
+										? 'performance__solo-header-open'
+										: 'performance__solo-header performance__section-header'
+								}`}
 						>
 							Solo
 						</h1>
@@ -102,24 +109,10 @@ export default function Performance(props) {
 							onClick={props.toggleExKathedraOpen}
 							className={`performance__section-header ${
 								props.autocatalyticaOpen || props.soloOpen || props.hosanaOpen ? 'invisible' : ''
-							} ${
-								props.exKathedraOpen
-									? 'performance__ex-kathedra-header-open'
-									: 'performance__ex-kathedra-header'
-							}`}
+							} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header'}`}
 						>
 							Ex Kathedra
 						</h1>
-						<h3
-							className={`${
-								props.exKathedraOpen === true
-									? 'performance__back-button performance__back-button-bottom'
-									: 'invisible'
-							}`}
-							onClick={props.toggleExKathedraOpen}
-						>
-							Back
-						</h3>
 					</div>
 				</div>
 			</div>

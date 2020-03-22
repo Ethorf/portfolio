@@ -62,4 +62,40 @@
 			content: url('../../assets/Icons/silver/spotify-light-silver.png');
 		}
 	}
+	&__header-open {
+		display: none;
+	}
+	@include mobile-small-only() {
+		&__header-open {
+			display: flex;
+			text-align: left;
+			font-size: 3.2rem;
+			margin-bottom: 1vh;
+			color: white;
+		}
+		&__expanded-section {
+			margin-top: -20vh;
+		}
+		&__album-art-description-container {
+			display: flex;
+			flex-direction: column;
+		}
+		&__album-description {
+			width: 80%;
+		}
+		&__section-header {
+			margin-top: 2vh;
+			font-size: 2.1rem;
+		}
+		&__link-icon {
+			height: 5vh;
+			margin-right: 3vw;
+		}
+	}
+}
+
+@include mobile-small-only() {
+	.expanded-section {
+		margin-top: -20vh;
+	}
 }

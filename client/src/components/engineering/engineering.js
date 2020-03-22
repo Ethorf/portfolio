@@ -8,7 +8,7 @@ export default function Engineering(open) {
 		<div className={`engineering ${open.open ? '' : 'invisible'}`}>
 			<div className={`engineering__sections-header-container`}>
 				<h1 className={`engineering__sections-header engineering__engineering-header`}>
-					Before You(EP) Amy Beth Anders - 2019
+					Before You (EP) Amy Beth Anders - 2019
 				</h1>
 
 				<div className={`engineering__album-container`}>

@@ -47,4 +47,34 @@
 		width: 20vw;
 		height: 30vh;
 	}
+	@include mobile-small-only() {
+		&__album-art-description-container {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 3vh;
+		}
+		&__album-description {
+			width: 80%;
+		}
+		&__section-header {
+			margin-top: 4vh;
+			font-size: 2.1rem;
+		}
+		&__album-art {
+			width: 87%;
+		}
+		&__link-icon {
+			height: 5vh;
+			margin-right: 3vw;
+		}
+		&__bio-header {
+			margin-top: 3vh;
+		}
+		&__header-open {
+			font-family: 'Righteous';
+			font-size: 3.1rem;
+			color: white;
+			margin-top: 0;
+		}
+	}
 }

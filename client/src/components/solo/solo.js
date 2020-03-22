@@ -18,6 +18,15 @@ export default function Solo(props) {
 	};
 	return (
 		<div className={`solo expanded-section ${props.soloOpen ? '' : 'invisible'}`}>
+			<h3 className={`performance__solo-back-button`} onClick={props.toggleSoloOpen}>
+				Back
+			</h3>
+			<h1
+				// onClick={props.toggleSoloOpen}
+				className={`solo__header-open`}
+			>
+				Solo
+			</h1>
 			<h2 className={`solo__section-header`}>Bio</h2>
 			<h3 className={`solo__bio-description`}>
 				Eric Thorfinnson has been composing, recording, and releasing songs since he was roughly 12 years old.
@@ -138,7 +147,7 @@ export default function Solo(props) {
 					</ul>
 				</div>
 			</div>
-			<div className={`solo__video-container`}>
+			{/* <div className={`solo__video-container`}>
 				<h2 className={`solo__section-header`}>Video</h2>
 				<div className={`solo__video-two-container`}>
 					<YouTube className={`solo__video`} videoId={'J4LmFtEwcQA'} opts={opts} />
@@ -153,7 +162,7 @@ export default function Solo(props) {
 					<YouTube className={`solo__video`} videoId={'sorcaXQynu8'} opts={opts} />
 					<YouTube className={`solo__video`} videoId={'cbn97elSACQ'} opts={opts} />
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }

@@ -7,7 +7,7 @@ import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 export default function ExKathedra(props) {
 	return (
 		<div className={`exKathedra expanded-section ${props.exKathedraOpen ? '' : 'invisible'}`}>
-			<h3 className={`performance__solo-back-button`} onClick={props.toggleExKathedraOpen}>
+			<h3 className={`performance__exKathedra-back-button`} onClick={props.toggleExKathedraOpen}>
 				Back
 			</h3>
 			<h1

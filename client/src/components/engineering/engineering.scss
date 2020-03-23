@@ -20,6 +20,9 @@
 			content: url('../../assets/Icons/silver/spotify-light-silver.png');
 		}
 	}
+	&__sections-header-container {
+		width: 50vw;
+	}
 	&__links-container {
 		font-size: 1.3rem;
 		width: 40%;
@@ -31,29 +34,53 @@
 
 	@include mobile-small-only() {
 		&__sections-header {
-			font-size: 1.2rem;
-			width: 70%;
 			display: flex;
-			justify-content: center;
+			flex-direction: column;
+			// justify-content: center;
+			height: 6vh;
+			width: 120%;
+			line-height: 0.3;
+			margin-bottom: 3vh;
 		}
 		&__engineering-header {
-			margin-left: 20vw;
+			margin-left: -10vw;
+			display: flex;
+			font-size: 1.4rem;
 		}
 		&__album-header {
-			font-size: 1.1rem;
+			font-size: 1.4rem;
 		}
 		&__album-container {
 			flex-direction: column;
 			align-items: center;
 		}
 		&__album-artwork {
-			width: 70%;
+			height: 45vh;
+			margin-top: 5vh;
 		}
 		&__links-container {
 			font-size: 1.3rem;
 			width: 80%;
 			height: 100%;
 			margin-bottom: 10vh;
+		}
+	}
+	@include tablet-only() {
+		display: flex;
+		width: 90%;
+
+		&__sections-header {
+			display: flex;
+			flex-direction: column;
+			height: 8vh;
+			width: 110%;
+			line-height: 0;
+		}
+		&__engineering-header {
+			font-size: 1.4rem;
+		}
+		&__album-container {
+			width: 90vw;
 		}
 	}
 }

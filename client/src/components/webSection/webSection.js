@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './webSection.scss';
 import NotYourThoughtsImage from '../../assets/not-your-thoughts-screencap.png';
+import GitHubDark from '../../assets/Icons/silver/GitHub-silver.png';
 
 export default function WebSection(webSectionOpen) {
 	return (
@@ -25,6 +26,9 @@ export default function WebSection(webSectionOpen) {
 				unlock new modes, features, and achievements as they progress towards the solidification of their
 				practice.<p>Developed by Eric Thorfinnson with React + Redux + Node + MondoDB </p>
 			</h3>
+			<a target="_blank" href="https://github.com/Ethorf/not-your-thoughts" className={`social-buttons__button`}>
+				<img src={GitHubDark} className={`webSection__button-img github`} />
+			</a>
 		</div>
 	);
 }

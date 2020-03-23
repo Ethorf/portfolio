@@ -92,6 +92,12 @@
 			margin-right: 3vw;
 		}
 	}
+
+	@include tablet-only() {
+		&__section-header {
+			margin-top: 5vh;
+		}
+	}
 }
 
 @include mobile-small-only() {

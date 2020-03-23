@@ -19,8 +19,6 @@ function Main() {
 	const faceTl = new TimelineMax({ paused: true });
 	const dividerTl = new TimelineMax({ paused: true });
 	const arrowTl = new TimelineMax({ paused: true });
-	const allNotHeaderTl = new TimelineMax({ paused: true });
-	const [allNotHeaderAnimation, setAllNotHeaderAnimation] = useState(null);
 	const [headersAnimation, setHeadersAnimation] = useState(null);
 	let [webSectionOpen, setWebSectionOpen] = useState(false);
 	let [musicSectionOpen, setMusicSectionOpen] = useState(false);
@@ -33,8 +31,6 @@ function Main() {
 	const [nameSmall, setNameSmall] = useState(false);
 	const [headersOpen, setHeadersOpen] = useState(false);
 	const [bioOpen, setBioOpen] = useState(false);
-
-	let allNotHeader = useRef(null);
 	let nameContainer = useRef(null);
 	let headersContainer = useRef(null);
 	let webHeaderContainer = useRef(null);
@@ -42,17 +38,24 @@ function Main() {
 	let webHeaderContainerMobile = useRef(null);
 	let musicHeaderContainerMobile = useRef(null);
 	let headersContainerMobile = useRef(null);
-
 	let faceContainer = useRef(null);
 	let dividerContainer = useRef(null);
 	let dividerContainerMobile = useRef(null);
 	let arrowRightContainer = useRef(null);
 	let arrowLeftContainer = useRef(null);
 
+	const headerMobileAnimXMovement = '23vw';
+
 	const webHeaderOpenAnimationMobile = () => {
 		if (webSectionOpen === false) {
 			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: '25vw', justifySelf: 'center' }).play()
+				webHeaderTl
+					.to(webHeaderContainerMobile, {
+						duration: 1.2,
+						x: headerMobileAnimXMovement,
+						justifySelf: 'center'
+					})
+					.play()
 			);
 			setDividerAnimation(
 				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()

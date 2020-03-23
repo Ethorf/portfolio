@@ -15,6 +15,12 @@
 	@include mobile-small-only() {
 		width: 90%;
 	}
+	@include tablet-only() {
+		width: 80%;
+	}
+	@include laptop-small() {
+		width: 80%;
+	}
 }
 
 .performance {
@@ -76,6 +82,7 @@
 		margin-left: 27vw;
 		font-size: 4rem;
 		margin-top: -11vh;
+		color: white;
 		width: 100%;
 	}
 	&__ex-kathedra-header {
@@ -129,8 +136,6 @@
 			flex-direction: column;
 			align-items: center;
 		}
-		&__autocatalytica-header {
-		}
 		&__solo-header {
 			margin-top: 27vh;
 		}
@@ -148,9 +153,7 @@
 		&__centered-section-header-left {
 			display: flex;
 		}
-		&__back-button {
-			// margin-bottom: -1vh;
-		}
+
 		&__solo-back-button {
 			margin-top: -5vh;
 			position: relative;
@@ -158,12 +161,46 @@
 			z-index: 20;
 		}
 		&__hosana-back-button {
-			// margin-bottom: -3vw;
 			margin-top: -2vh;
 			margin-left: 3vw;
 			position: relative;
 			font-size: 1.4rem;
 			z-index: 20;
+		}
+	}
+	@include tablet-only() {
+		&__section-header {
+			font-size: 2.6rem;
+			position: relative;
+			z-index: 10;
+		}
+		&__ex-kathedra-header {
+			font-size: 2.3rem;
+		}
+		&__exKathedra-back-button {
+			margin-top: -5vh;
+		}
+		&__solo-header-open {
+			font-size: 3.3rem;
+
+			color: white;
+		}
+		&__solo-back-button {
+			display: none;
+		}
+	}
+	@include laptop-small() {
+		&__section-header {
+			font-size: 2.8rem;
+			position: relative;
+			z-index: 10;
+		}
+	}
+	@include laptop-large() {
+		&__section-header {
+			font-size: 3.2rem;
+			position: relative;
+			z-index: 10;
 		}
 	}
 }

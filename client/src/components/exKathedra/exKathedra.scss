@@ -47,6 +47,10 @@
 		width: 20vw;
 		height: 30vh;
 	}
+	&__header-open {
+		font-family: 'Righteous';
+		color: white;
+	}
 	@include mobile-small-only() {
 		&__album-art-description-container {
 			display: flex;

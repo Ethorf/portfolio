@@ -123,20 +123,38 @@
 		}
 	}
 	@include laptop-small() {
-	}
-	@include tablet-only() {
 		&__header {
-			font-size: 1.7rem;
+			font-size: 2.2rem;
+			margin-right: 3vw;
 		}
 		&__description {
 			font-size: 1rem;
 		}
 		&__input {
 			font-size: 0.7rem;
-			width: 21vw;
+			width: 19vw;
 		}
 		&__message {
-			width: 35%;
+			width: 97%;
+		}
+		&__form-submit-button {
+			width: 10vw;
+		}
+	}
+	@include tablet-only() {
+		&__header {
+			font-size: 1.7rem;
+			margin-right: 3vw;
+		}
+		&__description {
+			font-size: 1rem;
+		}
+		&__input {
+			font-size: 0.7rem;
+			width: 19vw;
+		}
+		&__message {
+			width: 97%;
 		}
 		&__form-submit-button {
 			width: 10vw;

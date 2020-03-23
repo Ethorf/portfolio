@@ -32,7 +32,6 @@
 		text-align: center;
 		font-family: 'Montserrat';
 		font-size: 1.3rem;
-
 		width: 70%;
 	}
 	&__not-your-thoughts-image {
@@ -41,9 +40,30 @@
 		border: 1px solid white;
 		border-radius: 10px;
 	}
+	&__button-img {
+		margin-bottom: 2vh;
+		height: 7vh;
+	}
+
 	@include mobile-small-only() {
 		&__not-your-thoughts-image {
 			display: none;
+		}
+		&__not-your-thoughts-description {
+			width: 120%;
+		}
+	}
+	@include tablet-only() {
+		&__not-your-thoughts-image {
+			width: 60vw;
+		}
+		&__not-your-thoughts-description {
+			width: 120%;
+		}
+	}
+	@include laptop-small() {
+		&__not-your-thoughts-image {
+			width: 60vw;
 		}
 		&__not-your-thoughts-description {
 			width: 120%;

@@ -169,13 +169,6 @@
 		&__section-header {
 			font-size: 1.2rem;
 		}
-		&__music-header-title {
-			// margin-left: 3vw;
-			// font-size: 1.5rem;
-		}
-		&__web-header-title {
-			// margin-right: 2vw;
-		}
 		&__bio-header {
 			margin-left: 3vw;
 			margin-top: 3vh;
@@ -194,8 +187,47 @@
 		}
 	}
 	@include tablet-only {
+		&__header {
+			font-size: 3rem;
+			align-items: center;
+		}
+		&__face-img {
+			height: 17vh;
+			top: 12vh;
+		}
+		&__headers-container {
+			height: 11vh;
+			width: 100%;
+			position: relative;
+			z-index: 5;
+			opacity: 1;
+			justify-self: center;
+		}
 		&__headers-container-mobile {
 			display: none;
+		}
+		&__section-divider {
+			font-size: 1.6rem;
+			margin: 0 2vw;
+		}
+		&__section-header {
+			font-size: 1rem;
+			align-items: center;
+		}
+		&__bio-header {
+			margin-right: 3vw;
+			margin-top: 3vh;
+			font-size: 1.6rem;
+		}
+		&__resume {
+			font-size: 1.6rem;
+			margin-right: 3vw;
+		}
+		&__bio-description {
+			width: 80%;
+			text-align: center;
+			font-size: 1.2rem;
+			line-height: 1.2;
 		}
 	}
 	@include laptop-small() {
@@ -204,6 +236,49 @@
 		}
 		&__music-header-title {
 			@include hover-underline-right-absolute;
+		}
+		&__header {
+			font-size: 3.3rem;
+			align-items: center;
+		}
+		&__face-img {
+			height: 17vh;
+			top: 12vh;
+		}
+		&__headers-container {
+			height: 11vh;
+			width: 100%;
+			position: relative;
+			z-index: 5;
+			opacity: 1;
+			justify-self: center;
+		}
+		&__headers-container-mobile {
+			display: none;
+		}
+		&__section-divider {
+			font-size: 1.6rem;
+			margin: 0 2vw;
+		}
+		&__section-header {
+			font-size: 1.2rem;
+			align-items: center;
+		}
+		&__bio-header {
+			margin-right: 3vw;
+			margin-top: 3vh;
+			font-size: 1.9rem;
+		}
+		&__resume {
+			font-size: 1.9rem;
+
+			margin-right: 3vw;
+		}
+		&__bio-description {
+			width: 80%;
+			text-align: center;
+			font-size: 1.2rem;
+			line-height: 1.2;
 		}
 	}
 	@include laptop-large() {

@@ -47,14 +47,14 @@ export default function Solo(props) {
 						</li>
 						<li>Artwork by Rachel Lindover</li>
 						<li className={`solo__links`}>
-							<a target="_blank" href="https://ethorf.bandcamp.com/album/qwag">
+							<a rel="noopener noreferrer" target="_blank" href="https://ethorf.bandcamp.com/album/qwag">
 								<img
 									className={`solo__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt="solo vicissitudes bandcamp link"
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/ethorf">
+							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
 									className={`solo__link-icon soundcloud`}
 									src={SoundcloudIcon}
@@ -62,6 +62,7 @@ export default function Solo(props) {
 								/>
 							</a>
 							<a
+								rel="noopener noreferrer"
 								target="_blank"
 								href="https://open.spotify.com/album/3qx1ZKIf8sKdPuUkoAPekr?si=bFWQE1jmQhCKGHJ6ZchtUg"
 							>
@@ -83,14 +84,14 @@ export default function Solo(props) {
 						<li>First Official EP released that features Vocals</li>
 						<li>All Instruments and Mixing by Eric Thorfinnson</li>
 						<li className={`solo__links`}>
-							<a target="_blank" href="https://ethorf.bandcamp.com/album/juan">
+							<a rel="noopener noreferrer" target="_blank" href="https://ethorf.bandcamp.com/album/juan">
 								<img
 									className={`solo__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt="solo solo bandcamp link"
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/ethorf">
+							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
 									className={`solo__link-icon soundcloud`}
 									src={SoundcloudIcon}
@@ -98,6 +99,7 @@ export default function Solo(props) {
 								/>
 							</a>
 							<a
+								rel="noopener noreferrer"
 								target="_blank"
 								href="https://open.spotify.com/album/349s7piUgnprZcNqic1SYt?si=WVK-u7i1QO2W-kNKj3DMTg"
 							>
@@ -119,14 +121,18 @@ export default function Solo(props) {
 						<li>First completely instrumental Release</li>
 						<li>Engineering and Guitar by Eric Thorfinnson</li>
 						<li className={`solo__links`}>
-							<a target="_blank" href="https://ethorf.bandcamp.com/album/solo-guitar-ep">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://ethorf.bandcamp.com/album/solo-guitar-ep"
+							>
 								<img
 									className={`solo__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt="solo solo bandcamp link"
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/ethorf">
+							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
 									className={`solo__link-icon soundcloud`}
 									src={SoundcloudIcon}

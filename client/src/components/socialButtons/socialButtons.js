@@ -9,19 +9,44 @@ import SoundcloudDark from '../../assets/Icons/silver/soundcloud-silver.png';
 export default function SocialButtons(props) {
 	return (
 		<div className={`social-buttons ${props.webSectionOpen || props.musicSectionOpen ? 'invisible' : ''}`}>
-			<a target="_blank" href="https://linkedin.com/ethorf" className={`social-buttons__button`}>
+			<a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://linkedin.com/ethorf"
+				className={`social-buttons__button`}
+			>
 				<img src={LinkedInDark} className={`social-buttons__button-img linkedin`} />
 			</a>
-			<a target="_blank" href="https://github.com/ethorf" className={`social-buttons__button`}>
+			<a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://github.com/ethorf"
+				className={`social-buttons__button`}
+			>
 				<img src={GitHubDark} className={`social-buttons__button-img github`} />
 			</a>
-			<a target="_blank" href="https://instagram.com/autocatband" className={`social-buttons__button`}>
+			<a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://instagram.com/autocatband"
+				className={`social-buttons__button`}
+			>
 				<img src={InstagramDark} className={`social-buttons__button-img instagram`} />
 			</a>
-			<a target="_blank" href="https://ethorf.bandcamp.com" className={`social-buttons__button`}>
+			<a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://ethorf.bandcamp.com"
+				className={`social-buttons__button`}
+			>
 				<img src={BandcampDark} className={`social-buttons__button-img bandcamp`} />
 			</a>
-			<a target="_blank" href="https://wwww.soundcloud.com/ethorf" className={`social-buttons__button`}>
+			<a
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://wwww.soundcloud.com/ethorf"
+				className={`social-buttons__button`}
+			>
 				<img src={SoundcloudDark} className={`social-buttons__button-img soundcloud`} />
 			</a>
 		</div>

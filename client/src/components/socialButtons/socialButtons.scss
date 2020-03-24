@@ -32,10 +32,12 @@
 	}
 	@include mobile-small-only() {
 		justify-content: space-evenly;
-		width: 100%;
+		width: 90%;
 		&__button-img {
 			height: 4vh;
 		}
+	}
+	@include mobile-only() {
 	}
 }
 

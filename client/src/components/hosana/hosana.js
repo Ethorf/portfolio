@@ -31,14 +31,18 @@ export default function Hosana(props) {
 						</li>
 						<li>Artwork by Rachel Lindover</li>
 						<li className={`hosana__links`}>
-							<a target="_blank" href="https://hosana.bandcamp.com/">
+							<a rel="noopener noreferrer" target="_blank" href="https://hosana.bandcamp.com/">
 								<img
 									className={`hosana__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt=" Hosana bandcamp link"
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/hosanaband/sets/hosana-ep">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://soundcloud.com/hosanaband/sets/hosana-ep"
+							>
 								<img
 									className={`hosana__link-icon soundcloud`}
 									src={SoundcloudIcon}
@@ -46,6 +50,7 @@ export default function Hosana(props) {
 								/>
 							</a>
 							<a
+								rel="noopener noreferrer"
 								target="_blank"
 								href="https://open.spotify.com/album/4Y3jYwLiB5LMDCktFI1ZJf?si=8k9y_mV1Rn2rtSi2TMDQFA"
 							>

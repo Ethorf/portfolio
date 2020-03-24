@@ -56,14 +56,22 @@ export default function Autocatalytica(props) {
 						<li>Artwork by Rachel Lindover</li>
 						<li className={`autocatalytica__links`}>
 							<div>
-								<a target="_blank" href="https://autocatalytica.bandcamp.com/album/vicissitudes">
+								<a
+									rel="noopener noreferrer"
+									target="_blank"
+									href="https://autocatalytica.bandcamp.com/album/vicissitudes"
+								>
 									<img
 										className={`autocatalytica__bandcamp autocatalytica__link-icon `}
 										src={BandcampIcon}
 										alt="autocatalytica vicissitudes bandcamp link"
 									/>
 								</a>
-								<a target="_blank" href="https://soundcloud.com/autocatalytica/sets/vicissitudes">
+								<a
+									rel="noopener noreferrer"
+									target="_blank"
+									href="https://soundcloud.com/autocatalytica/sets/vicissitudes"
+								>
 									<img
 										className={`autocatalytica__link-icon autocatalytica__soundcloud`}
 										src={SoundcloudIcon}
@@ -71,6 +79,7 @@ export default function Autocatalytica(props) {
 									/>
 								</a>
 								<a
+									rel="noopener noreferrer"
 									target="_blank"
 									href="https://open.spotify.com/album/58o38VHBKSylRQVDZbliTO?si=LqbwxuYIRXmoiOIPqi4TQA"
 								>
@@ -98,14 +107,22 @@ export default function Autocatalytica(props) {
 						<li>Vocals, Engineering, Mixing, and Guitar by Eric Thorfinnson</li>
 						<li>"Makes The Dillinger Escape Plan sound like Nickelback"-Metal Hammer</li>
 						<li className={`autocatalytica__links`}>
-							<a target="_blank" href="https://autocatalytica.bandcamp.com/album/autocatalytica">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://autocatalytica.bandcamp.com/album/autocatalytica"
+							>
 								<img
 									className={`autocatalytica__link-icon autocatalytica__bandcamp`}
 									alt="autocatalytica autocatalytica bandcamp link"
 									src={BandcampIcon}
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/autocatalytica/sets/autocatalytica">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://soundcloud.com/autocatalytica/sets/autocatalytica"
+							>
 								<img
 									className={`autocatalytica__link-icon autocatalytica__soundcloud`}
 									alt="autocatalytica  soundcloud link"
@@ -130,14 +147,22 @@ export default function Autocatalytica(props) {
 						<li>Features a Prog-metal re-imagining of Claude Debussy's "Tarantelle Styrienne"</li>
 						<li>Mixing by Matt Lands</li>
 						<li className={`autocatalytica__links`}>
-							<a target="_blank" href="https://autocatalytica.bandcamp.com/album/horror-vacui-ep">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://autocatalytica.bandcamp.com/album/horror-vacui-ep"
+							>
 								<img
 									className={`autocatalytica__link-icon autocatalytica__bandcamp`}
 									alt="autocatalytica autocatalytica bandcamp link"
 									src={BandcampIcon}
 								/>
 							</a>
-							<a target="_blank" href="https://soundcloud.com/autocatalytica/sets/horror-vacui">
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://soundcloud.com/autocatalytica/sets/horror-vacui"
+							>
 								<img
 									className={`autocatalytica__link-icon autocatalytica__soundcloud`}
 									alt="autocatalytica autocatalytica soundcloud link"

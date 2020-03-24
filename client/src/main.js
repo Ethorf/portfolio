@@ -82,71 +82,77 @@ function Main() {
 	let arrowRightContainer = useRef(null);
 	let arrowLeftContainer = useRef(null);
 	const headerMobileAnimXMovement = '29vw';
-	const headerAnimXMovement = '17vw';
+	const dur = 1.2;
 
-	const webHeaderOpenAnimationMobile = () => {
-		if (webSectionOpen === false) {
-			if (size.width > 1200)
-				setWebHeaderAnimation(
-					webHeaderTl
-						.to(webHeaderContainerMobile, {
-							duration: 1.2,
-							x: headerMobileAnimXMovement,
-							justifySelf: 'center'
-						})
-						.play()
-				);
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
-			);
-			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1.2, x: 280, opacity: 0 }).play()
-			);
-			setWebSectionOpen(true);
-			setBothOpen(false);
-		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: 1 }).play());
-			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1.2, x: 1, opacity: 1 }).play()
-			);
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 1, opacity: 0.9, fontSize: '1.8rem' }).play()
-			);
-			setWebSectionOpen(false);
-			setBothOpen(true);
+	const webAnimSize = () => {
+		let x = 0;
+		if (size.width >= 1800) {
+			x = '19vw';
+		} else if (size.width >= 1500 && size.width < 1799) {
+			x = '22vw';
+		} else if (size.width >= 1200 && size.width < 1499) {
+			x = '27vw';
+		} else if (size.width >= 993 && size.width < 1199) {
+			x = '24vw';
+		} else if (size.width >= 768 && size.width < 992) {
+			x = '24vw';
+		} else if (size.width >= 426 && size.width < 767) {
+			x = '20vw';
 		}
+		return x;
 	};
-	const musicHeaderOpenAnimationMobile = () => {
-		if (musicSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl
-					.to(webHeaderContainerMobile, { duration: 1.2, x: `-${headerMobileAnimXMovement}`, opacity: 0 })
-					.play()
-			);
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: '-25vw' }).play());
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
-			);
-			setMusicSectionOpen(true);
-			setBothOpen(false);
-		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1, x: 0, opacity: 1 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: 0 }).play());
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: 1, x: 0, opacity: 0.9, fontSize: '1.8rem' }).play()
-			);
-			setMusicSectionOpen(false);
-			setBothOpen(true);
+	const musicAnimSize = () => {
+		let x = 0;
+		if (size.width >= 1800) {
+			x = '-17vw';
+		} else if (size.width >= 1500 && size.width < 1799) {
+			x = '-19vw';
+		} else if (size.width >= 1200 && size.width < 1499) {
+			x = '-22vw';
+		} else if (size.width >= 993 && size.width < 1199) {
+			x = '-24vw';
+		} else if (size.width >= 768 && size.width < 992) {
+			x = '-24vw';
+		} else if (size.width >= 426 && size.width < 767) {
+			x = '-20vw';
 		}
+		return x;
+	};
+	const webAnimSizeMobile = () => {
+		let x = 0;
+		if (size.width >= 600 && size.width < 767) {
+			x = '14vw';
+		} else if (size.width >= 426 && size.width < 599) {
+			x = '18vw';
+		} else if (size.width >= 375 && size.width < 425) {
+			x = '23vw';
+		} else if (size.width >= 320 && size.width < 374) {
+			x = '29vw';
+		}
+		return x;
+	};
+
+	const musicAnimSizeMobile = () => {
+		let x = 0;
+		if (size.width >= 600 && size.width < 767) {
+			x = '-14vw';
+		} else if (size.width >= 425 && size.width < 599) {
+			x = '-18vw';
+		} else if (size.width >= 375 && size.width < 425) {
+			x = '-23vw';
+		} else if (size.width >= 320 && size.width < 374) {
+			x = '-27vw';
+		}
+		return x;
 	};
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: headerAnimXMovement }).play());
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: webAnimSize() }).play());
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
+				dividerTl.to(dividerContainer, { duration: dur, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
 			);
 			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainer, { duration: 1.2, x: 280, opacity: 0 }).play()
+				musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: webAnimSize(), opacity: 0 }).play()
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
@@ -162,20 +168,91 @@ function Main() {
 	};
 	const musicHeaderOpenAnimation = () => {
 		if (musicSectionOpen === false) {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: -270, opacity: 0 }).play());
+			setWebHeaderAnimation(
+				webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: musicAnimSize(), opacity: 0 }).play()
+			);
 			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainer, { duration: 1, x: `-${headerAnimXMovement}` }).play()
+				musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: musicAnimSize() }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.2, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
+				dividerTl.to(dividerContainer, { duration: dur, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
 			);
 			setMusicSectionOpen(true);
 			setBothOpen(false);
 		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1, x: 0, opacity: 1 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: 1, x: 0 }).play());
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: 1, opacity: 1 }).play());
+			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: 0 }).play());
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1, x: 0, opacity: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl.to(dividerContainer, { duration: dur, x: 0, opacity: 0.9, fontSize: '2.8rem' }).play()
+			);
+			setMusicSectionOpen(false);
+			setBothOpen(true);
+		}
+	};
+	const webHeaderOpenAnimationMobile = () => {
+		if (webSectionOpen === false) {
+			setWebHeaderAnimation(
+				webHeaderTl
+					.to(webHeaderContainerMobile, {
+						duration: 1.2,
+						x: webAnimSizeMobile()
+					})
+					.play()
+			);
+			setDividerAnimation(
+				dividerTl
+					.to(dividerContainerMobile, {
+						duration: 1.2,
+						x: webAnimSizeMobile(),
+						opacity: 0,
+						fontSize: '0.4rem'
+					})
+					.play()
+			);
+			setMusicHeaderAnimation(
+				musicHeaderTl
+					.to(musicHeaderContainerMobile, { duration: 1.2, x: webAnimSizeMobile(), opacity: 0 })
+					.play()
+			);
+			setWebSectionOpen(true);
+			setBothOpen(false);
+		} else {
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: dur, x: 1 }).play());
+			setMusicHeaderAnimation(
+				musicHeaderTl.to(musicHeaderContainerMobile, { duration: dur, x: 1, opacity: 1 }).play()
+			);
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: dur, x: 1, opacity: 0.9, fontSize: '1.8rem' }).play()
+			);
+			setWebSectionOpen(false);
+			setBothOpen(true);
+		}
+	};
+	const musicHeaderOpenAnimationMobile = () => {
+		if (musicSectionOpen === false) {
+			setWebHeaderAnimation(
+				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: musicAnimSizeMobile, opacity: 0 }).play()
+			);
+			setMusicHeaderAnimation(
+				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: musicAnimSizeMobile }).play()
+			);
+			setDividerAnimation(
+				dividerTl
+					.to(dividerContainerMobile, {
+						duration: 1.2,
+						x: musicAnimSizeMobile,
+						opacity: 0,
+						fontSize: '0.4rem'
+					})
+					.play()
+			);
+			setMusicSectionOpen(true);
+			setBothOpen(false);
+		} else {
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1, x: 0, opacity: 1 }).play());
+			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: 0 }).play());
+			setDividerAnimation(
+				dividerTl.to(dividerContainerMobile, { duration: 1, x: 0, opacity: 0.9, fontSize: '1.8rem' }).play()
 			);
 			setMusicSectionOpen(false);
 			setBothOpen(true);
@@ -197,6 +274,8 @@ function Main() {
 				.play()
 		);
 	};
+	//Arrow Anims
+
 	const arrowRightFadeAnimation = () => {
 		if (webSectionOpen === true && bothOpen === false) {
 			setArrowFade(arrowTl.to(arrowRightContainer, { duration: 0.7, opacity: 1 }).play());
@@ -217,6 +296,7 @@ function Main() {
 			setArrowFade(arrowTl.to(arrowLeftContainer, { duration: 0.2, opacity: 0, x: -20 }).play());
 		}
 	};
+	//Face Anims
 	const faceAnimationOpen = () => {
 		if (!nameSmall) {
 			setFaceOpen(
@@ -240,7 +320,7 @@ function Main() {
 		setNameSmall(!nameSmall);
 	};
 
-	const headersContainerAnimation = () => {
+	const headersLoadAnimation = () => {
 		if (headersOpen) {
 			setHeadersAnimation(headersTl.to(headersContainer, { height: '0px', duration: 1.2, opacity: 0 }).play());
 			setMusicHeaderAnimation(
@@ -295,9 +375,9 @@ function Main() {
 		}
 	};
 	useEffect(() => {
-		headersContainerAnimation();
+		headersLoadAnimation();
 	}, []);
-	// console.log( size.width);
+	// console.log(sizeTest());
 	return (
 		<div className="main">
 			<div className={`main__bg`}></div>
@@ -387,13 +467,14 @@ function Main() {
 					<h2 className={` main__music-header-title`}>Musician</h2>
 				</div>
 			</div>
-			<WebSection headersContainerAnimation={headersContainerAnimation} webSectionOpen={webSectionOpen} />
+			<WebSection webSectionOpen={webSectionOpen} />
 			<MusicSection
 				headersContainerMusicOpenAnimation={headersContainerMusicOpenAnimation}
 				musicSectionOpen={musicSectionOpen}
 				nameSmallAnimation={nameSmallAnimation}
 				musicHeaderFadeInAnimation={musicHeaderFadeInAnimation}
 				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
+				size={size}
 			/>
 			<div className={`main__bio-container ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}>
 				<h2 onClick={toggleBioOpen} className={'main__bio-header'}>

@@ -29,17 +29,6 @@
 	&__headers-container-mobile {
 		display: none;
 	}
-	&__arrow {
-		color: white;
-		position: relative;
-		z-index: 3;
-		margin: 0 0.4vw;
-		opacity: 0;
-		align-self: center;
-		&:hover {
-			text-decoration: none;
-		}
-	}
 	&__header-container {
 		display: flex;
 		justify-content: center;
@@ -75,12 +64,14 @@
 		position: relative;
 		z-index: 3;
 	}
+
 	&__section-header {
 		display: flex;
 		flex-direction: row;
 		position: relative;
 		z-index: 3;
 		color: white;
+		font-size: 1.5rem;
 		justify-content: space-around;
 		&:hover {
 			text-shadow: 1px white;
@@ -140,7 +131,6 @@
 	@include mobile-small-only() {
 		&__header {
 			font-size: 2rem;
-			margin-left: 7vw;
 			align-items: center;
 		}
 		&__face-img {
@@ -154,7 +144,7 @@
 			width: 84%;
 			display: flex;
 			justify-content: center;
-			height: 11vh;
+			height: 13vh;
 			position: relative;
 			z-index: 5;
 			opacity: 1;
@@ -162,7 +152,8 @@
 			justify-self: center;
 		}
 		&__section-divider {
-			font-size: 1.8rem;
+			font-size: 1.6rem;
+			height: 6vh;
 		}
 		&__section-header {
 			font-size: 1.2rem;
@@ -182,6 +173,16 @@
 			text-align: center;
 			font-size: 1.2rem;
 			line-height: 1.2;
+		}
+	}
+	@include mobile-only() {
+		&__section-divider {
+			font-size: 2.1rem;
+			margin: 0 2vw;
+			height: 8vh;
+		}
+		&__header {
+			margin-left: 0;
 		}
 	}
 	@include tablet-only {
@@ -282,10 +283,11 @@
 	@include laptop-large() {
 		&__web-header-title {
 			@include hover-underline-left;
+			height: 3vh;
 		}
 		&__music-header-title {
 			@include hover-underline-right-absolute;
-			height: 4vh;
+			height: 3vh;
 		}
 	}
 }

@@ -41,7 +41,7 @@ export default function ExKathedra(props) {
 						<li>"Good if not exactly my thing - 80%."-Noktorn</li>
 						<li>Artwork by Wyatt Clough</li>
 						<li className={`exKathedra__links`}>
-							<a target="_blank" href="https://exkathedra.bandcamp.com/">
+							<a rel="noopener noreferrer" target="_blank" href="https://exkathedra.bandcamp.com/">
 								<img
 									className={`exKathedra__link-icon bandcamp`}
 									src={BandcampIcon}

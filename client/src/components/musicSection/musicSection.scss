@@ -122,6 +122,12 @@
 		&__back-button-mobile {
 			margin: 1% 0;
 		}
+		&__headers-container {
+			width: 80%;
+		}
+		&__headers-container {
+			margin-top: -2vh;
+		}
 	}
 	@include tablet-only() {
 		&__sections-header {

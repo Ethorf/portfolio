@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './engineering.scss';
 import AmyAlbumArt from '../../assets/album-art/amy-beth-anders-before-you-artwork.jpg';
 import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';

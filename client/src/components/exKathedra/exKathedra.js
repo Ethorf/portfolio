@@ -7,15 +7,13 @@ import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 export default function ExKathedra(props) {
 	return (
 		<div className={`exKathedra expanded-section ${props.exKathedraOpen ? '' : 'invisible'}`}>
-			<h3 className={`performance__exKathedra-back-button`} onClick={props.toggleExKathedraOpen}>
-				Back
-			</h3>
-			<h1
-				// onClick={props.toggleExKathedraOpen}
-				className={`exKathedra__header-open`}
-			>
-				Ex Kathedra
-			</h1>
+			<div className={`exKathedra__header-back-container`}>
+				<h1 className={`exKathedra__header-open`}>Ex Kathedra</h1>
+				<h3 className={`performance__ex-kathedra-back-button`} onClick={props.toggleExKathedraOpen}>
+					Back
+				</h3>
+			</div>
+
 			<h2 className={`exKathedra__section-header exKathedra__bio-header`}>Bio</h2>
 			<h3 className={`exKathedra__bio-description`}>
 				Ex Kathedra was formed in 2005 by Eric Thorfinnson, Rei Tanaka, Mike Gray, Alex Athaas, and Alex Medley.

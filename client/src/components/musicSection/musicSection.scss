@@ -20,6 +20,7 @@
 		color: whitesmoke;
 		margin-top: 1vh;
 		font-family: 'Poppins';
+		transition: all 0.5s;
 	}
 	&__sections-header {
 		font-size: 3.3rem;
@@ -27,7 +28,7 @@
 	}
 	&__performance-header {
 		@include hover-underline-left;
-		margin-bottom: 2vh;
+		margin-bottom: 6vh;
 	}
 	&__engineering-header {
 		@include hover-underline-right;
@@ -40,9 +41,13 @@
 		justify-content: space-between;
 		width: 10%;
 		height: 8%;
+		transition: all 0.5s;
 	}
 	&__back-button {
 		margin: 1% 0;
+		&:hover {
+			color: white;
+		}
 	}
 	&__back-button-mobile {
 		display: none;
@@ -54,6 +59,9 @@
 		color: silver;
 		font-size: 1.2rem;
 		font-weight: 600;
+		&:hover {
+			color: white;
+		}
 	}
 	&__small-divider {
 		font-family: 'Lekton';

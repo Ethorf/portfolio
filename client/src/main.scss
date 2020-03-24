@@ -49,7 +49,7 @@
 	}
 	&__header {
 		margin: 1vh 0vw;
-		font-size: 4.4rem;
+		font-size: 3.4rem;
 		position: relative;
 		z-index: 3;
 		font-family: 'Poppins', sans-serif;
@@ -60,18 +60,17 @@
 	&__face-img {
 		position: absolute;
 		z-index: 1;
-		width: 11vw;
-		height: 12vh;
-		top: 12vh;
+		height: 14vh;
+		top: 10vh;
 		opacity: 0;
 	}
 	&__headers-container {
 		width: 100%;
 		display: flex;
-		height: 10vh;
+		height: 12vh;
 		opacity: 0;
-		font-size: 1.4rem;
 		justify-content: center;
+		align-items: center;
 		transition: all 1s;
 		position: relative;
 		z-index: 3;
@@ -98,15 +97,14 @@
 	}
 	&__resume {
 		position: relative;
-		z-index: 3;
+		z-index: 13;
 		color: Silver;
 		text-decoration: none;
 		margin-top: 4vh;
 		margin-left: -3.9vw;
 		transition: all 0.3s;
 		font-weight: bold;
-
-		font-size: 2.5rem;
+		font-size: 2.2rem;
 		&:hover {
 			transition: all 0.3s;
 			color: white;
@@ -287,6 +285,7 @@
 		}
 		&__music-header-title {
 			@include hover-underline-right-absolute;
+			height: 4vh;
 		}
 	}
 }

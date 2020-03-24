@@ -50,9 +50,9 @@ export default function Performance(props) {
 					>
 						<h1
 							onClick={props.toggleHosanaOpen}
-							className={`performance__section-header performance__hosana-header ${
-								props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''
-							}`}
+							className={`performance__section-header ${
+								props.hosanaOpen ? ' performance__hosana-header-open' : ' performance__hosana-header '
+							} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''}`}
 						>
 							Hosana
 						</h1>

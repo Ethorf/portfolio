@@ -54,7 +54,7 @@ function Contact(props) {
 		}
 	};
 	return (
-		<div className={`${props.webSectionOpen || props.musicSectionOpen ? 'invisible' : ''}`}>
+		<div className={`contact ${props.webSectionOpen || props.musicSectionOpen ? 'invisible' : ''}`}>
 			<h2 onClick={openContact} className={'contact__header'}>
 				Get In Touch
 			</h2>

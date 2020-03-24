@@ -123,8 +123,8 @@ export default function MusicSection(props) {
 					.to(engineeringHeaderContainer, {
 						duration: 1.4,
 						x: -150,
-						justifyContent: 'center',
-						fontSize: '3.9rem'
+						justifyContent: 'center'
+						// fontSize: '3.9rem'
 					})
 					.play()
 			);
@@ -139,13 +139,26 @@ export default function MusicSection(props) {
 			props.nameSmallAnimation();
 		} else {
 			setEngineeringHeaderAnimation(
-				engineeringHeaderTl.to(engineeringHeaderContainer, { duration: 1.4, x: 0, fontSize: '3.3rem' }).play()
+				engineeringHeaderTl
+					.to(engineeringHeaderContainer, {
+						duration: 1.4,
+						x: 0
+						// fontSize: '3.3rem'
+					})
+					.play()
 			);
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl.to(performanceHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl
+					.to(dividerContainer, {
+						duration: 1.4,
+						x: 1,
+						opacity: 0.9,
+						fontSize: '2.8rem'
+					})
+					.play()
 			);
 			setEngineeringOpen(false);
 			props.headersContainerMusicOpenAnimation();

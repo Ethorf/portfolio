@@ -11,7 +11,45 @@ import Contact from './components/contact/contact.js';
 import './main.scss';
 import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
 
+// Hook
+function useWindowSize() {
+	//this is just kind of ttd-ish(?) checking if the window object exises
+	const isClient = typeof window === 'object';
+	//this function getSize returns the height and width of the window object
+	//which is just straight up accessable without any import or anything
+
+	function getSize() {
+		return {
+			width: isClient ? window.innerWidth : undefined,
+			height: isClient ? window.innerHeight : undefined
+		};
+	}
+	//here we are creating state (scoped into this block of a function i believe??)
+	const [windowSize, setWindowSize] = useState(getSize);
+	// this hook is using a callback arrow function to check once again if a client is present
+	// then adding an event listener directly on the window object(this is where that vanilly shit comin in)
+	//it also uses a lil baby mini function in handleResize to set the window size / get it from
+	//ooh using get and set in a sentence
+	//
+	useEffect(() => {
+		if (!isClient) {
+			return false;
+		}
+		//this is a function where we are using our hook to set the state of our windo
+		function handleResize() {
+			setWindowSize(getSize());
+		}
+
+		window.addEventListener('resize', handleResize);
+		//this is very confusing return statement down here?
+		return () => window.removeEventListener('resize', handleResize);
+	}, []); // Empty array ensures that effect is only run on mount and unmount
+
+	return windowSize;
+}
+
 function Main() {
+	const size = useWindowSize();
 	const nameTl = new TimelineMax({ paused: true });
 	const headersTl = new TimelineMax({ paused: true });
 	const webHeaderTl = new TimelineMax({ paused: true });
@@ -43,20 +81,21 @@ function Main() {
 	let dividerContainerMobile = useRef(null);
 	let arrowRightContainer = useRef(null);
 	let arrowLeftContainer = useRef(null);
-
-	const headerMobileAnimXMovement = '23vw';
+	const headerMobileAnimXMovement = '29vw';
+	const headerAnimXMovement = '17vw';
 
 	const webHeaderOpenAnimationMobile = () => {
 		if (webSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl
-					.to(webHeaderContainerMobile, {
-						duration: 1.2,
-						x: headerMobileAnimXMovement,
-						justifySelf: 'center'
-					})
-					.play()
-			);
+			if (size.width > 1200)
+				setWebHeaderAnimation(
+					webHeaderTl
+						.to(webHeaderContainerMobile, {
+							duration: 1.2,
+							x: headerMobileAnimXMovement,
+							justifySelf: 'center'
+						})
+						.play()
+				);
 			setDividerAnimation(
 				dividerTl.to(dividerContainerMobile, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
 			);
@@ -80,7 +119,9 @@ function Main() {
 	const musicHeaderOpenAnimationMobile = () => {
 		if (musicSectionOpen === false) {
 			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: '-25vw', opacity: 0 }).play()
+				webHeaderTl
+					.to(webHeaderContainerMobile, { duration: 1.2, x: `-${headerMobileAnimXMovement}`, opacity: 0 })
+					.play()
 			);
 			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: '-25vw' }).play());
 			setDividerAnimation(
@@ -100,9 +141,7 @@ function Main() {
 	};
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: 300, justifySelf: 'center' }).play()
-			);
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: headerAnimXMovement }).play());
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
 			);
@@ -124,7 +163,9 @@ function Main() {
 	const musicHeaderOpenAnimation = () => {
 		if (musicSectionOpen === false) {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: -270, opacity: 0 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: 1, x: -270 }).play());
+			setMusicHeaderAnimation(
+				musicHeaderTl.to(musicHeaderContainer, { duration: 1, x: `-${headerAnimXMovement}` }).play()
+			);
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: 1.2, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
 			);
@@ -236,19 +277,19 @@ function Main() {
 			toggleHeadersOpen();
 		} else {
 			setHeadersAnimation(
-				headersTl.to(headersContainer, { height: '10vh', y: 0, duration: 0.5, opacity: 1 }).play()
+				headersTl.to(headersContainer, { height: '12vh', y: 0, duration: 0.5, opacity: 1 }).play()
 			);
 			toggleHeadersOpen();
 		}
 	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '4.4rem' }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem' }).play();
 			faceTl.to(faceContainer, { duration: 1.2, width: '11vw', height: '12vh', top: '12vh' });
 
 			toggleNameSmall();
 		} else {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.4rem', marginTop: '-4vh' }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', marginTop: '-4vh' }).play();
 			faceTl.to(faceContainer, { opacity: 0 });
 			toggleNameSmall();
 		}
@@ -256,6 +297,7 @@ function Main() {
 	useEffect(() => {
 		headersContainerAnimation();
 	}, []);
+	// console.log( size.width);
 	return (
 		<div className="main">
 			<div className={`main__bg`}></div>

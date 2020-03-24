@@ -74,6 +74,12 @@
 		margin-left: 2vw;
 		font-size: 3.7rem;
 	}
+	&__hosana-header-open {
+		font-family: 'Comfortaa';
+		margin-left: 2vw;
+		font-size: 3.7rem;
+		color: white;
+	}
 	&__solo-header {
 		font-family: 'Montserrat';
 	}
@@ -95,6 +101,12 @@
 		margin-left: -10vw;
 		font-size: 4rem;
 		margin-top: -12vh;
+	}
+	&__ex-kathedra-back-button {
+		font-size: 1.2rem;
+		&:hover {
+			color: white;
+		}
 	}
 	&__back-button {
 		font-family: 'Montserrat';
@@ -177,7 +189,7 @@
 		&__ex-kathedra-header {
 			font-size: 2.3rem;
 		}
-		&__exKathedra-back-button {
+		&__ex-kathedra-back-button {
 			margin-top: -5vh;
 		}
 		&__solo-header-open {

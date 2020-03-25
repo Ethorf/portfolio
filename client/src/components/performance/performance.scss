@@ -180,6 +180,33 @@
 			z-index: 20;
 		}
 	}
+	@include mobile-only() {
+		&__back-button-bottom {
+			display: none;
+		}
+		&__solo-header {
+			margin-top: 24%;
+		}
+		&__back-button {
+			position: relative;
+			font-size: 1.4rem;
+			z-index: 20;
+			margin-left: 0;
+		}
+		&__hosana-back-button {
+			margin-left: 2vw;
+		}
+		&__ex-kathedra-header {
+			margin-top: 0vh;
+		}
+		&__ex-kathedra-header-open {
+			margin-top: -2vh;
+			margin-left: -24vw;
+		}
+		&__ex-kathedra-back-button {
+			margin-top: 20%;
+		}
+	}
 	@include tablet-only() {
 		&__section-header {
 			font-size: 2.6rem;
@@ -207,12 +234,18 @@
 			position: relative;
 			z-index: 10;
 		}
+		&__solo-back-button {
+			display: none;
+		}
 	}
 	@include laptop-large() {
 		&__section-header {
 			font-size: 3.2rem;
 			position: relative;
 			z-index: 10;
+		}
+		&__solo-back-button {
+			display: none;
 		}
 	}
 }

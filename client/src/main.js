@@ -87,11 +87,13 @@ function Main() {
 	const webAnimSize = () => {
 		let x = 0;
 		if (size.width >= 1800) {
-			x = '19vw';
+			x = '17vw';
 		} else if (size.width >= 1500 && size.width < 1799) {
-			x = '22vw';
-		} else if (size.width >= 1200 && size.width < 1499) {
-			x = '27vw';
+			x = '18.5vw';
+		} else if (size.width >= 1350 && size.width < 1500) {
+			x = '21vw';
+		} else if (size.width >= 1200 && size.width < 1349) {
+			x = '23vw';
 		} else if (size.width >= 993 && size.width < 1199) {
 			x = '24vw';
 		} else if (size.width >= 768 && size.width < 992) {
@@ -104,13 +106,15 @@ function Main() {
 	const musicAnimSize = () => {
 		let x = 0;
 		if (size.width >= 1800) {
-			x = '-17vw';
+			x = '-14vw';
 		} else if (size.width >= 1500 && size.width < 1799) {
 			x = '-19vw';
-		} else if (size.width >= 1200 && size.width < 1499) {
-			x = '-22vw';
+		} else if (size.width >= 1350 && size.width < 1500) {
+			x = '-18vw';
+		} else if (size.width >= 1200 && size.width < 1349) {
+			x = '-20vw';
 		} else if (size.width >= 993 && size.width < 1199) {
-			x = '-24vw';
+			x = '-20vw';
 		} else if (size.width >= 768 && size.width < 992) {
 			x = '-24vw';
 		} else if (size.width >= 426 && size.width < 767) {
@@ -131,7 +135,6 @@ function Main() {
 		}
 		return x;
 	};
-
 	const musicAnimSizeMobile = () => {
 		let x = 0;
 		if (size.width >= 600 && size.width < 767) {
@@ -175,7 +178,9 @@ function Main() {
 				musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: musicAnimSize() }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: dur, x: -200, opacity: 0, fontSize: '0.4rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: dur, x: musicAnimSize(), opacity: 0, fontSize: '0.4rem' })
+					.play()
 			);
 			setMusicSectionOpen(true);
 			setBothOpen(false);
@@ -310,6 +315,8 @@ function Main() {
 	const faceAnimationClose = () => {
 		setFaceOpen(faceTl.to(faceContainer, { duration: 1, y: 50, opacity: 0 }).play());
 	};
+	//This feels like it may be one weird disadvantage
+	// over just referencing state directly as you have a different set for each function
 	const toggleHeadersOpen = () => {
 		setHeadersOpen(!headersOpen);
 	};
@@ -351,22 +358,17 @@ function Main() {
 
 	const headersContainerMusicOpenAnimation = () => {
 		if (headersOpen) {
-			setHeadersAnimation(
-				headersTl.to(headersContainer, { height: '0px', y: -100, duration: 0.5, opacity: 0 }).play()
-			);
+			setHeadersAnimation(headersTl.to(headersContainer, { top: '0%', duration: 0.5, opacity: 0 }).play());
 			toggleHeadersOpen();
 		} else {
-			setHeadersAnimation(
-				headersTl.to(headersContainer, { height: '12vh', y: 0, duration: 0.5, opacity: 1 }).play()
-			);
+			setHeadersAnimation(headersTl.to(headersContainer, { top: '20%', duration: 0.5, opacity: 1 }).play());
 			toggleHeadersOpen();
 		}
 	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem' }).play();
-			faceTl.to(faceContainer, { duration: 1.2, width: '11vw', height: '12vh', top: '12vh' });
-
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', margin: '0' }).play();
+			faceTl.to(faceContainer, { duration: 1.2, width: '11vw', height: '12vh' });
 			toggleNameSmall();
 		} else {
 			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', marginTop: '-4vh' }).play();
@@ -380,8 +382,7 @@ function Main() {
 	// console.log(sizeTest());
 	return (
 		<div className="main">
-			<div className={`main__bg`}></div>
-
+			<div className={`main__bg`} />
 			<header className="main__header-container">
 				<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
 				<a
@@ -413,7 +414,7 @@ function Main() {
 						} ${bothOpen ? 'invisible' : ''}`}
 						ref={(h2) => (arrowRightContainer = h2)}
 					>
-						{'>>'}
+						{/* {'>>'} */}
 					</h2>
 				</div>
 				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainer = h2)}>
@@ -433,7 +434,7 @@ function Main() {
 						}`}
 						ref={(h2) => (arrowLeftContainer = h2)}
 					>
-						{'<<'}
+						{/* {'<<'} */}
 					</h2>
 					<h2 className={` main__music-header-title`}>Guitarist, Composer, Engineer</h2>
 				</div>
@@ -476,30 +477,37 @@ function Main() {
 				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
 				size={size}
 			/>
-			<div className={`main__bio-container ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}>
-				<h2 onClick={toggleBioOpen} className={'main__bio-header'}>
-					Bio
-				</h2>
-				<p className={`main__bio-description ${bioOpen ? 'bio-visible' : 'bio-invisible'}`}>
-					I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my preternatural
-					obsession with videogames at around age 10, and have been an avid guitar player, composer, and
-					general recording nerd since about 13.
-					<p /> I'm a compassionately pretentious coffee nerd, omnivorous beer neophilliac, and an incorrigble
-					glutton for literature. I am also an avid meditator who is for better or worse deeply convinced in
-					the power of mindfulness to effect positive change. I would love nothing more than to help empower
-					people through technology, and perhaps churn out a tasty riff or two along the way.{' '}
-				</p>
-			</div>
-			<a
-				target="_blank"
-				href={Resume}
-				className={`main__resume hover hover-1 ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}
+			<div
+				className={`main__bio-resume-contact-container
+			 ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}
+			 `}
 			>
-				Resume
-			</a>
+				<div className={`main__bio-container ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}>
+					<h2 onClick={toggleBioOpen} className={'main__bio-header'}>
+						Bio
+					</h2>
+					<p className={`main__bio-description ${bioOpen ? 'bio-visible' : 'bio-invisible'}`}>
+						I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my
+						preternatural obsession with videogames at around age 10, and have been an avid guitar player,
+						composer, and general recording nerd since about 13.
+						<p /> I'm a compassionately pretentious coffee nerd, omnivorous beer neophilliac, and an
+						incorrigble glutton for literature. I am also an avid meditator who is for better or worse
+						deeply convinced in the power of mindfulness to effect positive change. I would love nothing
+						more than to help empower people through technology, and perhaps churn out a tasty riff or two
+						along the way. <br />
+					</p>
+				</div>
+				<a
+					target="_blank"
+					href={Resume}
+					className={`main__resume hover hover-1 ${webSectionOpen || musicSectionOpen ? 'invisible' : ''}`}
+				>
+					Resume
+				</a>
 
-			<Contact webSectionOpen={webSectionOpen} musicSectionOpen={musicSectionOpen} />
-			<SocialButtons webSectionOpen={webSectionOpen} musicSectionOpen={musicSectionOpen} />
+				<Contact webSectionOpen={webSectionOpen} musicSectionOpen={musicSectionOpen} />
+				<SocialButtons webSectionOpen={webSectionOpen} musicSectionOpen={musicSectionOpen} />
+			</div>
 		</div>
 	);
 }

@@ -9,16 +9,19 @@ export default function Engineering(open) {
 			<div className={`engineering__sections-header-container`}>
 				<h1 className={`engineering__sections-header engineering__engineering-header`}>
 					Before You (EP)
-					<p /> Amy Beth Anders - 2019
+					<p /> Amy Beth Anders - 2018
 				</h1>
 
 				<div className={`engineering__album-container`}>
-					<img className={`engineering__album-artwork`} src={AmyAlbumArt} alt="Amy Album art"></img>
+					<a rel="noopener noreferrer" target="_blank" href="https://store.cdbaby.com/cd/amybethanders">
+						<img className={`engineering__album-artwork`} src={AmyAlbumArt} alt="Amy Album art"></img>
+					</a>
 					<ul className={`engineering__links-container`}>
 						<li>Debut Solo EP by Brooklyn Based Singer/Songwriter Amy Beth Anders</li>
 						<li>Mixed & Mastered by Eric Thorfinnson</li>
 						<li className={`engineering__links`}>
 							<a
+								rel="noopener noreferrer"
 								target="_blank"
 								href="https://open.spotify.com/album/6VjJQkI4L8Q1WyhcI2e9lM?si=SQXV95hMSeqiTTy_AKNo4g"
 							>

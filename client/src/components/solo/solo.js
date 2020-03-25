@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import './solo.scss';
 import '../performance/performance.scss';
+import '../../misc-styles/records.scss';
 import QwagAlbumArt from '../../assets/album-art/eric-thorfinnson-qwag-artwork.jpg';
 import JuanAlbumArt from '../../assets/album-art/eric-thorfinnson-juan-artwork.jpg';
 import SoloGuitarAlbumArt from '../../assets/album-art/eric-thorfinnson-solo-guitar-artwork.jpg';
@@ -18,27 +18,24 @@ export default function Solo(props) {
 	};
 	return (
 		<div className={`solo expanded-section ${props.soloOpen ? '' : 'invisible'}`}>
-			<h3 className={`performance__solo-back-button`} onClick={props.toggleSoloOpen}>
-				Back
-			</h3>
-			<h1
-				// onClick={props.toggleSoloOpen}
-				className={`solo__header-open`}
-			>
-				Solo
-			</h1>
-			<h2 className={`solo__section-header`}>Bio</h2>
-			<h3 className={`solo__bio-description`}>
+			<div className={`records__header-back-container`}>
+				<h1 className={`solo-header`}>Solo</h1>
+				<h3 className={`records__back-button`} onClick={props.toggleSoloOpen}>
+					Back
+				</h3>
+			</div>
+			<h2 className={`records__section-header`}>Bio</h2>
+			<h3 className={`records__bio-description`}>
 				Eric Thorfinnson has been composing, recording, and releasing songs since he was roughly 12 years old.
 				Many of these solo recordings are buried beneath the sands of time, hopefully never to be heard again,
 				but in 2018 he decided to start releasing music under his name.
 			</h3>
-			<h2 className={`solo__section-header`}>Records</h2>
-			<div className={`solo__album-container`}>
-				<h2 className={`solo__album-header`}>Qwag - LP - 2019</h2>
-				<div className={`solo__album-art-description-container`}>
-					<img className={`solo__album-artwork`} src={QwagAlbumArt} alt="Vicissitudes Album Artwork" />
-					<ul className={`solo__album-description`}>
+			<h2 className={`records__section-header`}>Records</h2>
+			<div className={`records__album-container`}>
+				<h2 className={`records__album-header`}>Qwag - LP - 2019</h2>
+				<div className={`records__album-art-description-container`}>
+					<img className={`records__album-artwork`} src={QwagAlbumArt} alt="Vicissitudes Album Artwork" />
+					<ul className={`records__album-description`}>
 						<li>Culmination and Remix/Master of singles released once a month for all of 2018</li>
 						<li>Features 3 collaborations with Amy Beth Anders on Vocals</li>
 						<li>
@@ -46,19 +43,19 @@ export default function Solo(props) {
 							gently busting mental barriers as it plays"-Splendid Industries
 						</li>
 						<li>Artwork by Rachel Lindover</li>
-						<li className={`solo__links`}>
+						<li className={`records__links`}>
 							<a rel="noopener noreferrer" target="_blank" href="https://ethorf.bandcamp.com/album/qwag">
 								<img
-									className={`solo__link-icon bandcamp`}
+									className={`records__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt="solo vicissitudes bandcamp link"
 								/>
 							</a>
 							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
-									className={`solo__link-icon soundcloud`}
+									className={`records__link-icon soundcloud`}
 									src={SoundcloudIcon}
-									alt="solo vicissitudes bandcamp link"
+									alt="records solo bandcamp link"
 								/>
 							</a>
 							<a
@@ -67,7 +64,7 @@ export default function Solo(props) {
 								href="https://open.spotify.com/album/3qx1ZKIf8sKdPuUkoAPekr?si=bFWQE1jmQhCKGHJ6ZchtUg"
 							>
 								<img
-									className={`solo__link-icon spotify`}
+									className={`records__link-icon spotify`}
 									src={SpotifyIcon}
 									alt="solo vicissitudes bandcamp link"
 								/>
@@ -76,24 +73,24 @@ export default function Solo(props) {
 					</ul>
 				</div>
 			</div>
-			<div className={`solo__album-container`}>
-				<h2 className={`solo__album-header`}>Juan - EP - 2018</h2>
-				<div className={`solo__album-art-description-container`}>
-					<img className={`solo__album-artwork`} src={JuanAlbumArt} alt="Eponymous Album Artwork" />
-					<ul className={`solo__album-description`}>
+			<div className={`records__album-container`}>
+				<h2 className={`records__album-header`}>Juan - EP - 2018</h2>
+				<div className={`records__album-art-description-container`}>
+					<img className={`records__album-artwork`} src={JuanAlbumArt} alt="Eponymous Album Artwork" />
+					<ul className={`records__album-description`}>
 						<li>First Official EP released that features Vocals</li>
 						<li>All Instruments and Mixing by Eric Thorfinnson</li>
-						<li className={`solo__links`}>
+						<li className={`records__links`}>
 							<a rel="noopener noreferrer" target="_blank" href="https://ethorf.bandcamp.com/album/juan">
 								<img
-									className={`solo__link-icon bandcamp`}
+									className={`records__link-icon bandcamp`}
 									src={BandcampIcon}
 									alt="solo solo bandcamp link"
 								/>
 							</a>
 							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
-									className={`solo__link-icon soundcloud`}
+									className={`records__link-icon soundcloud`}
 									src={SoundcloudIcon}
 									alt="solo solo soundcloud link"
 								/>
@@ -104,7 +101,7 @@ export default function Solo(props) {
 								href="https://open.spotify.com/album/349s7piUgnprZcNqic1SYt?si=WVK-u7i1QO2W-kNKj3DMTg"
 							>
 								<img
-									className={`solo__link-icon spotify`}
+									className={`records__link-icon spotify`}
 									src={SpotifyIcon}
 									alt="solo vicissitudes bandcamp link"
 								/>
@@ -113,28 +110,28 @@ export default function Solo(props) {
 					</ul>
 				</div>
 			</div>
-			<div className={`solo__album-container`}>
-				<h2 className={`solo__album-header`}>Solo Guitar - EP - 2018</h2>
-				<div className={`solo__album-art-description-container`}>
-					<img className={`solo__album-artwork`} src={SoloGuitarAlbumArt} alt="Eponymous Album Artwork" />
-					<ul className={`solo__album-description`}>
+			<div className={`records__album-container`}>
+				<h2 className={`records__album-header`}>Solo Guitar - EP - 2018</h2>
+				<div className={`records__album-art-description-container`}>
+					<img className={`records__album-artwork`} src={SoloGuitarAlbumArt} alt="Eponymous Album Artwork" />
+					<ul className={`records__album-description`}>
 						<li>First completely instrumental Release</li>
 						<li>Engineering and Guitar by Eric Thorfinnson</li>
-						<li className={`solo__links`}>
+						<li className={`records__links`}>
 							<a
 								rel="noopener noreferrer"
 								target="_blank"
 								href="https://ethorf.bandcamp.com/album/solo-guitar-ep"
 							>
 								<img
-									className={`solo__link-icon bandcamp`}
+									className={`records__link-icon bandcamp`}
 									src={BandcampIcon}
-									alt="solo solo bandcamp link"
+									alt="records records bandcamp link"
 								/>
 							</a>
 							<a rel="noopener noreferrer" target="_blank" href="https://soundcloud.com/ethorf">
 								<img
-									className={`solo__link-icon soundcloud`}
+									className={`records__link-icon soundcloud`}
 									src={SoundcloudIcon}
 									alt="solo solo soundcloud link"
 								/>
@@ -144,7 +141,7 @@ export default function Solo(props) {
 								href="https://open.spotify.com/album/349s7piUgnprZcNqic1SYt?si=uqbHqyrDTxmF_AJmm6_DQg"
 							>
 								<img
-									className={`solo__link-icon spotify`}
+									className={`records__link-icon spotify`}
 									src={SpotifyIcon}
 									alt="solo vicissitudes bandcamp link"
 								/>
@@ -153,22 +150,17 @@ export default function Solo(props) {
 					</ul>
 				</div>
 			</div>
-			{/* <div className={`solo__video-container`}>
-				<h2 className={`solo__section-header`}>Video</h2>
-				<div className={`solo__video-two-container`}>
-					<YouTube className={`solo__video`} videoId={'J4LmFtEwcQA'} opts={opts} />
-					<YouTube className={`solo__video`} videoId={'116BMZV_v9U'} opts={opts} />
+			<div className={`records__video-container`}>
+				<h2 className={`records__section-header`}>Video</h2>
+				<div className={`records__video-two-container`}>
+					<YouTube className={`records__video`} videoId={'ORJj5BnDqls'} opts={opts} />
+					<YouTube className={`records__video`} videoId={'r4h8cK3Ukvc'} opts={opts} />
 				</div>
-				<div className={`solo__video-two-container`}>
-					<YouTube className={`solo__video`} videoId={'nRZ5cRF-te8'} opts={opts} />
-					<YouTube className={`solo__video`} videoId={'Osq5Af9IYhQ'} opts={opts} />
+				<div className={`records__video-two-container`}>
+					<YouTube className={`records__video`} videoId={'_viSVk_UtBc'} opts={opts} />
+					<YouTube className={`records__video`} videoId={'b0BKS31hGX4'} opts={opts} />
 				</div>
-
-				<div className={`solo__video-two-container`}>
-					<YouTube className={`solo__video`} videoId={'sorcaXQynu8'} opts={opts} />
-					<YouTube className={`solo__video`} videoId={'cbn97elSACQ'} opts={opts} />
-				</div>
-			</div> */}
+			</div>
 		</div>
 	);
 }

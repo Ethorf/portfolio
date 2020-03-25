@@ -8,12 +8,14 @@ export default function MusicSection(props) {
 	const engineeringHeaderTl = new TimelineMax({ paused: true });
 	const performanceHeaderTl = new TimelineMax({ paused: true });
 	const dividerTl = new TimelineMax({ paused: true });
+	const allContainerTl = new TimelineMax({ paused: true });
 	let [performanceOpen, setPerformanceOpen] = useState(false);
 	let [bothOpen, setBothOpen] = useState(false);
 	let [engineeringOpen, setEngineeringOpen] = useState(false);
 	let [performanceHeaderAnimation, setPerformanceHeaderAnimation] = useState(false);
 	let [engineeringHeaderAnimation, setEngineeringHeaderAnimation] = useState(false);
 	let [dividerAnimation, setDividerAnimation] = useState(false);
+	let [allContainerAnimation, setAllContainerAnimation] = useState(false);
 	let [autocatalyticaOpen, setAutocatalyticaOpen] = useState(false);
 	let [hosanaOpen, setHosanaOpen] = useState(false);
 	let [soloOpen, setSoloOpen] = useState(false);
@@ -23,9 +25,11 @@ export default function MusicSection(props) {
 	let performanceHeaderContainerMobile = useRef(null);
 	let engineeringHeaderContainerMobile = useRef(null);
 	let dividerContainer = useRef(null);
-	let dividerContainerMobile = useRef(null);
+	let allContainer = useRef(null);
 	let largeHeaderFont = '3.3rem';
 	let mobileLargeHeaderFont = '2.7rem';
+	let mobileBaseHeaderFont = '1.8rem';
+
 	//Toggle Functions
 	const togglePerformanceOpen = () => {
 		setPerformanceOpen(!performanceOpen);
@@ -79,7 +83,7 @@ export default function MusicSection(props) {
 	const composerAnimSizeMobile = () => {
 		let x = 0;
 		if (props.size.width >= 600 && props.size.width < 767) {
-			x = '12vw';
+			x = '10vw';
 		} else if (props.size.width >= 425 && props.size.width < 599) {
 			x = '11vw';
 		} else if (props.size.width >= 375 && props.size.width < 425) {
@@ -92,11 +96,11 @@ export default function MusicSection(props) {
 	const engineerAnimSizeMobile = () => {
 		let x = 0;
 		if (props.size.width >= 600 && props.size.width < 767) {
-			x = '-21vw';
+			x = '-14vw';
 		} else if (props.size.width >= 425 && props.size.width < 599) {
 			x = '-19vw';
 		} else if (props.size.width >= 375 && props.size.width < 425) {
-			x = '-23vw';
+			x = '-19vw';
 		} else if (props.size.width >= 320 && props.size.width < 375) {
 			x = '-19vw';
 		}
@@ -119,8 +123,11 @@ export default function MusicSection(props) {
 				dividerTl.to(dividerContainer, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
 			);
 			setEngineeringHeaderAnimation(
-				engineeringHeaderTl.to(engineeringHeaderContainer, { duration: 1.4, x: 280, opacity: 0 }).play()
+				engineeringHeaderTl
+					.to(engineeringHeaderContainer, { duration: 1.4, x: performanceAnimSize(), opacity: 0 })
+					.play()
 			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setPerformanceOpen(true);
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
@@ -134,6 +141,7 @@ export default function MusicSection(props) {
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: '2.8rem' }).play()
 			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setPerformanceOpen(false);
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
@@ -171,14 +179,16 @@ export default function MusicSection(props) {
 		} else {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
-					.to(performanceHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: '1.7rem' })
+					.to(performanceHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: mobileBaseHeaderFont })
 					.play()
 			);
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl.to(engineeringHeaderContainerMobile, { duration: 1.4, x: 1, opacity: 1 }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: '1.7rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: mobileBaseHeaderFont })
+					.play()
 			);
 			setPerformanceOpen(false);
 			props.musicHeaderFadeInAnimation();
@@ -207,6 +217,7 @@ export default function MusicSection(props) {
 					.to(performanceHeaderContainer, { duration: 1.4, x: engineeringAnimSize(), opacity: 0 })
 					.play()
 			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setEngineeringOpen(true);
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
@@ -233,6 +244,7 @@ export default function MusicSection(props) {
 					})
 					.play()
 			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setEngineeringOpen(false);
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
@@ -270,14 +282,16 @@ export default function MusicSection(props) {
 		} else {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
-					.to(engineeringHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: '1.7rem' })
+					.to(engineeringHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: mobileBaseHeaderFont })
 					.play()
 			);
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl.to(performanceHeaderContainerMobile, { duration: 1.4, x: 1, opacity: 1 }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: '1.7rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: mobileBaseHeaderFont })
+					.play()
 			);
 			setEngineeringOpen(false);
 			props.musicHeaderFadeInAnimation();
@@ -301,7 +315,10 @@ export default function MusicSection(props) {
 		}
 	};
 	return (
-		<div className={`musicSection ${props.musicSectionOpen ? '' : 'invisible'}`}>
+		<div
+			ref={(div) => (allContainer = div)}
+			className={`musicSection ${props.musicSectionOpen ? '' : 'invisible'}`}
+		>
 			<div
 				className={`musicSection__back-home-container ${performanceOpen || engineeringOpen ? '' : 'invisible'}`}
 			>

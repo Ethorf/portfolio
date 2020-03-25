@@ -3,7 +3,8 @@
 
 .webSection {
 	color: silver;
-	position: relative;
+	position: absolute;
+	top: 30%;
 	z-index: 3;
 	display: flex;
 	flex-direction: column;

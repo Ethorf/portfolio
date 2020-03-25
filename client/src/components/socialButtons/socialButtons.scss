@@ -5,15 +5,15 @@
 	width: 25%;
 	display: flex;
 	justify-content: center;
+	justify-self: center;
+	align-self: center;
 	position: relative;
 	bottom: 1vh;
 	z-index: 3;
 	margin: 2vh 0;
 	margin-left: -3vw;
 
-	&__button {
-	}
-	&__button-img {
+	img {
 		height: 4vh;
 		margin: 0 1vw;
 	}

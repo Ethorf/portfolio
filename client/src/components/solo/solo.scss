@@ -65,6 +65,12 @@
 	&__header-open {
 		display: none;
 	}
+	@include mobile-only() {
+		&__album-artwork {
+			height: 40vh;
+			width: 40vw;
+		}
+	}
 	@include mobile-small-only() {
 		&__header-open {
 			display: flex;
@@ -91,11 +97,28 @@
 			height: 5vh;
 			margin-right: 3vw;
 		}
+		&__video {
+			width: 40vw;
+		}
 	}
 
 	@include tablet-only() {
 		&__section-header {
 			margin-top: 5vh;
+		}
+
+		&__bio-description {
+			width: 80%;
+		}
+		&__video-container {
+			width: 90%;
+		}
+		&__video-two-container {
+			display: flex;
+			justify-content: space-between;
+		}
+		&__video {
+			width: 100%;
 		}
 	}
 }

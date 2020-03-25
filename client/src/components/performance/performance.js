@@ -21,18 +21,10 @@ export default function Performance(props) {
 							onClick={props.toggleAutocatalyticaOpen}
 							className={`performance__section-header performance__autocatalytica-header ${
 								props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''
-							} ${props.autocatalyticaOpen ? 'white' : ''}`}
+							} ${props.autocatalyticaOpen ? 'invisible' : ''}`}
 						>
 							Autocatalytica
 						</h1>
-						<h3
-							className={`${
-								props.autocatalyticaOpen === true ? 'performance__back-button' : 'invisible'
-							}`}
-							onClick={props.toggleAutocatalyticaOpen}
-						>
-							Back
-						</h3>
 					</div>
 					<h2
 						className={`performance__divider ${
@@ -51,21 +43,11 @@ export default function Performance(props) {
 						<h1
 							onClick={props.toggleHosanaOpen}
 							className={`performance__section-header ${
-								props.hosanaOpen ? ' performance__hosana-header-open' : ' performance__hosana-header '
+								props.hosanaOpen ? ' invisible' : ' performance__hosana-header '
 							} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''}`}
 						>
 							Hosana
 						</h1>
-						<h3
-							className={`${
-								props.hosanaOpen === true
-									? 'performance__back-button performance__hosana-back-button'
-									: 'invisible'
-							}`}
-							onClick={props.toggleHosanaOpen}
-						>
-							Back
-						</h3>
 					</div>
 				</div>
 				<div className={`performance__section-header-container`}>
@@ -75,24 +57,10 @@ export default function Performance(props) {
 							className={`${
 								props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : ''
 							}
-                             ${
-									props.soloOpen
-										? 'performance__solo-header-open'
-										: 'performance__solo-header performance__section-header'
-								}`}
+                             ${props.soloOpen ? 'invisible' : 'performance__solo-header performance__section-header'}`}
 						>
 							Solo
 						</h1>
-						<h3
-							className={`${
-								props.soloOpen === true
-									? 'performance__back-button performance__back-button-bottom'
-									: 'invisible'
-							}`}
-							onClick={props.toggleSoloOpen}
-						>
-							Back
-						</h3>
 					</div>
 					<h2
 						className={`performance__divider ${

@@ -3,7 +3,8 @@
 
 .musicSection {
 	color: silver;
-	position: relative;
+	position: absolute;
+	top: 32%;
 	z-index: 3;
 	display: flex;
 	flex-direction: column;
@@ -74,9 +75,7 @@
 	&__sections-header-mobile {
 		display: none;
 	}
-	&__section-header-continer-mobile {
-		display: none;
-	}
+
 	@include mobile-small-only() {
 		&__sections-header {
 			display: none;
@@ -97,12 +96,17 @@
 		}
 		&__headers-container {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: space-between;
 			align-items: center;
-			width: 100%;
+			width: 90%;
 			color: whitesmoke;
 			margin-top: 1vh;
+			margin-left: -5vw;
+			padding: 0;
 			font-family: 'Poppins';
+		}
+		&__engineering-header-mobile {
+			margin: 0;
 		}
 		&__back-button-mobile {
 			margin: 1% 0;
@@ -123,10 +127,17 @@
 			margin: 1% 0;
 		}
 		&__headers-container {
-			width: 80%;
-		}
-		&__headers-container {
+			width: 79%;
 			margin-top: -2vh;
+		}
+		&__back-home-container {
+			width: 25%;
+		}
+		&__engineering-header-mobile {
+			font-size: 2rem;
+		}
+		&__composer-header {
+			font-size: 2rem;
 		}
 	}
 	@include tablet-only() {

@@ -5,7 +5,6 @@ import '../../misc-styles/records.scss';
 import QwagAlbumArt from '../../assets/album-art/eric-thorfinnson-qwag-artwork.jpg';
 import JuanAlbumArt from '../../assets/album-art/eric-thorfinnson-juan-artwork.jpg';
 import SoloGuitarAlbumArt from '../../assets/album-art/eric-thorfinnson-solo-guitar-artwork.jpg';
-
 import BandcampIcon from '../../assets/Icons/silver/bandcamp-silver.png';
 import SoundcloudIcon from '../../assets/Icons/silver/soundcloud-silver.png';
 import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';

@@ -1,5 +1,4 @@
 import React from 'react';
-import './exKathedra.scss';
 import '../performance/performance.scss';
 import '../../misc-styles/records.scss';
 import exKathedraAlbumArt from '../../assets/album-art/ex-kathedra-album-artwork.jpg';
@@ -33,7 +32,7 @@ export default function ExKathedra(props) {
 							First LP ever released by Eric Thorfinnson, recorded all Guitar, some Vox, and some bass
 						</li>
 						<li>Bass and Clean Vox by Rei Tanaka, Screams by Alex Medley, and Drums by Alex Medley</li>
-						<li>Recorded / Mixed / Mastered and Mastermind Studios in Hamilton, ON </li>
+						<li>Recorded / Mixed / Mastered at Mastermind Studios in Hamilton, ON </li>
 
 						<li>"Good if not exactly my thing - 80%."-Noktorn</li>
 						<li>Artwork by Wyatt Clough</li>

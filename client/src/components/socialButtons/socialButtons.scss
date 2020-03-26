@@ -2,7 +2,6 @@
 @import '../../misc-styles/variables.scss';
 
 .social-buttons {
-	width: 25%;
 	display: flex;
 	justify-content: center;
 	justify-self: center;
@@ -14,7 +13,7 @@
 	margin-left: -3vw;
 
 	img {
-		height: 4vh;
+		height: 3.5vh;
 		margin: 0 1vw;
 	}
 

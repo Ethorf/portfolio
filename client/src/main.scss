@@ -1,6 +1,5 @@
 @import './misc-styles/fonts-mixins.scss';
 @import './misc-styles/variables.scss';
-
 .main {
 	width: 100%;
 	display: flex;
@@ -26,21 +25,7 @@
 		align-items: center;
 		opacity: 1;
 	}
-	&__headers-container-mobile {
-		display: none;
-	}
-	&__headers-container {
-		width: 100%;
-		display: flex;
-		height: 12vh;
-		opacity: 0;
-		justify-content: center;
-		align-items: center;
-		transition: all 1s;
-		position: absolute;
-		top: 20%;
-		z-index: 3;
-	}
+
 	&__header-container {
 		display: flex;
 		justify-content: center;
@@ -65,6 +50,21 @@
 		top: 10vh;
 		opacity: 0;
 	}
+	&__headers-container-mobile {
+		display: none;
+	}
+	&__headers-container {
+		width: 100%;
+		display: flex;
+		height: 12vh;
+		opacity: 0;
+		justify-content: center;
+		align-items: center;
+		transition: all 1s;
+		position: absolute;
+		top: 20%;
+		z-index: 3;
+	}
 	&__section-header {
 		display: flex;
 		flex-direction: row;
@@ -85,7 +85,8 @@
 		z-index: 3;
 		margin: 0vh 2vw;
 	}
-	//below headers stuff starts
+	/////// below headers stuff starts \\\\\\
+
 	&__bio-resume-contact-container {
 		display: flex;
 		justify-content: center;
@@ -93,7 +94,7 @@
 		width: 100%;
 		position: absolute;
 		top: 34%;
-		margin-left: -0vw;
+		margin-left: -1vw;
 	}
 	&__resume {
 		position: relative;
@@ -147,10 +148,16 @@
 		}
 		&__face-img {
 			width: 35vw;
+			top: 10vh;
+		}
+		&__bg {
 			top: 12vh;
 		}
 		&__headers-container {
 			display: none;
+		}
+		&__header-container {
+			margin-top: 8vh;
 		}
 		&__headers-container-mobile {
 			width: 84%;
@@ -163,12 +170,15 @@
 			font-size: 1rem;
 			justify-self: center;
 		}
+		&__bio-resume-contact-container {
+			top: 25vh;
+		}
 		&__section-divider {
 			font-size: 1.6rem;
 			height: 6vh;
 		}
 		&__section-header {
-			font-size: 1.2rem;
+			font-size: 1.1rem;
 		}
 		&__bio-header {
 			margin-left: 3vw;
@@ -198,29 +208,45 @@
 		}
 	}
 	@include tablet-only {
+		&__web-header-title {
+			@include hover-underline-left;
+			margin-top: 3vh;
+		}
+		&__music-header-title {
+			@include hover-underline-right-absolute;
+		}
 		&__header {
 			font-size: 3rem;
 			align-items: center;
+			// top: 70%;
 		}
 		&__face-img {
-			height: 17vh;
+			height: 13vh;
+			top: 8vh;
+		}
+		&__bg {
 			top: 12vh;
 		}
 		&__headers-container {
 			width: 100%;
 			z-index: 5;
+			top: 16vh;
 			opacity: 1;
 			justify-self: center;
 		}
 		&__headers-container-mobile {
 			display: none;
 		}
+		&__bio-resume-contact-container {
+			top: 26vh;
+			margin-left: 0vw;
+		}
 		&__section-divider {
 			font-size: 1.6rem;
 			margin: 0 2vw;
 		}
 		&__section-header {
-			font-size: 1rem;
+			font-size: 1.1rem;
 			align-items: center;
 		}
 		&__bio-header {

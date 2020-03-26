@@ -1,5 +1,4 @@
 import React from 'react';
-import './hosana.scss';
 import '../performance/performance.scss';
 import '../../misc-styles/records.scss';
 import HosanaAlbumArt from '../../assets/album-art/Hosana-AlbumArt(small).jpg';

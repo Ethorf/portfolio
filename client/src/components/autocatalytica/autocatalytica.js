@@ -1,6 +1,5 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-// import './autocatalytica.scss';
 import '../performance/performance.scss';
 import VicissitudesAlbumArt from '../../assets/album-art/autocatalytica-vicissitudes-artwork.jpg';
 import AutocatalyticaAlbumArt from '../../assets/album-art/autocatalytica-eponymous-artwork.jpg';

@@ -112,6 +112,9 @@
 				color: white;
 			}
 		}
+		&__video {
+			width: 90%;
+		}
 	}
 	@include mobile-only() {
 		&__header-open {

@@ -192,16 +192,38 @@
 	@include mobile-small-only() {
 		display: flex;
 		justify-content: center;
+		width: 95%;
 		&__header {
 			font-size: 1.6rem;
 			width: 100%;
 			justify-content: center;
 			margin-top: 3vh;
-			margin-left: 3vw;
+			margin-left: 6vw;
 			// padding-right: 3vw;
 		}
 		&__form-header {
 			margin-top: 5%;
+		}
+		&__input {
+			width: 95%;
+			margin-left: 1vw;
+		}
+		&__name {
+			width: 80%;
+		}
+		&__email {
+			width: 90%;
+		}
+		&__message {
+			width: 95%;
+			height: 21vh;
+		}
+		&__form-submit-button {
+			width: 50%;
+		}
+		&__modalize {
+			width: 85%;
+			padding-left: 3vw;
 		}
 	}
 }

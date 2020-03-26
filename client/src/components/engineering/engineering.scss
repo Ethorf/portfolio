@@ -11,6 +11,7 @@
 	}
 	&__engineering-header {
 		font-family: 'Avenir';
+		color: white;
 	}
 	&__album-header {
 		font-size: 1.8rem;
@@ -51,10 +52,8 @@
 			margin-bottom: 3vh;
 		}
 		&__engineering-header {
-			// margin-left: -10vw;
 			display: flex;
 			font-size: 1.4rem;
-			color: white;
 		}
 		&__album-header {
 			font-size: 1.4rem;

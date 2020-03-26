@@ -2,6 +2,7 @@ import React from 'react';
 import './webSection.scss';
 import NotYourThoughtsImage from '../../assets/not-your-thoughts-screencap.png';
 import GitHubDark from '../../assets/Icons/silver/GitHub-silver.png';
+import NYTVideo from '../../assets/NYT-preview-video-720-edited-2.mp4';
 
 export default function WebSection(webSectionOpen) {
 	return (
@@ -16,10 +17,14 @@ export default function WebSection(webSectionOpen) {
 				{' '}
 				Not Your Thoughts
 			</a>
-			<img
+			<video
 				className={`webSection__not-your-thoughts-image`}
-				src={NotYourThoughtsImage}
+				poster={NotYourThoughtsImage}
+				src={NYTVideo}
 				alt="not your thoughts preview image"
+				onMouseOver={(event) => event.target.play()}
+				onMouseOut={(event) => event.target.pause()}
+				loop="true"
 			/>
 			<h3 className={`webSection__not-your-thoughts-description`}>
 				<p>

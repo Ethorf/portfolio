@@ -108,7 +108,7 @@ function Main() {
 		if (size.width >= 1800) {
 			x = '-14vw';
 		} else if (size.width >= 1500 && size.width < 1799) {
-			x = '-19vw';
+			x = '-16vw';
 		} else if (size.width >= 1350 && size.width < 1500) {
 			x = '-18vw';
 		} else if (size.width >= 1200 && size.width < 1349) {
@@ -116,7 +116,7 @@ function Main() {
 		} else if (size.width >= 993 && size.width < 1199) {
 			x = '-20vw';
 		} else if (size.width >= 768 && size.width < 992) {
-			x = '-24vw';
+			x = '-20vw';
 		} else if (size.width >= 426 && size.width < 767) {
 			x = '-20vw';
 		}
@@ -129,9 +129,9 @@ function Main() {
 		} else if (size.width >= 426 && size.width < 599) {
 			x = '18vw';
 		} else if (size.width >= 375 && size.width < 425) {
-			x = '23vw';
+			x = '17vw';
 		} else if (size.width >= 320 && size.width < 374) {
-			x = '29vw';
+			x = '21vw';
 		}
 		return x;
 	};
@@ -142,7 +142,7 @@ function Main() {
 		} else if (size.width >= 425 && size.width < 599) {
 			x = '-18vw';
 		} else if (size.width >= 375 && size.width < 425) {
-			x = '-23vw';
+			x = '-20vw';
 		} else if (size.width >= 320 && size.width < 374) {
 			x = '-27vw';
 		}
@@ -303,20 +303,16 @@ function Main() {
 	};
 	//Face Anims
 	const faceAnimationOpen = () => {
-		if (!nameSmall) {
-			setFaceOpen(
-				faceTl
-					.from(faceContainer, { duration: 0.2, y: 250 })
-					.to(faceContainer, { duration: 1.5, y: -50, opacity: 0.8 })
-					.play()
-			);
-		}
+		setFaceOpen(
+			faceTl
+				.from(faceContainer, { duration: 1.2, y: 250 })
+				.to(faceContainer, { duration: 1.5, y: -50, opacity: 0.8 })
+				.play()
+		);
 	};
 	const faceAnimationClose = () => {
 		setFaceOpen(faceTl.to(faceContainer, { duration: 1, y: 50, opacity: 0 }).play());
 	};
-	//This feels like it may be one weird disadvantage
-	// over just referencing state directly as you have a different set for each function
 	const toggleHeadersOpen = () => {
 		setHeadersOpen(!headersOpen);
 	};
@@ -378,6 +374,7 @@ function Main() {
 	};
 	useEffect(() => {
 		headersLoadAnimation();
+		faceAnimationOpen();
 	}, []);
 	// console.log(sizeTest());
 	return (
@@ -385,13 +382,7 @@ function Main() {
 			<div className={`main__bg`} />
 			<header className="main__header-container">
 				<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
-				<a
-					ref={(h1) => (nameContainer = h1)}
-					onMouseEnter={faceAnimationOpen}
-					onMouseLeave={faceAnimationClose}
-					className="main__header"
-					href="http://localhost:3000"
-				>
+				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://localhost:3000">
 					Eric Thorfinnson
 				</a>
 				{/* <button className={'test-button'} onClick={musicHeaderFadeOutAnimation}>
@@ -457,15 +448,7 @@ function Main() {
 					ref={(h2) => (musicHeaderContainerMobile = h2)}
 					className={`main__music-section-header main__section-header`}
 				>
-					<h2
-						className={`main__left-arrow main__arrow  ${
-							webSectionOpen === false && musicSectionOpen === false ? 'invisible' : ''
-						}`}
-						// ref={(h2) => (arrowLeftContainer = h2)}
-					>
-						{'<<'}
-					</h2>
-					<h2 className={` main__music-header-title`}>Musician</h2>
+					<h2 className={`main__music-header-title`}>Musician</h2>
 				</div>
 			</div>
 			<WebSection webSectionOpen={webSectionOpen} />
@@ -475,6 +458,8 @@ function Main() {
 				nameSmallAnimation={nameSmallAnimation}
 				musicHeaderFadeInAnimation={musicHeaderFadeInAnimation}
 				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
+				faceAnimationClose={faceAnimationClose}
+				faceAnimationOpen={faceAnimationOpen}
 				size={size}
 			/>
 			<div

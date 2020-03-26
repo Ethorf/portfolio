@@ -27,8 +27,12 @@ export default function MusicSection(props) {
 	let dividerContainer = useRef(null);
 	let allContainer = useRef(null);
 	let largeHeaderFont = '3.3rem';
-	let mobileLargeHeaderFont = '2.7rem';
-	let mobileBaseHeaderFont = '1.8rem';
+	let baseHeaderFont = '2.3rem';
+	let baseDividerFont = '2.4rem';
+
+	let mobileLargeHeaderFont = '2.5rem';
+	let mobileBaseHeaderFont = '1.5rem';
+	let allContainerMobileTop = '24vh';
 
 	//Toggle Functions
 	const togglePerformanceOpen = () => {
@@ -49,19 +53,30 @@ export default function MusicSection(props) {
 	const toggleExKathedraOpen = () => {
 		setExKathedraOpen(!exKathedraOpen);
 	};
-	//Animation Functions
+	//Animation Size Functions
+	const headerAnimSmallFontSize = () => {
+		let x;
+		if (props.size.width >= 993) {
+			x = largeHeaderFont;
+		} else {
+			x = baseHeaderFont;
+		}
+		return x;
+	};
 	const performanceAnimSize = () => {
 		let x = 0;
-		if (props.size.width >= 1800) {
+		if (props.size.width >= 1700) {
 			x = '9vw';
-		} else if (props.size.width >= 1500 && props.size.width < 1799) {
+		} else if (props.size.width >= 1500 && props.size.width < 1699) {
 			x = '11vw';
 		} else if (props.size.width >= 1200 && props.size.width < 1499) {
 			x = '11vw';
 		} else if (props.size.width >= 993 && props.size.width < 1199) {
 			x = '15vw';
-		} else if (props.size.width >= 768 && props.size.width < 992) {
-			x = '15vw';
+		} else if (props.size.width >= 870 && props.size.width < 992) {
+			x = '14vw';
+		} else if (props.size.width >= 768 && props.size.width < 869) {
+			x = '14vw';
 		}
 		return x;
 	};
@@ -75,8 +90,10 @@ export default function MusicSection(props) {
 			x = '-13vw';
 		} else if (props.size.width >= 993 && props.size.width < 1199) {
 			x = '-15vw';
-		} else if (props.size.width >= 768 && props.size.width < 992) {
+		} else if (props.size.width >= 870 && props.size.width < 992) {
 			x = '-16vw';
+		} else if (props.size.width >= 768 && props.size.width < 869) {
+			x = '-14vw';
 		}
 		return x;
 	};
@@ -106,7 +123,7 @@ export default function MusicSection(props) {
 		}
 		return x;
 	};
-
+	//Animation Execution Functions
 	const performanceHeaderOpenAnimation = () => {
 		if (performanceOpen === false) {
 			setPerformanceHeaderAnimation(
@@ -131,18 +148,79 @@ export default function MusicSection(props) {
 			setPerformanceOpen(true);
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
+			props.faceAnimationClose();
 		} else {
 			setPerformanceHeaderAnimation(
-				performanceHeaderTl.to(performanceHeaderContainer, { duration: 1.4, x: 0, fontSize: '3.3rem' }).play()
+				performanceHeaderTl
+					.to(performanceHeaderContainer, { duration: 1.4, x: 0, fontSize: headerAnimSmallFontSize })
+					.play()
 			);
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl.to(engineeringHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: baseDividerFont }).play()
 			);
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setPerformanceOpen(false);
+			props.headersContainerMusicOpenAnimation();
+			props.nameSmallAnimation();
+			props.faceAnimationOpen();
+		}
+	};
+	const engineeringHeaderOpenAnimation = () => {
+		if (engineeringOpen === false) {
+			setEngineeringHeaderAnimation(
+				engineeringHeaderTl
+					.to(engineeringHeaderContainer, {
+						duration: 1.4,
+						x: engineeringAnimSize(),
+						justifyContent: 'center',
+						fontSize: largeHeaderFont
+					})
+					.play()
+			);
+			setDividerAnimation(
+				dividerTl
+					.to(dividerContainer, { duration: 1.2, x: engineeringAnimSize(), opacity: 0, fontSize: '0.4rem' })
+					.play()
+			);
+			setPerformanceHeaderAnimation(
+				performanceHeaderTl
+					.to(performanceHeaderContainer, { duration: 1.4, x: engineeringAnimSize(), opacity: 0 })
+					.play()
+			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
+			setEngineeringOpen(true);
+			props.headersContainerMusicOpenAnimation();
+			props.nameSmallAnimation();
+			props.faceAnimationClose();
+		} else {
+			setEngineeringHeaderAnimation(
+				engineeringHeaderTl
+					.to(engineeringHeaderContainer, {
+						duration: 1.4,
+						x: 0,
+						fontSize: headerAnimSmallFontSize
+					})
+					.play()
+			);
+			setPerformanceHeaderAnimation(
+				performanceHeaderTl.to(performanceHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
+			);
+			setDividerAnimation(
+				dividerTl
+					.to(dividerContainer, {
+						duration: 1.4,
+						x: 1,
+						opacity: 0.9,
+						fontSize: baseDividerFont
+					})
+					.play()
+			);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
+			setEngineeringOpen(false);
+			props.faceAnimationOpen();
 			props.headersContainerMusicOpenAnimation();
 			props.nameSmallAnimation();
 		}
@@ -175,6 +253,7 @@ export default function MusicSection(props) {
 					.play()
 			);
 			setPerformanceOpen(true);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			props.musicHeaderFadeOutAnimation();
 		} else {
 			setPerformanceHeaderAnimation(
@@ -191,63 +270,12 @@ export default function MusicSection(props) {
 					.play()
 			);
 			setPerformanceOpen(false);
+			setAllContainerAnimation(
+				allContainerTl.to(allContainer, { duration: 0.4, top: allContainerMobileTop }).play()
+			);
+
 			props.musicHeaderFadeInAnimation();
 			// props.headersContainerMusicOpenAnimation();
-		}
-	};
-	const engineeringHeaderOpenAnimation = () => {
-		if (engineeringOpen === false) {
-			setEngineeringHeaderAnimation(
-				engineeringHeaderTl
-					.to(engineeringHeaderContainer, {
-						duration: 1.4,
-						x: engineeringAnimSize(),
-						justifyContent: 'center',
-						fontSize: largeHeaderFont
-					})
-					.play()
-			);
-			setDividerAnimation(
-				dividerTl
-					.to(dividerContainer, { duration: 1.2, x: engineeringAnimSize(), opacity: 0, fontSize: '0.4rem' })
-					.play()
-			);
-			setPerformanceHeaderAnimation(
-				performanceHeaderTl
-					.to(performanceHeaderContainer, { duration: 1.4, x: engineeringAnimSize(), opacity: 0 })
-					.play()
-			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
-			setEngineeringOpen(true);
-			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
-		} else {
-			setEngineeringHeaderAnimation(
-				engineeringHeaderTl
-					.to(engineeringHeaderContainer, {
-						duration: 1.4,
-						x: 0
-						// fontSize: '3.3rem'
-					})
-					.play()
-			);
-			setPerformanceHeaderAnimation(
-				performanceHeaderTl.to(performanceHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
-			);
-			setDividerAnimation(
-				dividerTl
-					.to(dividerContainer, {
-						duration: 1.4,
-						x: 1,
-						opacity: 0.9,
-						fontSize: '2.8rem'
-					})
-					.play()
-			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
-			setEngineeringOpen(false);
-			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
 		}
 	};
 	const engineeringHeaderOpenAnimationMobile = () => {
@@ -278,6 +306,7 @@ export default function MusicSection(props) {
 					.play()
 			);
 			setEngineeringOpen(true);
+			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			props.musicHeaderFadeOutAnimation();
 		} else {
 			setEngineeringHeaderAnimation(
@@ -292,6 +321,9 @@ export default function MusicSection(props) {
 				dividerTl
 					.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: mobileBaseHeaderFont })
 					.play()
+			);
+			setAllContainerAnimation(
+				allContainerTl.to(allContainer, { duration: 0.4, top: allContainerMobileTop }).play()
 			);
 			setEngineeringOpen(false);
 			props.musicHeaderFadeInAnimation();

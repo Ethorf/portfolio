@@ -47,6 +47,8 @@
 	}
 
 	@include mobile-small-only() {
+		top: 25%;
+
 		&__not-your-thoughts-image {
 			display: none;
 		}
@@ -55,6 +57,8 @@
 		}
 	}
 	@include tablet-only() {
+		top: 22vh;
+
 		&__not-your-thoughts-image {
 			width: 60vw;
 		}

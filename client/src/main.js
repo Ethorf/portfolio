@@ -384,7 +384,7 @@ function Main() {
 			<div className={`main__bg`} />
 			<header className="main__header-container">
 				<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
-				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://localhost:3000">
+				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://www.ethorf.com">
 					Eric Thorfinnson
 				</a>
 				{/* <button className={'test-button'} onClick={musicHeaderFadeOutAnimation}>

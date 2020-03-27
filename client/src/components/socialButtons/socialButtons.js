@@ -12,7 +12,7 @@ export default function SocialButtons(props) {
 			<a
 				rel="noopener noreferrer"
 				target="_blank"
-				href="https://linkedin.com/ethorf"
+				href="https://www.linkedin.com/in/ericthorfinnson/"
 				className={`social-buttons__button`}
 			>
 				<img src={LinkedInDark} className={`social-buttons__button-img linkedin`} />

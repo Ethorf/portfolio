@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 // import Context from './context.js';
 import { gsap, TimelineMax } from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 import Face from './assets/EricFacePopup-cropped.png';
 //Component Imports
 import WebSection from './components/webSection/webSection.js';

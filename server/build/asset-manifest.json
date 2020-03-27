@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a168df85.chunk.css",
+    "main.js": "/static/js/main.ff23d49d.chunk.js",
+    "main.js.map": "/static/js/main.ff23d49d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5e682c5b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5e682c5b.js.map",
+    "static/js/2.cead6b2d.chunk.js": "/static/js/2.cead6b2d.chunk.js",
+    "static/js/2.cead6b2d.chunk.js.map": "/static/js/2.cead6b2d.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1b020a67fe597e96a792a5a58b68e482.js": "/precache-manifest.1b020a67fe597e96a792a5a58b68e482.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.a168df85.chunk.css.map": "/static/css/main.a168df85.chunk.css.map",
+    "static/js/2.cead6b2d.chunk.js.LICENSE.txt": "/static/js/2.cead6b2d.chunk.js.LICENSE.txt",
+    "static/media/Eric-Thorfinnson-Resume.pdf": "/static/media/Eric-Thorfinnson-Resume.fc69b100.pdf",
+    "static/media/EricFacePopup-cropped.png": "/static/media/EricFacePopup-cropped.8628eeb6.png",
+    "static/media/main.scss": "/static/media/spotify-light-silver.d89b0c67.png",
+    "static/media/GitHub-silver.png": "/static/media/GitHub-silver.fe0ed590.png",
+    "static/media/Hosana-AlbumArt(small).jpg": "/static/media/Hosana-AlbumArt(small).d63f8cad.jpg",
+    "static/media/NYT-preview-video-720-edited-2.mp4": "/static/media/NYT-preview-video-720-edited-2.82d32b7e.mp4",
+    "static/media/amy-beth-anders-before-you-artwork.jpg": "/static/media/amy-beth-anders-before-you-artwork.0dd5989a.jpg",
+    "static/media/autocatalytica-eponymous-artwork.jpg": "/static/media/autocatalytica-eponymous-artwork.28476561.jpg",
+    "static/media/autocatalytica-horror-vacui-artwork.jpg": "/static/media/autocatalytica-horror-vacui-artwork.fbcc001d.jpg",
+    "static/media/autocatalytica-vicissitudes-artwork.jpg": "/static/media/autocatalytica-vicissitudes-artwork.5b7c3d59.jpg",
+    "static/media/socialButtons.scss": "/static/media/bandcamp-silver.8a1ebd7f.png",
+    "static/media/eric-thorfinnson-juan-artwork.jpg": "/static/media/eric-thorfinnson-juan-artwork.854db7cb.jpg",
+    "static/media/eric-thorfinnson-qwag-artwork.jpg": "/static/media/eric-thorfinnson-qwag-artwork.65447747.jpg",
+    "static/media/eric-thorfinnson-solo-guitar-artwork.jpg": "/static/media/eric-thorfinnson-solo-guitar-artwork.1cba47a6.jpg",
+    "static/media/ex-kathedra-album-artwork.jpg": "/static/media/ex-kathedra-album-artwork.14a8018e.jpg",
+    "static/media/instagram-silver.png": "/static/media/instagram-silver.5a7016f8.png",
+    "static/media/linkedin-silver.png": "/static/media/linkedin-silver.9bb7dfcc.png",
+    "static/media/not-your-thoughts-screencap.png": "/static/media/not-your-thoughts-screencap.622f9bfa.png",
+    "static/media/spotify-silver.png": "/static/media/spotify-silver.88ef55e4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e682c5b.js",
+    "static/js/2.cead6b2d.chunk.js",
+    "static/css/main.a168df85.chunk.css",
+    "static/js/main.ff23d49d.chunk.js"
+  ]
+}

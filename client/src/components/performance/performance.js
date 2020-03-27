@@ -84,6 +84,41 @@ export default function Performance(props) {
 					</div>
 				</div>
 			</div>
+			<div className={`performance__all-sections-header-container-mobile`}>
+				<h1
+					onClick={props.toggleAutocatalyticaOpen}
+					className={`performance__section-header performance__autocatalytica-header ${
+						props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''
+					} ${props.autocatalyticaOpen ? 'invisible' : ''}`}
+				>
+					Autocatalytica
+				</h1>
+				<h1
+					onClick={props.toggleHosanaOpen}
+					className={`performance__section-header ${
+						props.hosanaOpen ? ' invisible' : ' performance__hosana-header '
+					} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''}`}
+				>
+					Hosana
+				</h1>
+				<h1
+					onClick={props.toggleSoloOpen}
+					className={`${
+						props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : ''
+					}
+                             ${props.soloOpen ? 'invisible' : 'performance__solo-header performance__section-header'}`}
+				>
+					Solo
+				</h1>
+				<h1
+					onClick={props.toggleExKathedraOpen}
+					className={`performance__section-header ${
+						props.autocatalyticaOpen || props.soloOpen || props.hosanaOpen ? 'invisible' : ''
+					} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header'}`}
+				>
+					Ex Kathedra
+				</h1>
+			</div>
 			<Autocatalytica
 				autocatalyticaOpen={props.autocatalyticaOpen}
 				toggleAutocatalyticaOpen={props.toggleAutocatalyticaOpen}

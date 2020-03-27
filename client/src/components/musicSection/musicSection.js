@@ -29,10 +29,9 @@ export default function MusicSection(props) {
 	let largeHeaderFont = '3.3rem';
 	let baseHeaderFont = '2.3rem';
 	let baseDividerFont = '2.4rem';
-
 	let mobileLargeHeaderFont = '2.5rem';
 	let mobileBaseHeaderFont = '1.5rem';
-	let allContainerMobileTop = '24vh';
+	let allContainerMobileTop = '29vh';
 
 	//Toggle Functions
 	const togglePerformanceOpen = () => {
@@ -102,7 +101,7 @@ export default function MusicSection(props) {
 		if (props.size.width >= 600 && props.size.width < 767) {
 			x = '10vw';
 		} else if (props.size.width >= 425 && props.size.width < 599) {
-			x = '11vw';
+			x = '14vw';
 		} else if (props.size.width >= 375 && props.size.width < 425) {
 			x = '15vw';
 		} else if (props.size.width >= 320 && props.size.width < 375) {
@@ -255,6 +254,7 @@ export default function MusicSection(props) {
 			setPerformanceOpen(true);
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			props.musicHeaderFadeOutAnimation();
+			props.toggleBackButtonOpen();
 		} else {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
@@ -275,6 +275,8 @@ export default function MusicSection(props) {
 			);
 
 			props.musicHeaderFadeInAnimation();
+			props.toggleBackButtonOpen();
+
 			// props.headersContainerMusicOpenAnimation();
 		}
 	};
@@ -308,6 +310,7 @@ export default function MusicSection(props) {
 			setEngineeringOpen(true);
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			props.musicHeaderFadeOutAnimation();
+			props.toggleBackButtonOpen();
 		} else {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
@@ -327,6 +330,7 @@ export default function MusicSection(props) {
 			);
 			setEngineeringOpen(false);
 			props.musicHeaderFadeInAnimation();
+			props.toggleBackButtonOpen();
 
 			// setBothOpen(true);
 		}

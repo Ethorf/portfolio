@@ -58,7 +58,6 @@ function Main() {
 	const musicHeaderTl = new TimelineMax({ paused: true });
 	const faceTl = new TimelineMax({ paused: true });
 	const dividerTl = new TimelineMax({ paused: true });
-	const arrowTl = new TimelineMax({ paused: true });
 	const [headersAnimation, setHeadersAnimation] = useState(null);
 	let [webSectionOpen, setWebSectionOpen] = useState(false);
 	let [musicSectionOpen, setMusicSectionOpen] = useState(false);
@@ -67,10 +66,11 @@ function Main() {
 	const [musicHeaderAnimation, setMusicHeaderAnimation] = useState(null);
 	const [dividerAnimation, setDividerAnimation] = useState(null);
 	const [faceOpen, setFaceOpen] = useState(null);
-	const [arrowFade, setArrowFade] = useState(null);
 	const [nameSmall, setNameSmall] = useState(false);
 	const [headersOpen, setHeadersOpen] = useState(false);
 	const [bioOpen, setBioOpen] = useState(false);
+	const [backButtonOpen, setBackButtonOpen] = useState(false);
+
 	let nameContainer = useRef(null);
 	let headersContainer = useRef(null);
 	let webHeaderContainer = useRef(null);
@@ -81,11 +81,8 @@ function Main() {
 	let faceContainer = useRef(null);
 	let dividerContainer = useRef(null);
 	let dividerContainerMobile = useRef(null);
-	let arrowRightContainer = useRef(null);
-	let arrowLeftContainer = useRef(null);
-	const headerMobileAnimXMovement = '29vw';
 	const dur = 1.2;
-
+	//Animation Size Functions
 	const webAnimSize = () => {
 		let x = 0;
 		if (size.width >= 1800) {
@@ -146,10 +143,11 @@ function Main() {
 		} else if (size.width >= 375 && size.width < 425) {
 			x = '-20vw';
 		} else if (size.width >= 320 && size.width < 374) {
-			x = '-27vw';
+			x = '-25vw';
 		}
 		return x;
 	};
+	//Animation Execution Functions
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: webAnimSize() }).play());
@@ -161,6 +159,7 @@ function Main() {
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
+			setBackButtonOpen(true);
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: 1 }).play());
 			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: 1.2, x: 1, opacity: 1 }).play());
@@ -169,6 +168,7 @@ function Main() {
 			);
 			setWebSectionOpen(false);
 			setBothOpen(true);
+			setBackButtonOpen(false);
 		}
 	};
 	const musicHeaderOpenAnimation = () => {
@@ -186,6 +186,7 @@ function Main() {
 			);
 			setMusicSectionOpen(true);
 			setBothOpen(false);
+			setBackButtonOpen(true);
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: 1, opacity: 1 }).play());
 			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: 0 }).play());
@@ -194,6 +195,7 @@ function Main() {
 			);
 			setMusicSectionOpen(false);
 			setBothOpen(true);
+			setBackButtonOpen(false);
 		}
 	};
 	const webHeaderOpenAnimationMobile = () => {
@@ -223,6 +225,7 @@ function Main() {
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
+			setBackButtonOpen(true);
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: dur, x: 1 }).play());
 			setMusicHeaderAnimation(
@@ -233,6 +236,7 @@ function Main() {
 			);
 			setWebSectionOpen(false);
 			setBothOpen(true);
+			setBackButtonOpen(false);
 		}
 	};
 	const musicHeaderOpenAnimationMobile = () => {
@@ -255,6 +259,7 @@ function Main() {
 			);
 			setMusicSectionOpen(true);
 			setBothOpen(false);
+			setBackButtonOpen(true);
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1, x: 0, opacity: 1 }).play());
 			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: 0 }).play());
@@ -263,6 +268,7 @@ function Main() {
 			);
 			setMusicSectionOpen(false);
 			setBothOpen(true);
+			setBackButtonOpen(false);
 		}
 	};
 	const musicHeaderFadeOutAnimation = () => {
@@ -281,28 +287,7 @@ function Main() {
 				.play()
 		);
 	};
-	//Arrow Anims
 
-	const arrowRightFadeAnimation = () => {
-		if (webSectionOpen === true && bothOpen === false) {
-			setArrowFade(arrowTl.to(arrowRightContainer, { duration: 0.7, opacity: 1 }).play());
-		}
-	};
-	const arrowRightFadeOutAnimation = () => {
-		if (webSectionOpen === true && bothOpen === false) {
-			setArrowFade(arrowTl.to(arrowRightContainer, { duration: 0.2, opacity: 0, x: 50 }).play());
-		}
-	};
-	const arrowLeftFadeAnimation = () => {
-		if (musicSectionOpen === true && bothOpen === false) {
-			setArrowFade(arrowTl.to(arrowLeftContainer, { duration: 1, opacity: 1 }).play());
-		}
-	};
-	const arrowLeftFadeOutAnimation = () => {
-		if (musicSectionOpen === true && bothOpen === false) {
-			setArrowFade(arrowTl.to(arrowLeftContainer, { duration: 0.2, opacity: 0, x: -20 }).play());
-		}
-	};
 	//Face Anims
 	const faceAnimationOpen = () => {
 		setFaceOpen(
@@ -321,10 +306,12 @@ function Main() {
 	const toggleBioOpen = () => {
 		setBioOpen(!bioOpen);
 	};
+	const toggleBackButtonOpen = () => {
+		setBackButtonOpen(!backButtonOpen);
+	};
 	const toggleNameSmall = () => {
 		setNameSmall(!nameSmall);
 	};
-
 	const headersLoadAnimation = () => {
 		if (headersOpen) {
 			setHeadersAnimation(headersTl.to(headersContainer, { height: '0px', duration: 1.2, opacity: 0 }).play());
@@ -353,7 +340,6 @@ function Main() {
 			toggleHeadersOpen();
 		}
 	};
-
 	const headersContainerMusicOpenAnimation = () => {
 		if (headersOpen) {
 			setHeadersAnimation(headersTl.to(headersContainer, { top: '0%', duration: 0.5, opacity: 0 }).play());
@@ -368,17 +354,28 @@ function Main() {
 			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', margin: '0' }).play();
 			faceTl.to(faceContainer, { duration: 1.2, width: '11vw', height: '12vh' });
 			toggleNameSmall();
+			setBackButtonOpen(true);
 		} else {
 			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', marginTop: '-4vh' }).play();
 			faceTl.to(faceContainer, { opacity: 0 });
 			toggleNameSmall();
+			setBackButtonOpen(false);
+		}
+	};
+	const backButton = () => {
+		if (webSectionOpen) {
+			webHeaderOpenAnimation();
+			webHeaderOpenAnimationMobile();
+		} else {
+			musicHeaderOpenAnimation();
+			musicHeaderOpenAnimationMobile();
 		}
 	};
 	useEffect(() => {
 		headersLoadAnimation();
 		faceAnimationOpen();
 	}, []);
-	// console.log(sizeTest());
+	console.log(backButtonOpen);
 	return (
 		<div className="main">
 			<div className={`main__bg`} />
@@ -391,44 +388,29 @@ function Main() {
 					Test
 				</button> */}
 			</header>
-
+			<h3
+				onClick={backButton}
+				className={`main__back-button ${webSectionOpen || musicSectionOpen ? '' : 'nopacity'}
+				${backButtonOpen === false ? 'nopacity' : ''}`}
+			>
+				Back
+			</h3>
 			<div ref={(div) => (headersContainer = div)} className={`main__headers-container`}>
 				<div
 					onClick={webHeaderOpenAnimation}
-					onMouseEnter={arrowRightFadeAnimation}
-					onMouseLeave={arrowRightFadeOutAnimation}
 					ref={(h2) => (webHeaderContainer = h2)}
 					className={`main__web-section-header main__section-header`}
 				>
 					<h2 className={`main__web-header-title`}>Full-stack Web Developer</h2>
-					<h2
-						className={`main__right-arrow main__arrow ${
-							webSectionOpen === false && musicSectionOpen === false ? 'invisible' : ''
-						} ${bothOpen ? 'invisible' : ''}`}
-						ref={(h2) => (arrowRightContainer = h2)}
-					>
-						{/* {'>>'} */}
-					</h2>
 				</div>
 				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainer = h2)}>
 					||{' '}
 				</h2>
-
 				<div
 					onClick={musicHeaderOpenAnimation}
 					ref={(h2) => (musicHeaderContainer = h2)}
-					onMouseEnter={arrowLeftFadeAnimation}
-					onMouseLeave={arrowLeftFadeOutAnimation}
 					className={`main__music-section-header main__section-header`}
 				>
-					<h2
-						className={`main__left-arrow main__arrow  ${
-							webSectionOpen === false && musicSectionOpen === false ? 'invisible' : ''
-						}`}
-						ref={(h2) => (arrowLeftContainer = h2)}
-					>
-						{/* {'<<'} */}
-					</h2>
 					<h2 className={` main__music-header-title`}>Guitarist, Composer, Engineer</h2>
 				</div>
 			</div>
@@ -463,6 +445,7 @@ function Main() {
 				faceAnimationClose={faceAnimationClose}
 				faceAnimationOpen={faceAnimationOpen}
 				size={size}
+				toggleBackButtonOpen={toggleBackButtonOpen}
 			/>
 			<div
 				className={`main__bio-resume-contact-container

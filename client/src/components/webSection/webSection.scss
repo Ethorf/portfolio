@@ -4,7 +4,7 @@
 .webSection {
 	color: silver;
 	position: absolute;
-	top: 30%;
+	top: 35%;
 	z-index: 3;
 	display: flex;
 	flex-direction: column;
@@ -47,7 +47,7 @@
 	}
 
 	@include mobile-small-only() {
-		top: 25%;
+		top: 30%;
 
 		&__not-your-thoughts-image {
 			display: none;
@@ -57,7 +57,7 @@
 		}
 	}
 	@include tablet-only() {
-		top: 22vh;
+		top: 24vh;
 
 		&__not-your-thoughts-image {
 			width: 60vw;

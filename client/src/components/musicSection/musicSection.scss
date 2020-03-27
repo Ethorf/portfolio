@@ -77,7 +77,7 @@
 	}
 
 	@include mobile-small-only() {
-		top: 24vh;
+		top: 30vh;
 
 		&__sections-header {
 			display: none;
@@ -88,12 +88,14 @@
 		&__sections-header-mobile {
 			display: flex;
 			font-size: 1.5rem;
+			margin-top: 3vh;
 		}
 		&__divider-mobile {
 			display: flex;
 		}
 		&__back-home-container {
 			width: 40%;
+			margin-top: 3vh;
 			justify-content: space-evenly;
 		}
 		&__headers-container {
@@ -102,7 +104,7 @@
 			align-items: center;
 			width: 90%;
 			color: whitesmoke;
-			margin-top: 1vh;
+			margin-top: 4vh;
 			margin-left: -5vw;
 			padding: 0;
 			font-family: 'Poppins';
@@ -131,15 +133,10 @@
 		&__headers-container {
 			width: 79%;
 			margin-top: -2vh;
+			font-size: 1.5rem;
 		}
 		&__back-home-container {
 			width: 25%;
-		}
-		&__engineering-header-mobile {
-			font-size: 2rem;
-		}
-		&__composer-header {
-			font-size: 2rem;
 		}
 	}
 	@include tablet-only() {

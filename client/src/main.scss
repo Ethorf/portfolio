@@ -142,6 +142,8 @@
 		margin-bottom: 6vh;
 	}
 	@include mobile-small-only() {
+		top: 30vh;
+
 		&__header {
 			font-size: 2rem;
 			align-items: center;
@@ -183,7 +185,6 @@
 		&__bio-header {
 			margin-left: 3vw;
 			margin-top: 3vh;
-
 			font-size: 1.6rem;
 		}
 		&__resume {

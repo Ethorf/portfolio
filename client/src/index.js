@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Main from './main';
 // import store from './store';
-import { Provider } from './context.js';
+// import { Provider } from './context.js';
 
 // const context = { webSectionOpen: false, bothOpen: true, musicSectionOpen: false };
 

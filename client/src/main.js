@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 // import Context from './context.js';
-import { TimelineMax } from 'gsap';
+import { gsap, TimelineMax } from 'gsap';
 import Face from './assets/EricFacePopup-cropped.png';
 //Component Imports
 import WebSection from './components/webSection/webSection.js';
@@ -10,6 +10,7 @@ import Contact from './components/contact/contact.js';
 //Scss
 import './main.scss';
 import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
+gsap.registerPlugin(CSSPlugin);
 
 // Hook
 function useWindowSize() {

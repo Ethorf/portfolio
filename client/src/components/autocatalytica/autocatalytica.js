@@ -111,7 +111,7 @@ export default function Autocatalytica(props) {
 						<li>First LP with US-based lineup, and first Full-Length LP</li>
 						<li>Vocals, Engineering, Mixing, and Guitar by Eric Thorfinnson</li>
 						<li>"Makes The Dillinger Escape Plan sound like Nickelback"-Metal Hammer</li>
-						<li className={`autocatalytica__links`}>
+						<li className={`records__links`}>
 							<a
 								rel="noopener noreferrer"
 								target="_blank"

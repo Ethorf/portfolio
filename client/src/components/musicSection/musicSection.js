@@ -34,12 +34,6 @@ export default function MusicSection(props) {
 	let allContainerMobileTop = '29vh';
 
 	//Toggle Functions
-	const togglePerformanceOpen = () => {
-		setPerformanceOpen(!performanceOpen);
-	};
-	const toggleEngineeringOpen = () => {
-		setEngineeringOpen(!engineeringOpen);
-	};
 	const toggleAutocatalyticaOpen = () => {
 		setAutocatalyticaOpen(!autocatalyticaOpen);
 	};
@@ -365,7 +359,7 @@ export default function MusicSection(props) {
 					Back
 				</h3>
 				<h3 className={`musicSection__small-divider`}>||</h3>
-				<a href="http://localhost:3000" className={`musicSection__home-button`}>
+				<a href="http://www.ethorf.com" className={`musicSection__home-button`}>
 					Home
 				</a>
 			</div>

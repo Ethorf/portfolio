@@ -249,7 +249,7 @@
 		&__headers-container {
 			width: 100%;
 			z-index: 5;
-			top: 16vh;
+			top: 150px;
 			opacity: 1;
 			// justify-self: center;
 		}
@@ -258,7 +258,7 @@
 		}
 		&__bio-resume-contact-container {
 			top: 26vh;
-			margin-left: 0vw;
+			margin-left: 1vw;
 		}
 		&__section-divider {
 			font-size: 1.6rem;
@@ -308,6 +308,9 @@
 		&__headers-container-mobile {
 			display: none;
 		}
+		&__bio-resume-contact-container {
+			margin-left: 1vw;
+		}
 		&__section-divider {
 			font-size: 1.6rem;
 			margin: 0 2vw;
@@ -341,6 +344,14 @@
 		&__music-header-title {
 			@include hover-underline-right-absolute;
 			height: 3vh;
+		}
+		&__bio-resume-contact-container {
+			margin-left: -1vw;
+		}
+	}
+	@include laptop-xl() {
+		&__bio-resume-contact-container {
+			margin-left: 0vw;
 		}
 	}
 }

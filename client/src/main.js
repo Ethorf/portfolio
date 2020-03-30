@@ -125,12 +125,12 @@ function Main() {
 		let x = 0;
 		if (size.width >= 600 && size.width < 767) {
 			x = '14vw';
-		} else if (size.width >= 426 && size.width < 599) {
-			x = '18vw';
+		} else if (size.width >= 425 && size.width < 599) {
+			x = '17vw';
 		} else if (size.width >= 375 && size.width < 425) {
 			x = '17vw';
-		} else if (size.width >= 320 && size.width < 374) {
-			x = '21vw';
+		} else if (size.width < 374) {
+			x = '19vw';
 		}
 		return x;
 	};

@@ -4,18 +4,18 @@
 .engineering {
 	display: flex;
 	flex-direction: column;
+	font-family: 'Montserrat';
+
 	&__album-container {
 		color: white;
 		margin-bottom: 2vh;
 		display: flex;
 	}
 	&__engineering-header {
-		font-family: 'Avenir';
 		color: white;
 	}
 	&__album-header {
 		font-size: 1.8rem;
-		font-family: 'Marmelad';
 	}
 	&__album-artwork {
 		height: 35vh;

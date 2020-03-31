@@ -351,13 +351,13 @@ function Main() {
 	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', margin: '0' }).play();
-			faceTl.to(faceContainer, { duration: 1.2, width: '11vw', height: '12vh' });
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', marginTop: '0' }).play();
+			faceTl.to(faceContainer, { duration: 1.2, opacity: 1 });
 			toggleNameSmall();
 			setBackButtonOpen(true);
 		} else {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', marginTop: '-4vh' }).play();
-			faceTl.to(faceContainer, { opacity: 0 });
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', marginTop: '-9vh' }).play();
+			faceTl.to(faceContainer, { duration: 1.2, opacity: 0 });
 			toggleNameSmall();
 			setBackButtonOpen(false);
 		}

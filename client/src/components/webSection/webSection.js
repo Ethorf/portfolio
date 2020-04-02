@@ -2,7 +2,7 @@ import React from 'react';
 import './webSection.scss';
 import NotYourThoughtsImage from '../../assets/not-your-thoughts-screencap.png';
 import GitHubDark from '../../assets/Icons/silver/GitHub-silver.png';
-import NYTVideo from '../../assets/NYT-preview-video-720-edited-2.mp4';
+import NYTVideo from '../../assets/NYT-preview-video-540.mp4';
 
 export default function WebSection(webSectionOpen) {
 	return (

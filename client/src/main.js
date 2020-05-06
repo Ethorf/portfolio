@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
-// import Context from './context.js';
 import { gsap, TimelineMax } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
+//Asset Imports
 import Face from './assets/EricFacePopup-cropped.png';
+import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
 //Component Imports
 import WebSection from './components/webSection/webSection.js';
 import MusicSection from './components/musicSection/musicSection.js';
@@ -10,48 +11,12 @@ import SocialButtons from './components/socialButtons/socialButtons';
 import Contact from './components/contact/contact.js';
 //Scss
 import './main.scss';
-import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
+// Function Imports
+import { webAnimSize, webAnimSizeMobile, musicAnimSizeMobile, musicAnimSize } from './functions/animation-functions.js';
+
 gsap.registerPlugin(CSSPlugin);
 
-// Hook
-function useWindowSize() {
-	//this is just kind of ttd-ish(?) checking if the window object exises
-	const isClient = typeof window === 'object';
-	//this function getSize returns the height and width of the window object
-	//which is just straight up accessable without any import or anything
-
-	function getSize() {
-		return {
-			width: isClient ? window.innerWidth : undefined,
-			height: isClient ? window.innerHeight : undefined
-		};
-	}
-	//here we are creating state (scoped into this block of a function i believe??)
-	const [windowSize, setWindowSize] = useState(getSize);
-	// this hook is using a callback arrow function to check once again if a client is present
-	// then adding an event listener directly on the window object(this is where that vanilly shit comin in)
-	//it also uses a lil baby mini function in handleResize to set the window size / get it from
-	//ooh using get and set in a sentence
-	//
-	useEffect(() => {
-		if (!isClient) {
-			return false;
-		}
-		//this is a function where we are using our hook to set the state of our windo
-		function handleResize() {
-			setWindowSize(getSize());
-		}
-
-		window.addEventListener('resize', handleResize);
-		//this is very confusing return statement down here?
-		return () => window.removeEventListener('resize', handleResize);
-	}, []); // Empty array ensures that effect is only run on mount and unmount
-
-	return windowSize;
-}
-
 function Main() {
-	const size = useWindowSize();
 	const nameTl = new TimelineMax({ paused: true });
 	const headersTl = new TimelineMax({ paused: true });
 	const webHeaderTl = new TimelineMax({ paused: true });
@@ -82,71 +47,7 @@ function Main() {
 	let dividerContainer = useRef(null);
 	let dividerContainerMobile = useRef(null);
 	const dur = 1.2;
-	//Animation Size Functions
-	const webAnimSize = () => {
-		let x = 0;
-		if (size.width >= 1800) {
-			x = '17vw';
-		} else if (size.width >= 1500 && size.width < 1799) {
-			x = '18.5vw';
-		} else if (size.width >= 1350 && size.width < 1500) {
-			x = '21vw';
-		} else if (size.width >= 1200 && size.width < 1349) {
-			x = '23vw';
-		} else if (size.width >= 993 && size.width < 1199) {
-			x = '24vw';
-		} else if (size.width >= 768 && size.width < 992) {
-			x = '24vw';
-		} else if (size.width >= 426 && size.width < 767) {
-			x = '20vw';
-		}
-		return x;
-	};
-	const musicAnimSize = () => {
-		let x = 0;
-		if (size.width >= 1800) {
-			x = '-14vw';
-		} else if (size.width >= 1500 && size.width < 1799) {
-			x = '-16vw';
-		} else if (size.width >= 1350 && size.width < 1500) {
-			x = '-18vw';
-		} else if (size.width >= 1200 && size.width < 1349) {
-			x = '-20vw';
-		} else if (size.width >= 993 && size.width < 1199) {
-			x = '-20vw';
-		} else if (size.width >= 768 && size.width < 992) {
-			x = '-20vw';
-		} else if (size.width >= 426 && size.width < 767) {
-			x = '-20vw';
-		}
-		return x;
-	};
-	const webAnimSizeMobile = () => {
-		let x = 0;
-		if (size.width >= 600 && size.width < 767) {
-			x = '14vw';
-		} else if (size.width >= 425 && size.width < 599) {
-			x = '17vw';
-		} else if (size.width >= 375 && size.width < 425) {
-			x = '17vw';
-		} else if (size.width < 374) {
-			x = '19vw';
-		}
-		return x;
-	};
-	const musicAnimSizeMobile = () => {
-		let x = 0;
-		if (size.width >= 600 && size.width < 767) {
-			x = '-14vw';
-		} else if (size.width >= 425 && size.width < 599) {
-			x = '-18vw';
-		} else if (size.width >= 375 && size.width < 425) {
-			x = '-20vw';
-		} else if (size.width >= 320 && size.width < 374) {
-			x = '-25vw';
-		}
-		return x;
-	};
+
 	//Animation Execution Functions
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
@@ -378,15 +279,18 @@ function Main() {
 	console.log(backButtonOpen);
 	return (
 		<div className="main">
+			<div className="grid__quadrant grid__top-left"></div>
+			<div className="grid__quadrant grid__top-right"></div>
+			<div className="grid__quadrant grid__bottom-right"></div>
+			<div className="grid__quadrant grid__bottom-left"></div>
+
 			<div className={`main__bg`} />
+			<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
+
 			<header className="main__header-container">
-				<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
 				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://www.ethorf.com">
 					Eric Thorfinnson
 				</a>
-				{/* <button className={'test-button'} onClick={musicHeaderFadeOutAnimation}>
-					Test
-				</button> */}
 			</header>
 			<h3
 				onClick={backButton}
@@ -444,7 +348,6 @@ function Main() {
 				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
 				faceAnimationClose={faceAnimationClose}
 				faceAnimationOpen={faceAnimationOpen}
-				size={size}
 				toggleBackButtonOpen={toggleBackButtonOpen}
 			/>
 			<div
@@ -456,16 +359,20 @@ function Main() {
 					<h2 onClick={toggleBioOpen} className={'main__bio-header'}>
 						Bio
 					</h2>
-					<p className={`main__bio-description ${bioOpen ? 'bio-visible' : 'bio-invisible'}`}>
-						I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my
-						preternatural obsession with videogames at around age 10, and have been an avid guitar player,
-						composer, and general recording nerd since about 13.
-						<p /> I'm a compassionately pretentious coffee nerd, omnivorous beer neophilliac, and an
-						incorrigble glutton for literature. I am also an avid meditator who is for better or worse
-						deeply convinced in the power of mindfulness to effect positive change. I would love nothing
-						more than to help empower people through technology, and perhaps churn out a tasty riff or two
-						along the way. <br />
-					</p>
+					<div className={`main__bio-description ${bioOpen ? 'bio-visible' : 'bio-invisible'}`}>
+						<p>
+							I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my
+							preternatural obsession with videogames at around age 10, and have been an avid guitar
+							player, composer, and general recording nerd since about 13.
+						</p>
+						<p>
+							I'm a compassionately pretentious coffee nerd, omnivorous beer neophilliac, and an
+							incorrigble glutton for literature. I am also an avid meditator who is for better or worse
+							deeply convinced in the power of mindfulness to effect positive change. I would love nothing
+							more than to help empower people through technology, and perhaps churn out a tasty riff or
+							two along the way.
+						</p>
+					</div>
 				</div>
 				<a
 					target="_blank"

@@ -34,7 +34,7 @@ export default function WebSection(webSectionOpen) {
 				</p>
 				Through a consistent daily journaling practice and engagement with mindfulness prompts, the user will
 				unlock new modes, features, and achievements as they progress towards the solidification of their
-				practice.<p>Developed by Eric Thorfinnson with React + Redux + Node + MondoDB </p>
+				practice.<p>Developed by Eric Thorfinnson wirth React + Redux + Node + MondoDB </p>
 			</h3>
 			<a
 				rel="noopener noreferrer"

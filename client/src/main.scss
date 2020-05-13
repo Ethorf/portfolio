@@ -25,7 +25,6 @@
 		bottom: 0;
 	}
 }
-
 .main {
 	width: 100%;
 	display: flex;
@@ -43,7 +42,7 @@
 		right: 0;
 		left: 0;
 		top: 16%;
-		border: 1px solid red;
+		// border: 1px solid red;
 	}
 	&__all-not-header {
 		display: flex;
@@ -54,15 +53,15 @@
 
 	&__header-container {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-end;
 		align-items: center;
 		flex-direction: column;
 		background: none;
 		position: absolute;
 		z-index: 4;
 		width: 100%;
-		height: 30%;
-		border: 1px solid red;
+		height: 20%;
+		// border: 1px solid red;
 	}
 	&__header {
 		margin: 0;
@@ -77,19 +76,20 @@
 	&__face-img {
 		position: absolute;
 		z-index: 2;
-		height: 14%;
+		height: 17%;
 		top: 10%;
 		opacity: 0;
 	}
 	&__back-button {
 		color: silver;
-		position: relative;
-		margin: 0 2vw 1vh 0;
-		z-index: 10;
+		position: absolute;
+		top: 55%;
+		z-index: 17;
 		transition: all 1s;
 		opacity: 1;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 	}
 	&__headers-container-mobile {
@@ -99,7 +99,7 @@
 	&__headers-container {
 		width: 100%;
 		display: flex;
-		border: 1px solid red;
+		// border: 1px solid red;
 		opacity: 0;
 		justify-content: center;
 		align-items: center;
@@ -112,11 +112,12 @@
 		display: flex;
 		flex-direction: row;
 		position: relative;
+		align-items: center;
 		z-index: 3;
 		width: 50%;
 		color: white;
-		font-size: 1.5rem;
-		border: 1px solid red;
+		font-size: 24px;
+		// border: 1px solid red;
 	}
 	&__web-section-header {
 		justify-content: flex-end;
@@ -129,6 +130,19 @@
 		font-size: 2.8rem;
 		z-index: 3;
 		margin: 0vh 1%;
+	}
+	&__web-header-title {
+		@include hover-underline-left;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	&__music-header-title {
+		position: relative;
+		@include hover-underline-right;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	/////// below headers stuff starts \\\\\\
 
@@ -166,28 +180,44 @@
 		transition: all 0.3s;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 		transition: all 0.3s;
 	}
 	&__bio-description {
+		display: none;
+		opacity: 0;
 		width: 60%;
 		text-align: center;
 		font-size: 1.4rem;
 		margin-bottom: 6vh;
+		transition: all 1s;
+	}
+	&__bio-close-button {
+		background-color: black;
+		color: silver;
+		outline: none;
+		border-radius: 3px;
+		border: 1px solid silver;
+		margin-top: -1%;
+		margin-bottom: 2%;
+		transition: all 1s;
+		&:hover {
+			cursor: pointer;
+			color: white;
+		}
 	}
 	@include mobile-small-only() {
-		top: 30vh;
 		&__header {
-			font-size: 2rem;
+			font-size: 2.2rem;
 			align-items: center;
-			top: 2vh;
+			top: 8%;
 		}
 		&__face-img {
-			width: 35vw;
-			top: 11vh;
+			top: 11%;
 		}
 		&__bg {
-			top: 12vh;
+			top: 12%;
 		}
 		&__back-button {
 			top: 2vh;
@@ -196,37 +226,35 @@
 			display: none;
 		}
 		&__header-container {
-			margin-top: 8vh;
+			height: 15%;
 		}
 		&__headers-container-mobile {
-			width: 84%;
+			width: 100%;
 			display: flex;
-			justify-content: center;
-			height: 13vh;
-			position: relative;
-			z-index: 5;
 			opacity: 1;
-			font-size: 1rem;
-			justify-self: center;
+			// border: 1px solid red;
+			font-size: 1.2rem;
+			justify-content: center;
+			align-items: center;
+			transition: all 1s;
+			position: absolute;
+			top: 18%;
+			z-index: 3;
 		}
 		&__bio-resume-contact-container {
-			top: 32vh;
+			top: 32%;
 		}
 		&__section-divider {
-			font-size: 1.6rem;
-			height: 6vh;
+			font-size: 2rem;
 		}
 		&__section-header {
 			font-size: 1.1rem;
 		}
 		&__bio-header {
-			margin-left: 3vw;
-			margin-top: 3vh;
 			font-size: 1.6rem;
 		}
 		&__resume {
 			font-size: 1.6rem;
-			margin-left: 4vw;
 		}
 		&__bio-description {
 			width: 80%;
@@ -246,23 +274,15 @@
 		}
 	}
 	@include tablet-only {
-		&__web-header-title {
-			// @include hover-underline-left;
-			margin-top: 3vh;
-		}
-		&__music-header-title {
-			// @include hover-underline-right-absolute;
-		}
 		&__header {
 			font-size: 3rem;
-			align-items: center;
 		}
 		&__back-button {
 			margin-right: 2vw;
 		}
 		&__face-img {
 			height: 12%;
-			top: 6%;
+			top: 9%;
 		}
 		&__bg {
 			top: 10%;
@@ -272,31 +292,24 @@
 			z-index: 5;
 			top: 150px;
 			opacity: 1;
-			// justify-self: center;
 		}
 		&__headers-container-mobile {
 			display: none;
 		}
 		&__bio-resume-contact-container {
-			top: 26vh;
-			margin-left: 1vw;
+			top: 32%;
 		}
 		&__section-divider {
-			font-size: 1.6rem;
-			margin: 0 2vw;
+			font-size: 2.2rem;
 		}
 		&__section-header {
 			font-size: 1rem;
 			align-items: center;
 		}
-		&__bio-header {
-			margin-right: 3vw;
-			margin-top: 3vh;
-			font-size: 1.6rem;
-		}
+		&__bio-header,
 		&__resume {
 			font-size: 1.6rem;
-			margin-right: 3vw;
+			z-index: 10;
 		}
 		&__bio-description {
 			width: 80%;
@@ -306,64 +319,36 @@
 		}
 	}
 	@include laptop-small() {
-		&__web-header-title {
-			@include hover-underline-left;
-		}
-		&__music-header-title {
-			@include hover-underline-right-absolute;
-		}
 		&__header {
 			font-size: 3.3rem;
 			align-items: center;
 		}
 		&__face-img {
-			height: 17%;
-			top: 12%;
-		}
-		&__headers-container {
-			height: 11%;
-			width: 100%;
-			opacity: 1;
-			justify-self: center;
+			height: 14%;
+			top: 10%;
 		}
 		&__headers-container-mobile {
 			display: none;
 		}
-		&__bio-resume-contact-container {
-			// margin-left: 1vw;
-		}
 		&__section-divider {
-			font-size: 1.6rem;
-			margin: 0 2vw;
+			font-size: 2.4rem;
 		}
 		&__section-header {
-			font-size: 1.2rem;
+			font-size: 1.3rem;
 			align-items: center;
 		}
 		&__bio-header {
-			// margin-right: 3vw;
 			margin-top: 3%;
 			font-size: 1.9rem;
 		}
 		&__resume {
 			font-size: 1.9rem;
-			// margin-right: 3vw;
 		}
 		&__bio-description {
 			width: 80%;
 			text-align: center;
 			font-size: 1.2rem;
 			line-height: 1.2;
-		}
-	}
-	@include laptop-large() {
-		&__web-header-title {
-			@include hover-underline-left;
-			// height: 3vh;
-		}
-		&__music-header-title {
-			@include hover-underline-right-absolute;
-			// height: 3vh;
 		}
 	}
 	@include laptop-xl() {
@@ -374,6 +359,7 @@
 }
 .nopacity {
 	opacity: 0;
+	transition: all 1s;
 }
 .invisible {
 	opacity: 0;
@@ -394,19 +380,4 @@
 	z-index: 15;
 	top: 10%;
 	border: 1px solid white;
-}
-
-.bio-invisible {
-	// opacity: 0;
-	display: none;
-	// width: 0.01vw;
-	// height: 0px;
-	// overflow: hidden;
-	// color: black;
-	transition: all 3s;
-}
-.bio-visible {
-	transition: all 1s;
-	opacity: 1;
-	margin-top: 0;
 }

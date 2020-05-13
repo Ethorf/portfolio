@@ -5,9 +5,9 @@ export const webAnimSize = () => {
 	} else if (window.innerWidth >= 1500 && window.innerWidth < 1799) {
 		x = '18.5vw';
 	} else if (window.innerWidth >= 1350 && window.innerWidth < 1500) {
-		x = '21vw';
+		x = '17vw';
 	} else if (window.innerWidth >= 1200 && window.innerWidth < 1349) {
-		x = '23vw';
+		x = '20vw';
 	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 		x = '24vw';
 	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {

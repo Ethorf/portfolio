@@ -49,7 +49,7 @@ export default function MusicSection(props) {
 	//Animation Size Functions
 	const headerAnimSmallFontSize = () => {
 		let x;
-		if (props.size.width >= 993) {
+		if (window.innerWidth >= 993) {
 			x = largeHeaderFont;
 		} else {
 			x = baseHeaderFont;
@@ -58,60 +58,60 @@ export default function MusicSection(props) {
 	};
 	const performanceAnimSize = () => {
 		let x = 0;
-		if (props.size.width >= 1700) {
+		if (window.innerWidth >= 1700) {
 			x = '9vw';
-		} else if (props.size.width >= 1500 && props.size.width < 1699) {
+		} else if (window.innerWidth >= 1500 && window.innerWidth < 1699) {
 			x = '11vw';
-		} else if (props.size.width >= 1200 && props.size.width < 1499) {
+		} else if (window.innerWidth >= 1200 && window.innerWidth < 1499) {
 			x = '11vw';
-		} else if (props.size.width >= 993 && props.size.width < 1199) {
+		} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 			x = '15vw';
-		} else if (props.size.width >= 870 && props.size.width < 992) {
+		} else if (window.innerWidth >= 870 && window.innerWidth < 992) {
 			x = '14vw';
-		} else if (props.size.width >= 768 && props.size.width < 869) {
+		} else if (window.innerWidth >= 768 && window.innerWidth < 869) {
 			x = '14vw';
 		}
 		return x;
 	};
 	const engineeringAnimSize = () => {
 		let x = 0;
-		if (props.size.width >= 1800) {
+		if (window.innerWidth >= 1800) {
 			x = '-9vw';
-		} else if (props.size.width >= 1500 && props.size.width < 1799) {
+		} else if (window.innerWidth >= 1500 && window.innerWidth < 1799) {
 			x = '-11vw';
-		} else if (props.size.width >= 1200 && props.size.width < 1499) {
+		} else if (window.innerWidth >= 1200 && window.innerWidth < 1499) {
 			x = '-13vw';
-		} else if (props.size.width >= 993 && props.size.width < 1199) {
+		} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 			x = '-15vw';
-		} else if (props.size.width >= 870 && props.size.width < 992) {
+		} else if (window.innerWidth >= 870 && window.innerWidth < 992) {
 			x = '-16vw';
-		} else if (props.size.width >= 768 && props.size.width < 869) {
+		} else if (window.innerWidth >= 768 && window.innerWidth < 869) {
 			x = '-14vw';
 		}
 		return x;
 	};
 	const composerAnimSizeMobile = () => {
 		let x = 0;
-		if (props.size.width >= 600 && props.size.width < 767) {
+		if (window.innerWidth >= 600 && window.innerWidth < 767) {
 			x = '10vw';
-		} else if (props.size.width >= 425 && props.size.width < 599) {
+		} else if (window.innerWidth >= 425 && window.innerWidth < 599) {
 			x = '14vw';
-		} else if (props.size.width >= 375 && props.size.width < 425) {
+		} else if (window.innerWidth >= 375 && window.innerWidth < 425) {
 			x = '15vw';
-		} else if (props.size.width >= 320 && props.size.width < 375) {
+		} else if (window.innerWidth >= 320 && window.innerWidth < 375) {
 			x = '17vw';
 		}
 		return x;
 	};
 	const engineerAnimSizeMobile = () => {
 		let x = 0;
-		if (props.size.width >= 600 && props.size.width < 767) {
+		if (window.innerWidth >= 600 && window.innerWidth < 767) {
 			x = '-14vw';
-		} else if (props.size.width >= 425 && props.size.width < 599) {
+		} else if (window.innerWidth >= 425 && window.innerWidth < 599) {
 			x = '-19vw';
-		} else if (props.size.width >= 375 && props.size.width < 425) {
+		} else if (window.innerWidth >= 375 && window.innerWidth < 425) {
 			x = '-19vw';
-		} else if (props.size.width >= 320 && props.size.width < 375) {
+		} else if (window.innerWidth >= 320 && window.innerWidth < 375) {
 			x = '-19vw';
 		}
 		return x;
@@ -140,8 +140,6 @@ export default function MusicSection(props) {
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setPerformanceOpen(true);
 			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
-			props.faceAnimationClose();
 		} else {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
@@ -157,8 +155,6 @@ export default function MusicSection(props) {
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setPerformanceOpen(false);
 			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
-			props.faceAnimationOpen();
 		}
 	};
 	const engineeringHeaderOpenAnimation = () => {
@@ -186,8 +182,6 @@ export default function MusicSection(props) {
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setEngineeringOpen(true);
 			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
-			props.faceAnimationClose();
 		} else {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
@@ -213,9 +207,7 @@ export default function MusicSection(props) {
 			);
 			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setEngineeringOpen(false);
-			props.faceAnimationOpen();
 			props.headersContainerMusicOpenAnimation();
-			props.nameSmallAnimation();
 		}
 	};
 	const composerHeaderOpenAnimationMobile = () => {

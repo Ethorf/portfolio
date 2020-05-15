@@ -51,6 +51,7 @@
 		margin-right: 2vw;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 	}
 	&__section-container-left {
@@ -108,6 +109,7 @@
 		font-size: 1.2rem;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 	}
 	&__back-button {
@@ -119,6 +121,7 @@
 		align-items: center;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 	}
 	&__back-button-bottom {

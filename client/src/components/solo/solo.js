@@ -1,5 +1,4 @@
 import React from 'react';
-import YouTube from 'react-youtube';
 import '../performance/performance.scss';
 import '../../misc-styles/records.scss';
 import QwagAlbumArt from '../../assets/album-art/eric-thorfinnson-qwag-artwork.jpg';
@@ -151,14 +150,14 @@ export default function Solo(props) {
 			</div>
 			<div className={`records__video-container`}>
 				<h2 className={`records__section-header`}>Video</h2>
-				<div className={`records__video-two-container`}>
-					<YouTube className={`records__video`} videoId={'ORJj5BnDqls'} opts={opts} />
-					<YouTube className={`records__video`} videoId={'r4h8cK3Ukvc'} opts={opts} />
-				</div>
-				<div className={`records__video-two-container`}>
-					<YouTube className={`records__video`} videoId={'_viSVk_UtBc'} opts={opts} />
-					<YouTube className={`records__video`} videoId={'b0BKS31hGX4'} opts={opts} />
-				</div>
+				<a
+					rel="noopener noreferrer"
+					target="_blank"
+					href="https://www.youtube.com/channel/UChQemB3q8KLAKAixR63-AaQ/videos"
+					className={`records__video-header`}
+				>
+					Eric Thorfinnson Youtube Channel
+				</a>
 			</div>
 		</div>
 	);

@@ -70,9 +70,16 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	&__video {
-		width: 20vw;
-		height: 30vh;
+	&__video-header {
+		text-decoration: none;
+		color: silver;
+		padding-bottom: 50px;
+		transition: all 0.5s;
+		&:hover {
+			transition: all 0.5s;
+
+			color: white;
+		}
 	}
 	&__header-open {
 		color: white;
@@ -81,6 +88,7 @@
 		font-size: 1.4rem;
 		&:hover {
 			color: white;
+			cursor: pointer;
 		}
 	}
 	@include mobile-small-only() {

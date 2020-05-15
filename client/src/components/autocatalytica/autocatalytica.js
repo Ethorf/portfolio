@@ -1,5 +1,4 @@
 import React from 'react';
-import YouTube from 'react-youtube';
 import '../performance/performance.scss';
 import VicissitudesAlbumArt from '../../assets/album-art/autocatalytica-vicissitudes-artwork.jpg';
 import AutocatalyticaAlbumArt from '../../assets/album-art/autocatalytica-eponymous-artwork.jpg';
@@ -176,19 +175,14 @@ export default function Autocatalytica(props) {
 			</div>
 			<div className={`records__video-container`}>
 				<h2 className={`records__section-header`}>Video</h2>
-				<div className={`records__video-two-container`}>
-					<YouTube className={`records__video`} videoId={'J4LmFtEwcQA'} opts={opts} />
-					<YouTube className={`records__video`} videoId={'116BMZV_v9U'} opts={opts} />
-				</div>
-				<div className={`records__video-two-container`}>
-					<YouTube className={`records__video`} videoId={'nRZ5cRF-te8'} opts={opts} />
-					<YouTube className={`records__video`} videoId={'Osq5Af9IYhQ'} opts={opts} />
-				</div>
-
-				<div className={`records__video-two-container`}>
-					<YouTube className={`records__video`} videoId={'sorcaXQynu8'} opts={opts} />
-					<YouTube className={`records__video`} videoId={'cbn97elSACQ'} opts={opts} />
-				</div>
+				<a
+					className={`records__video-header`}
+					rel="noopener noreferrer"
+					target="_blank"
+					href="https://www.youtube.com/user/Autocatalytica/videos?view=0&sort=dd&shelf_id=0"
+				>
+					Autocatalytica Youtube Channel
+				</a>
 			</div>
 		</div>
 	);

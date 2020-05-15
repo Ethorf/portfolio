@@ -53,7 +53,6 @@
 
 	&__header-container {
 		display: flex;
-		justify-content: flex-end;
 		align-items: center;
 		flex-direction: column;
 		background: none;
@@ -68,6 +67,7 @@
 		font-size: 3.4rem;
 		position: relative;
 		z-index: 4;
+		top: 50%;
 		font-family: 'Poppins', sans-serif;
 		font-weight: 600;
 		color: white;
@@ -83,9 +83,10 @@
 	&__back-button {
 		color: silver;
 		position: absolute;
-		top: 55%;
+		top: 25%;
 		z-index: 17;
 		transition: all 1s;
+		font-size: 17px;
 		opacity: 1;
 		&:hover {
 			color: white;
@@ -116,7 +117,7 @@
 		z-index: 3;
 		width: 50%;
 		color: white;
-		font-size: 24px;
+		font-size: 23px;
 		// border: 1px solid red;
 	}
 	&__web-section-header {
@@ -197,8 +198,7 @@
 		background-color: black;
 		color: silver;
 		outline: none;
-		border-radius: 3px;
-		border: 1px solid silver;
+		border: none;
 		margin-top: -1%;
 		margin-bottom: 2%;
 		transition: all 1s;
@@ -217,7 +217,7 @@
 			top: 11%;
 		}
 		&__bg {
-			top: 12%;
+			top: 13%;
 		}
 		&__back-button {
 			top: 2vh;
@@ -248,7 +248,7 @@
 			font-size: 2rem;
 		}
 		&__section-header {
-			font-size: 1.1rem;
+			font-size: 18px;
 		}
 		&__bio-header {
 			font-size: 1.6rem;
@@ -275,23 +275,14 @@
 	}
 	@include tablet-only {
 		&__header {
-			font-size: 3rem;
-		}
-		&__back-button {
-			margin-right: 2vw;
+			font-size: 2.9rem;
 		}
 		&__face-img {
-			height: 12%;
-			top: 9%;
+			height: 14%;
+			top: 11%;
 		}
 		&__bg {
-			top: 10%;
-		}
-		&__headers-container {
-			width: 100%;
-			z-index: 5;
-			top: 150px;
-			opacity: 1;
+			top: 15%;
 		}
 		&__headers-container-mobile {
 			display: none;
@@ -300,10 +291,10 @@
 			top: 32%;
 		}
 		&__section-divider {
-			font-size: 2.2rem;
+			font-size: 2rem;
 		}
 		&__section-header {
-			font-size: 1rem;
+			font-size: 16px;
 			align-items: center;
 		}
 		&__bio-header,
@@ -333,16 +324,15 @@
 		&__section-divider {
 			font-size: 2.4rem;
 		}
-		&__section-header {
-			font-size: 1.3rem;
-			align-items: center;
-		}
 		&__bio-header {
 			margin-top: 3%;
 			font-size: 1.9rem;
 		}
 		&__resume {
 			font-size: 1.9rem;
+		}
+		&__section-header {
+			font-size: 21px;
 		}
 		&__bio-description {
 			width: 80%;

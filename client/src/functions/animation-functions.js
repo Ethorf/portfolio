@@ -7,7 +7,7 @@ export const webAnimSize = () => {
 	} else if (window.innerWidth >= 1350 && window.innerWidth < 1500) {
 		x = '17vw';
 	} else if (window.innerWidth >= 1200 && window.innerWidth < 1349) {
-		x = '20vw';
+		x = '27vw';
 	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 		x = '24vw';
 	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
@@ -17,6 +17,35 @@ export const webAnimSize = () => {
 	}
 	return x;
 };
+export const headersBigFontSize = () => {
+	let size;
+
+	if (window.innerWidth >= 1200) {
+		size = '30px';
+	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
+		size = '30px';
+	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+		size = '34px';
+	} else if (window.innerWidth <= 767) {
+		size = '34px';
+	}
+	return size;
+};
+export const headersSmallFontSize = () => {
+	let size;
+
+	if (window.innerWidth >= 1200) {
+		size = '24px';
+	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
+		size = '21px';
+	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+		size = '16px';
+	} else if (window.innerWidth <= 767) {
+		size = '18px';
+	}
+	return size;
+};
+
 export const musicAnimSize = () => {
 	let x = 0;
 	if (window.innerWidth >= 1800) {

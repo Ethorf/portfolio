@@ -12,7 +12,14 @@ import Contact from './components/contact/contact.js';
 //Scss
 import './main.scss';
 // Function Imports
-import { webAnimSize, webAnimSizeMobile, musicAnimSizeMobile, musicAnimSize } from './functions/animation-functions.js';
+import {
+	headersSmallFontSize,
+	headersBigFontSize,
+	webAnimSize,
+	webAnimSizeMobile,
+	musicAnimSizeMobile,
+	musicAnimSize
+} from './functions/animation-functions.js';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -41,6 +48,7 @@ function Main() {
 
 	let nameContainer = useRef(null);
 	let headersContainer = useRef(null);
+	let webHeader = useRef(null);
 	let webHeaderContainer = useRef(null);
 	let musicHeaderContainer = useRef(null);
 	let webHeaderContainerMobile = useRef(null);
@@ -51,22 +59,35 @@ function Main() {
 	let bioContainer = useRef(null);
 
 	let dividerContainerMobile = useRef(null);
-	const dur = 1.1;
+	const dur = 1.3;
 
 	//Animation Execution Functions
 	const webHeaderOpenAnimation = () => {
 		if (webSectionOpen === false) {
 			setWebHeaderAnimation(
 				webHeaderTl
-					.to(webHeaderContainer, { duration: dur, x: webAnimSize() })
-					.to(webHeaderContainer, { duration: 0.6, y: -50 })
+					.to(webHeaderContainer, {
+						duration: dur,
+						x: webAnimSize(),
+						y: -110,
+						ease: 'power1.out'
+					})
+					.to(webHeaderContainer, {
+						duration: 0.4,
+						ease: 'power1.out',
+						fontSize: headersBigFontSize()
+					})
+					.to(webHeader, { duration: 0.4, justifyContent: 'center' })
 					.play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: dur, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
+				dividerTl.to(dividerContainer, { duration: dur, x: 260, autoAlpha: 0, fontSize: '0.4rem' }).play()
 			);
 			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: webAnimSize(), opacity: 0 }).play()
+				musicHeaderTl
+					.to(musicHeaderContainer, { duration: 0.8, x: webAnimSize(), autoAlpha: 0 })
+					.to(musicHeaderContainer, { x: 1000 })
+					.play()
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
@@ -74,10 +95,20 @@ function Main() {
 			nameSmallAnimation();
 			faceAnimationClose();
 		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: 0, y: 0 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: 1.2, x: 1, opacity: 1 }).play());
+			setWebHeaderAnimation(
+				webHeaderTl
+					.to(webHeaderContainer, { duration: 0.8, x: 0, y: 0 })
+					.to(webHeaderContainer, { duration: 0.5, fontSize: headersSmallFontSize() })
+					.play()
+			);
+			setMusicHeaderAnimation(
+				musicHeaderTl
+					.to(musicHeaderContainer, { duration: 0.1, x: 260 })
+					.to(musicHeaderContainer, { duration: 1.2, x: 0, autoAlpha: 1 })
+					.play()
+			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.2, x: 1, opacity: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl.to(dividerContainer, { duration: 1.2, x: 1, autoAlpha: 0.9, fontSize: '2.8rem' }).play()
 			);
 			setWebSectionOpen(false);
 			setBothOpen(true);
@@ -89,17 +120,17 @@ function Main() {
 	const musicHeaderOpenAnimation = () => {
 		if (musicSectionOpen === false) {
 			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: musicAnimSize(), opacity: 0 }).play()
+				webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: musicAnimSize(), autoAlpha: 0 }).play()
 			);
 			setMusicHeaderAnimation(
 				musicHeaderTl
 					.to(musicHeaderContainer, { duration: dur, x: musicAnimSize() })
-					.to(musicHeaderContainer, { duration: 0.6, y: -50 })
+					.to(musicHeaderContainer, { duration: 0.6, y: -50, fontSize: headersBigFontSize() })
 					.play()
 			);
 			setDividerAnimation(
 				dividerTl
-					.to(dividerContainer, { duration: dur, x: musicAnimSize(), opacity: 0, fontSize: '0.4rem' })
+					.to(dividerContainer, { duration: dur, x: musicAnimSize(), autoAlpha: 0, fontSize: '0.4rem' })
 					.play()
 			);
 			setMusicSectionOpen(true);
@@ -108,10 +139,14 @@ function Main() {
 			nameSmallAnimation();
 			faceAnimationClose();
 		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: 1, opacity: 1 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainer, { duration: dur, x: 0, y: 0 }).play());
+			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: 1, autoAlpha: 1 }).play());
+			setMusicHeaderAnimation(
+				musicHeaderTl
+					.to(musicHeaderContainer, { duration: dur, x: 0, y: 0, fontSize: headersSmallFontSize() })
+					.play()
+			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: dur, x: 0, opacity: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl.to(dividerContainer, { duration: dur, x: 0, autoAlpha: 0.9, fontSize: '2.8rem' }).play()
 			);
 			setMusicSectionOpen(false);
 			setBothOpen(true);
@@ -135,14 +170,14 @@ function Main() {
 					.to(dividerContainerMobile, {
 						duration: 1.2,
 						x: webAnimSizeMobile(),
-						opacity: 0,
+						autoAlpha: 0,
 						fontSize: '0.4rem'
 					})
 					.play()
 			);
 			setMusicHeaderAnimation(
 				musicHeaderTl
-					.to(musicHeaderContainerMobile, { duration: 1.2, x: webAnimSizeMobile(), opacity: 0 })
+					.to(musicHeaderContainerMobile, { duration: 1.2, x: webAnimSizeMobile(), autoAlpha: 0 })
 					.play()
 			);
 			setWebSectionOpen(true);
@@ -151,10 +186,10 @@ function Main() {
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: dur, x: 1 }).play());
 			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainerMobile, { duration: dur, x: 1, opacity: 1 }).play()
+				musicHeaderTl.to(musicHeaderContainerMobile, { duration: dur, x: 1, autoAlpha: 1 }).play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: dur, x: 1, opacity: 0.9, fontSize: '1.8rem' }).play()
+				dividerTl.to(dividerContainerMobile, { duration: dur, x: 1, autoAlpha: 0.9, fontSize: '1.8rem' }).play()
 			);
 			setWebSectionOpen(false);
 			setBothOpen(true);
@@ -238,8 +273,9 @@ function Main() {
 		} else {
 			setBioAnimation(
 				bioTl
-					.to(bioContainer, { duration: 0.5, opacity: 1 })
-					.to(bioContainer, { duration: 0.1, display: 'none', opacity: 0 })
+					.to(bioContainer, { duration: 0.7, opacity: 0 })
+					.to(bioContainer, { duration: 0.7, display: 'none' })
+
 					.play()
 			);
 		}
@@ -289,12 +325,12 @@ function Main() {
 	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', y: 0 }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', top: '50%' }).play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 1 });
 			toggleNameSmall();
 			setBackButtonOpen(true);
 		} else {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', y: -70 }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '1%' }).play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 0 });
 			toggleNameSmall();
 			setBackButtonOpen(false);
@@ -346,7 +382,9 @@ function Main() {
 					a
 					className={`main__web-section-header main__section-header`}
 				>
-					<h2 className={`main__web-header-title`}>Full-stack Web Developer</h2>
+					<h2 ref={(h2) => (webHeader = h2)} className={`main__web-header-title`}>
+						Full-stack Web Developer
+					</h2>
 				</div>
 				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainer = h2)}>
 					||{' '}
@@ -400,9 +438,7 @@ function Main() {
 					<h2 onClick={bioOpen ? null : toggleBioOpen} className={'main__bio-header'}>
 						Bio
 					</h2>
-					<button className={`${bioOpen ? 'main__bio-close-button' : 'invisible'}`} onClick={toggleBioOpen}>
-						close
-					</button>
+
 					<div ref={(div) => (bioContainer = div)} className={`main__bio-description`}>
 						<p>
 							I'm a Toronto-based Web Developer and Musician. I began coding as an extension of my
@@ -416,6 +452,9 @@ function Main() {
 							more than to help empower people through technology, and perhaps churn out a tasty riff or
 							two along the way.
 						</p>
+						<button className={`main__bio-close-button`} onClick={toggleBioOpen}>
+							close x
+						</button>
 					</div>
 				</div>
 				<a

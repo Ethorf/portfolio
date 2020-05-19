@@ -5,8 +5,9 @@ import GitHubDark from '../../assets/Icons/silver/GitHub-silver.png';
 import NYTVideo from '../../assets/NYT-preview-video-540.mp4';
 
 export default function WebSection(webSectionOpen) {
+	console.log(webSectionOpen.webSectionOpen);
 	return (
-		<div className={`webSection ${webSectionOpen.webSectionOpen ? '' : 'invisible'}`}>
+		<div className={`webSection ${webSectionOpen.webSectionOpen ? 'visible' : 'nopacity'}`}>
 			<h1 className={`webSection__projects-header`}>Projects</h1>
 			<a
 				rel="noopener noreferrer"

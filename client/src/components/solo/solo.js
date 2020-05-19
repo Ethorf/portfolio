@@ -9,11 +9,6 @@ import SoundcloudIcon from '../../assets/Icons/silver/soundcloud-silver.png';
 import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';
 
 export default function Solo(props) {
-	const opts = {
-		playerVars: {
-			autoplay: 0
-		}
-	};
 	return (
 		<div className={`solo expanded-section ${props.soloOpen ? '' : 'invisible'}`}>
 			<div className={`records__header-back-container`}>

@@ -5,7 +5,7 @@
 	color: silver;
 	position: absolute;
 	top: 25%;
-	z-index: 3;
+	z-index: 5;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -82,15 +82,13 @@
 	width: 0.01vw;
 	overflow: hidden;
 	color: black;
-	transition: all 3s;
-	position: relative;
-	margin-top: 20%;
-}
-.invisible {
-	opacity: 0;
-	display: none;
-	width: 0.01vw;
-	overflow: hidden;
-	color: black;
 	transition: all 1s;
+}
+.nopacity {
+	opacity: 0;
+	transition: all 3s;
+}
+.visible {
+	transition: all 3s;
+	opacity: 1;
 }

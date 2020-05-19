@@ -7,9 +7,9 @@ export const webAnimSize = () => {
 	} else if (window.innerWidth >= 1350 && window.innerWidth < 1500) {
 		x = '17vw';
 	} else if (window.innerWidth >= 1200 && window.innerWidth < 1349) {
-		x = '27vw';
-	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 		x = '24vw';
+	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
+		x = '22vw';
 	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
 		x = '24vw';
 	} else if (window.innerWidth >= 426 && window.innerWidth < 767) {
@@ -23,11 +23,11 @@ export const headersBigFontSize = () => {
 	if (window.innerWidth >= 1200) {
 		size = '30px';
 	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
-		size = '30px';
+		size = '26px';
 	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
-		size = '34px';
+		size = '25px';
 	} else if (window.innerWidth <= 767) {
-		size = '34px';
+		size = '25px';
 	}
 	return size;
 };
@@ -88,6 +88,18 @@ export const musicAnimSizeMobile = () => {
 		x = '-20vw';
 	} else if (window.innerWidth >= 320 && window.innerWidth < 374) {
 		x = '-25vw';
+	}
+	return x;
+};
+
+export const dividerNormalSize = () => {
+	let x = 0;
+	if (window.innerWidth >= 1200) {
+		x = '2.8rem';
+	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
+		x = '2.4rem';
+	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
+		x = '2rem';
 	}
 	return x;
 };

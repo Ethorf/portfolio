@@ -18,7 +18,8 @@ import {
 	webAnimSize,
 	webAnimSizeMobile,
 	musicAnimSizeMobile,
-	musicAnimSize
+	musicAnimSize,
+	dividerNormalSize
 } from './functions/animation-functions.js';
 
 gsap.registerPlugin(CSSPlugin);
@@ -47,6 +48,7 @@ function Main() {
 	const [backButtonOpen, setBackButtonOpen] = useState(false);
 
 	let nameContainer = useRef(null);
+	let ethorfContainer = useRef(null);
 	let headersContainer = useRef(null);
 	let webHeader = useRef(null);
 	let webHeaderContainer = useRef(null);
@@ -57,7 +59,6 @@ function Main() {
 	let faceContainer = useRef(null);
 	let dividerContainer = useRef(null);
 	let bioContainer = useRef(null);
-
 	let dividerContainerMobile = useRef(null);
 	const dur = 1.3;
 
@@ -69,25 +70,21 @@ function Main() {
 					.to(webHeaderContainer, {
 						duration: dur,
 						x: webAnimSize(),
-						y: -110,
 						ease: 'power1.out'
 					})
 					.to(webHeaderContainer, {
 						duration: 0.4,
 						ease: 'power1.out',
+						y: -110,
 						fontSize: headersBigFontSize()
 					})
-					.to(webHeader, { duration: 0.4, justifyContent: 'center' })
 					.play()
 			);
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: dur, x: 260, autoAlpha: 0, fontSize: '0.4rem' }).play()
 			);
 			setMusicHeaderAnimation(
-				musicHeaderTl
-					.to(musicHeaderContainer, { duration: 0.8, x: webAnimSize(), autoAlpha: 0 })
-					.to(musicHeaderContainer, { x: 1000 })
-					.play()
+				musicHeaderTl.to(musicHeaderContainer, { duration: 0.8, x: webAnimSize(), autoAlpha: 0 }).play()
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
@@ -108,7 +105,9 @@ function Main() {
 					.play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.2, x: 1, autoAlpha: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: 1.2, x: 1, autoAlpha: 0.9, fontSize: dividerNormalSize() })
+					.play()
 			);
 			setWebSectionOpen(false);
 			setBothOpen(true);
@@ -146,7 +145,9 @@ function Main() {
 					.play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: dur, x: 0, autoAlpha: 0.9, fontSize: '2.8rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: dur, x: 0, autoAlpha: 0.9, fontSize: dividerNormalSize() })
+					.play()
 			);
 			setMusicSectionOpen(false);
 			setBothOpen(true);
@@ -183,6 +184,7 @@ function Main() {
 			setWebSectionOpen(true);
 			setBothOpen(false);
 			setBackButtonOpen(true);
+			// nameSmallAnimation();
 		} else {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: dur, x: 1 }).play());
 			setMusicHeaderAnimation(
@@ -194,6 +196,7 @@ function Main() {
 			setWebSectionOpen(false);
 			setBothOpen(true);
 			setBackButtonOpen(false);
+			// nameSmallAnimation();
 		}
 	};
 	const musicHeaderOpenAnimationMobile = () => {
@@ -244,7 +247,6 @@ function Main() {
 				.play()
 		);
 	};
-
 	//Face Anims
 	const faceAnimationOpen = () => {
 		setFaceOpen(
@@ -262,7 +264,6 @@ function Main() {
 	};
 	const toggleBioOpen = () => {
 		setBioOpen(!bioOpen);
-
 		if (bioOpen === false) {
 			setBioAnimation(
 				bioTl
@@ -330,19 +331,27 @@ function Main() {
 			toggleNameSmall();
 			setBackButtonOpen(true);
 		} else {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '1%' }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '1%', left: '-50%' }).play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 0 });
 			toggleNameSmall();
 			setBackButtonOpen(false);
 		}
 	};
 	const backButton = () => {
-		if (webSectionOpen) {
-			webHeaderOpenAnimation();
-			webHeaderOpenAnimationMobile();
-		} else {
-			musicHeaderOpenAnimation();
-			musicHeaderOpenAnimationMobile();
+		if (window.innerWidth < 767) {
+			if (webSectionOpen) {
+				webHeaderOpenAnimationMobile();
+			} else {
+				musicHeaderOpenAnimationMobile();
+			}
+		} else if (window.innerWidth >= 767) {
+			if (webSectionOpen) {
+				webHeaderOpenAnimation();
+				webHeaderOpenAnimationMobile();
+			} else {
+				musicHeaderOpenAnimation();
+				musicHeaderOpenAnimationMobile();
+			}
 		}
 	};
 	useEffect(() => {
@@ -359,10 +368,12 @@ function Main() {
 
 			<div className={`main__bg`} />
 			<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
-
 			<header className="main__header-container">
 				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://www.ethorf.com">
 					Eric Thorfinnson
+				</a>
+				<a ref={(h1) => (ethorfContainer = h1)} className="main__ethorf-header" href="http://www.ethorf.com">
+					Ethorf
 				</a>
 				<h3
 					onClick={backButton}

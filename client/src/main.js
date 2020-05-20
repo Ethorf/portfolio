@@ -40,7 +40,6 @@ function Main() {
 	const [musicHeaderAnimation, setMusicHeaderAnimation] = useState(null);
 	const [dividerAnimation, setDividerAnimation] = useState(null);
 	const [bioAnimation, setBioAnimation] = useState(null);
-
 	const [faceOpen, setFaceOpen] = useState(null);
 	const [nameSmall, setNameSmall] = useState(false);
 	const [headersOpen, setHeadersOpen] = useState(false);
@@ -48,7 +47,6 @@ function Main() {
 	const [backButtonOpen, setBackButtonOpen] = useState(false);
 
 	let nameContainer = useRef(null);
-	let ethorfContainer = useRef(null);
 	let headersContainer = useRef(null);
 	let webHeader = useRef(null);
 	let webHeaderContainer = useRef(null);
@@ -68,15 +66,16 @@ function Main() {
 			setWebHeaderAnimation(
 				webHeaderTl
 					.to(webHeaderContainer, {
-						duration: dur,
-						x: webAnimSize(),
-						ease: 'power1.out'
+						duration: 0.7,
+						left: '-10%',
+						y: -110,
+						ease: 'power1.out',
+						position: 'absolute'
 					})
 					.to(webHeaderContainer, {
 						duration: 0.4,
 						ease: 'power1.out',
-						y: -110,
-						fontSize: headersBigFontSize()
+						fontSize: '26px'
 					})
 					.play()
 			);
@@ -94,7 +93,7 @@ function Main() {
 		} else {
 			setWebHeaderAnimation(
 				webHeaderTl
-					.to(webHeaderContainer, { duration: 0.8, x: 0, y: 0 })
+					.to(webHeaderContainer, { duration: 0.8, left: '0%', position: 'relative', y: 0 })
 					.to(webHeaderContainer, { duration: 0.5, fontSize: headersSmallFontSize() })
 					.play()
 			);
@@ -123,8 +122,23 @@ function Main() {
 			);
 			setMusicHeaderAnimation(
 				musicHeaderTl
-					.to(musicHeaderContainer, { duration: dur, x: musicAnimSize() })
-					.to(musicHeaderContainer, { duration: 0.6, y: -50, fontSize: headersBigFontSize() })
+					.to(musicHeaderContainer, {
+						duration: 0.7,
+						// x: musicAnimSize(),
+						right: '-5%',
+						ease: 'power1.out',
+						y: -90
+					})
+					.to(musicHeaderContainer, {
+						duration: 0.4,
+						ease: 'power1.out',
+						position: 'absolute'
+					})
+					.to(musicHeaderContainer, {
+						duration: 0.2,
+						ease: 'power1.out',
+						fontSize: '25px'
+					})
 					.play()
 			);
 			setDividerAnimation(
@@ -141,7 +155,14 @@ function Main() {
 			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainer, { duration: dur, x: 1, autoAlpha: 1 }).play());
 			setMusicHeaderAnimation(
 				musicHeaderTl
-					.to(musicHeaderContainer, { duration: dur, x: 0, y: 0, fontSize: headersSmallFontSize() })
+					.to(musicHeaderContainer, {
+						duration: 0.8,
+						right: '0%',
+						position: 'relative',
+						y: 0,
+						fontSize: headersSmallFontSize()
+					})
+					.to(musicHeaderContainer, { duration: 0.5 })
 					.play()
 			);
 			setDividerAnimation(
@@ -326,12 +347,15 @@ function Main() {
 	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', top: '50%' }).play();
+			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', top: '50%', autoAlpha: 1 }).play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 1 });
 			toggleNameSmall();
 			setBackButtonOpen(true);
 		} else {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '1%', left: '-50%' }).play();
+			nameTl
+				.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '-50%' })
+				.to(nameContainer, { duration: 0.2, autoAlpha: 0 })
+				.play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 0 });
 			toggleNameSmall();
 			setBackButtonOpen(false);
@@ -369,20 +393,36 @@ function Main() {
 			<div className={`main__bg`} />
 			<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
 			<header className="main__header-container">
-				<a ref={(h1) => (nameContainer = h1)} className="main__header" href="http://www.ethorf.com">
+				<a ref={(h1) => (nameContainer = h1)} className={`main__header`} href="http://www.ethorf.com">
 					Eric Thorfinnson
 				</a>
-				<a ref={(h1) => (ethorfContainer = h1)} className="main__ethorf-header" href="http://www.ethorf.com">
+				<a
+					className={`main__ethorf-header main__ethorf-header-left ${
+						webSectionOpen ? 'visible' : 'invisible'
+					}`}
+					href="http://www.ethorf.com"
+				>
+					Ethorf
+				</a>
+				<a
+					className={`main__ethorf-header main__ethorf-header-right ${
+						musicSectionOpen ? 'visible' : 'invisible'
+					}`}
+					href="http://www.ethorf.com"
+				>
 					Ethorf
 				</a>
 				<h3
 					onClick={backButton}
 					className={`
 					main__back-button
-					${webSectionOpen || musicSectionOpen ? '' : 'nopacity'}
+					${webSectionOpen || musicSectionOpen ? 'visible' : 'invisible'}
+					 ${webSectionOpen ? 'main__back-button-left' : ''}
+					 ${musicSectionOpen ? 'main__back-button-right' : ''}
+
 				`}
 				>
-					Back
+					back
 				</h3>
 			</header>
 
@@ -391,9 +431,15 @@ function Main() {
 					onClick={webSectionOpen ? '' : webHeaderOpenAnimation}
 					ref={(h2) => (webHeaderContainer = h2)}
 					a
-					className={`main__web-section-header main__section-header`}
+					className={`main__web-section-header main__section-header 
+					${webSectionOpen ? 'main__section-open-left-underline' : ''}
+					
+					`}
 				>
-					<h2 ref={(h2) => (webHeader = h2)} className={`main__web-header-title`}>
+					<h2
+						ref={(h2) => (webHeader = h2)}
+						className={`main__web-header-title ${webSectionOpen ? '' : 'hover-underline-left'}`}
+					>
 						Full-stack Web Developer
 					</h2>
 				</div>
@@ -403,7 +449,10 @@ function Main() {
 				<div
 					onClick={musicSectionOpen ? '' : musicHeaderOpenAnimation}
 					ref={(h2) => (musicHeaderContainer = h2)}
-					className={`main__music-section-header main__section-header`}
+					className={`main__music-section-header main__section-header
+					${musicSectionOpen ? 'main__section-open-right-underline' : ''}
+					
+					`}
 				>
 					<h2 className={` main__music-header-title`}>Guitarist, Composer, Engineer</h2>
 				</div>

@@ -7,7 +7,7 @@ import NYTVideo from '../../assets/NYT-preview-video-540.mp4';
 export default function WebSection(webSectionOpen) {
 	console.log(webSectionOpen.webSectionOpen);
 	return (
-		<div className={`webSection ${webSectionOpen.webSectionOpen ? 'visible' : 'nopacity'}`}>
+		<div className={`webSection ${webSectionOpen.webSectionOpen ? 'visible' : 'invisible'}`}>
 			<h1 className={`webSection__projects-header`}>Projects</h1>
 			<a
 				rel="noopener noreferrer"

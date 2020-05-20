@@ -45,7 +45,14 @@
 		height: 2px;
 		bottom: -8px;
 		left: 50%;
-		background-color: rgba(255, 255, 255, 0.89);
+		background: rgb(2, 0, 36);
+		background: linear-gradient(
+			90deg,
+			rgba(2, 0, 36, 0.6993172268907564) 1%,
+			rgba(243, 229, 230, 1) 7%,
+			rgba(237, 223, 225, 1) 85%,
+			rgba(22, 7, 37, 1) 100%
+		);
 		opacity: 0;
 		transform: scaleX(0);
 		transition: all 0.7s ease-in-out 0s;
@@ -72,7 +79,7 @@
 			90deg,
 			rgba(2, 0, 36, 1) 0%,
 			rgba(22, 7, 37, 1) 1%,
-			rgba(243, 229, 230, 1) 25%,
+			rgba(243, 229, 230, 1) 18%,
 			rgba(255, 241, 241, 1) 95%,
 			rgba(122, 122, 122, 0.36878501400560226) 100%
 		);
@@ -116,5 +123,77 @@
 .instagram {
 	&:hover {
 		content: url('../assets/Icons/silver/instagram-light-silver.png');
+	}
+}
+
+.invisible {
+	opacity: 0;
+	display: none;
+	width: 0.01vw;
+	overflow: hidden;
+	color: black;
+	transition: all 1s;
+	animation: dnonefadeout 3s 1;
+	@keyframes dnonefadeout {
+		0% {
+			display: flex;
+			opacity: 1;
+		}
+
+		99% {
+			opacity: 0;
+			display: flex;
+		}
+
+		100% {
+			opacity: 0;
+		}
+	}
+}
+.visible {
+	transition: all 3s;
+	opacity: 1;
+	display: flex;
+	animation: dnonefadein 3s 1;
+	@keyframes dnonefadein {
+		0% {
+			display: none;
+			opacity: 0;
+		}
+
+		1% {
+			display: flex;
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+}
+@keyframes section-left {
+	0% {
+		opacity: 0;
+		width: 0%;
+		left: 30%;
+		width: 2%;
+	}
+	100% {
+		opacity: 0.6;
+		width: 105%;
+		left: 26%;
+	}
+}
+@keyframes section-right {
+	0% {
+		opacity: 0;
+		width: 0%;
+		right: 30%;
+		width: 2%;
+	}
+	100% {
+		opacity: 0.6;
+		width: 95%;
+		right: 26%;
 	}
 }

@@ -1,5 +1,6 @@
 @import './misc-styles/fonts-mixins.scss';
 @import './misc-styles/variables.scss';
+
 .grid {
 	&__quadrant {
 		width: 50%;
@@ -60,7 +61,7 @@
 		z-index: 6;
 		width: 100%;
 		height: 20%;
-		border: 1px solid red;
+		// border: 1px solid red;
 	}
 	&__header {
 		margin: 0;
@@ -75,15 +76,56 @@
 	}
 	&__ethorf-header {
 		margin: 0;
-		font-size: 3.4rem;
-		position: relative;
-		z-index: 6;
-		top: 50%;
+		font-size: 2.5rem;
+		position: absolute;
+		z-index: 9;
 		font-family: 'Poppins', sans-serif;
 		font-weight: 600;
-		color: white;
 		text-decoration: none;
+		color: rgba(245, 245, 245, 0.899);
+		opacity: 0;
 	}
+	&__ethorf-header-left {
+		left: 1.5%;
+		&:before {
+			content: '';
+			position: absolute;
+			width: 210%;
+			height: 2px;
+			bottom: -0px;
+			left: -10%;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				90deg,
+				rgba(2, 0, 36, 0.6993172268907564) 1%,
+				rgba(243, 229, 230, 1) 7%,
+				rgba(237, 223, 225, 1) 85%,
+				rgba(22, 7, 37, 1) 100%
+			);
+			transition: all 0.7s ease-in-out 0s;
+		}
+	}
+	&__ethorf-header-right {
+		right: 2.5%;
+		&:before {
+			content: '';
+			position: absolute;
+			width: 150%;
+			height: 2px;
+			bottom: -9px;
+			right: -10%;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				90deg,
+				rgba(2, 0, 36, 0.6993172268907564) 1%,
+				rgba(243, 229, 230, 1) 7%,
+				rgba(237, 223, 225, 1) 85%,
+				rgba(22, 7, 37, 1) 100%
+			);
+			transition: all 0.7s ease-in-out 0s;
+		}
+	}
+
 	&__face-img {
 		position: absolute;
 		z-index: 2;
@@ -94,16 +136,24 @@
 	&__back-button {
 		color: silver;
 		position: absolute;
-		// top: 25%;
-		right: 3%;
+		top: 10%;
 		z-index: 17;
 		transition: all 1s;
+		font-size: 1.1rem;
 		font-size: 17px;
 		opacity: 1;
 		&:hover {
 			color: white;
 			cursor: pointer;
 		}
+	}
+	&__back-button-left {
+		left: 12%;
+		// right: 14%;
+	}
+	&__back-button-right {
+		right: 12%;
+		bottom: -20%;
 	}
 	&__headers-container-mobile {
 		display: none;
@@ -112,7 +162,6 @@
 	&__headers-container {
 		width: 100%;
 		display: flex;
-		// border: 1px solid red;
 		opacity: 0;
 		justify-content: center;
 		align-items: center;
@@ -130,10 +179,51 @@
 		width: 50%;
 		color: white;
 		font-size: 23px;
-		// border: 1px solid red;
 	}
 	&__web-section-header {
 		justify-content: flex-end;
+	}
+	&__section-open-left-underline {
+		&:before {
+			content: '';
+			position: absolute;
+			width: 105%;
+			height: 2px;
+			bottom: 24px;
+			left: 30%;
+			opacity: 0.6;
+			animation: section-left 3s 1;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				90deg,
+				rgba(2, 0, 36, 0.6993172268907564) 1%,
+				rgba(243, 229, 230, 1) 7%,
+				rgba(237, 223, 225, 1) 85%,
+				rgba(22, 7, 37, 1) 100%
+			);
+			transition: all 0.7s ease-in-out 0s;
+		}
+	}
+	&__section-open-right-underline {
+		&:before {
+			content: '';
+			position: absolute;
+			width: 95%;
+			height: 2px;
+			bottom: 20px;
+			right: 26%;
+			opacity: 0.6;
+			animation: section-right 3s 1;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				90deg,
+				rgba(2, 0, 36, 0.6993172268907564) 1%,
+				rgba(243, 229, 230, 1) 7%,
+				rgba(237, 223, 225, 1) 85%,
+				rgba(22, 7, 37, 1) 100%
+			);
+			transition: all 0.7s ease-in-out 0s;
+		}
 	}
 
 	&__section-divider {
@@ -145,7 +235,6 @@
 		margin: 0vh 1%;
 	}
 	&__web-header-title {
-		@include hover-underline-left;
 		&:hover {
 			cursor: pointer;
 		}
@@ -365,7 +454,6 @@
 }
 .invisible {
 	opacity: 0;
-	display: none;
 	width: 0.01vw;
 	height: 0px;
 	overflow: hidden;
@@ -382,4 +470,7 @@
 	z-index: 15;
 	top: 10%;
 	border: 1px solid white;
+}
+.hover-underline-left {
+	@include hover-underline-left;
 }

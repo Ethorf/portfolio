@@ -26,6 +26,7 @@
 		&:hover {
 			color: white;
 			transition: all 0.3s;
+			cursor: pointer;
 		}
 	}
 	&__form {
@@ -64,7 +65,7 @@
 		opacity: 0;
 		position: relative;
 		z-index: 5;
-		padding: 5vh 0;
+		padding: 5vh 2%;
 		display: flex;
 		justify-content: center;
 		background-color: black;
@@ -79,7 +80,7 @@
 		border-radius: 5%;
 		background-color: black;
 		color: silver;
-		border: 1px solid silver;
+		border: 2px solid silver;
 		padding: 4px;
 		outline: none;
 		width: 10vw;
@@ -95,9 +96,10 @@
 	&__message {
 		height: 15vh;
 		width: 25vw;
-		border-radius: 2%;
+		border-radius: 3%;
 		resize: none;
-		padding: 0.2vw;
+		padding: 0.3vw;
+		font-size: 1.3rem;
 		text-align: start;
 	}
 	&__message-identifier {
@@ -111,7 +113,7 @@
 		padding: 0.3%;
 		font-size: 0.9rem;
 		outline: none;
-		border: 1px solid silver;
+		border: 2px solid silver;
 		background-color: black;
 		color: white;
 		border-radius: 8%;

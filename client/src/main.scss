@@ -83,10 +83,9 @@
 		font-weight: 600;
 		text-decoration: none;
 		color: rgba(245, 245, 245, 0.899);
-		opacity: 0;
 	}
 	&__ethorf-header-left {
-		left: 1.5%;
+		left: 3%;
 		&:before {
 			content: '';
 			position: absolute;
@@ -106,13 +105,13 @@
 		}
 	}
 	&__ethorf-header-right {
-		right: 2.5%;
+		right: 3%;
 		&:before {
 			content: '';
 			position: absolute;
 			width: 150%;
 			height: 2px;
-			bottom: -9px;
+			bottom: -0px;
 			right: -10%;
 			background: rgb(2, 0, 36);
 			background: linear-gradient(
@@ -136,29 +135,29 @@
 	&__back-button {
 		color: silver;
 		position: absolute;
-		top: 10%;
+		top: 10px;
 		z-index: 17;
 		transition: all 1s;
 		font-size: 1.1rem;
-		font-size: 17px;
-		opacity: 1;
+		font-size: 15px;
+		opacity: 0.8;
 		&:hover {
 			color: white;
 			cursor: pointer;
 		}
 	}
 	&__back-button-left {
-		left: 12%;
+		left: 1%;
 		// right: 14%;
 	}
 	&__back-button-right {
-		right: 12%;
+		right: 1%;
 		bottom: -20%;
 	}
 	&__headers-container-mobile {
 		display: none;
 	}
-	//Headers
+	//////////Headers
 	&__headers-container {
 		width: 100%;
 		display: flex;
@@ -167,10 +166,10 @@
 		align-items: center;
 		transition: all 1s;
 		position: absolute;
-		top: 22%;
+		top: 180px;
 		z-index: 6;
 	}
-	&__section-header {
+	&__section-header-container {
 		display: flex;
 		flex-direction: row;
 		position: relative;
@@ -255,7 +254,7 @@
 		align-items: center;
 		width: 100%;
 		position: absolute;
-		top: 37%;
+		top: 280px;
 		z-index: 13;
 	}
 	&__resume {
@@ -451,18 +450,6 @@
 .nopacity {
 	opacity: 0;
 	transition: all 1s;
-}
-.invisible {
-	opacity: 0;
-	width: 0.01vw;
-	height: 0px;
-	overflow: hidden;
-	color: black;
-	transition: all 1s;
-}
-.visible {
-	transition: all 1s;
-	opacity: 1;
 }
 
 .test-button {

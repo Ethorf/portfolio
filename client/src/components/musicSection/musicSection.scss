@@ -4,36 +4,52 @@
 .musicSection {
 	color: silver;
 	position: absolute;
-	top: 32%;
-	z-index: 3;
+	top: 200px;
+	z-index: 7;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
 	font-family: 'Maven Pro';
 	transition: all 2s;
+	opacity: 1;
+	// border: 1px solid red;
 
 	&__headers-container {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		width: 80%;
+		align-items: center;
+		width: 100%;
+		position: absolute;
+		z-index: 15;
 		color: whitesmoke;
-		margin-top: 5vh;
-		font-family: 'Poppins';
-		transition: all 0.5s;
+		font-family: 'Lekton';
+		// border: 1px solid red;
+		font-size: 1.4rem;
 	}
-	&__sections-header {
-		font-size: 3.3rem;
-		margin: 0;
+	&__performance-section-header-container {
+		// border: 1px solid red;
+		position: relative;
+		left: 0%;
 	}
-	&__performance-header {
+	&__engineering-section-header-container {
+		// border: 1px solid red;
+		position: relative;
+		left: 0%;
+	}
+	&__performance-header-title {
 		@include hover-underline-left;
-		margin-bottom: 6vh;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
-	&__engineering-header {
-		@include hover-underline-right;
-		margin-bottom: 2vh;
+	&__engineering-header-title {
+		// @include hover-underline-right;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	&__back-home-container {
 		display: flex;
@@ -45,7 +61,10 @@
 		transition: all 0.5s;
 	}
 	&__back-button {
-		margin: 1% 0;
+		position: absolute;
+		left: 1%;
+		font-size: 0.9em;
+		bottom: 14%;
 		&:hover {
 			color: white;
 			cursor: pointer;
@@ -71,8 +90,10 @@
 		color: white;
 	}
 	&__divider {
-		font-size: 3rem;
+		font-size: 2.6rem;
 		margin: 1vh 2vw;
+		font-weight: 400;
+		font-family: 'Poppins';
 	}
 	&__sections-header-mobile {
 		display: none;
@@ -160,4 +181,25 @@
 	display: flex;
 	justify-content: center;
 	align-self: center;
+}
+.music-section-open-left-underline {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 180%;
+		height: 2px;
+		bottom: 28px;
+		left: -10%;
+		opacity: 0.6;
+		animation: section-left 3s 1;
+		background: rgb(2, 0, 36);
+		background: linear-gradient(
+			90deg,
+			rgba(2, 0, 36, 0.6993172268907564) 1%,
+			rgba(243, 229, 230, 1) 7%,
+			rgba(237, 223, 225, 1) 85%,
+			rgba(22, 7, 37, 1) 100%
+		);
+		transition: all 0.7s ease-in-out 0s;
+	}
 }

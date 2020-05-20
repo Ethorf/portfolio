@@ -14,11 +14,11 @@ export default function Autocatalytica(props) {
 		}
 	};
 	return (
-		<div className={`expanded-section autocatalytica ${props.autocatalyticaOpen ? '' : 'invisible'}`}>
+		<div className={`expanded-section autocatalytica ${props.autocatalyticaOpen ? 'visible' : 'invisible'}`}>
 			<div className={`records__header-back-container`}>
 				<h1 className={`autocatalytica-header`}>Autocatalytica</h1>
 				<h3 className={`records__back-button`} onClick={props.toggleAutocatalyticaOpen}>
-					Back
+					{'<<'}
 				</h3>
 			</div>
 			<h2 className={`records__section-header records__bio-header`}>Bio</h2>

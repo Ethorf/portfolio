@@ -20,8 +20,8 @@ export default function Performance(props) {
 						<h1
 							onClick={props.toggleAutocatalyticaOpen}
 							className={`performance__section-header performance__autocatalytica-header ${
-								props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''
-							} ${props.autocatalyticaOpen ? 'invisible' : ''}`}
+								props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : 'visible'
+							} ${props.autocatalyticaOpen ? 'invisible' : 'visible'}`}
 						>
 							Autocatalytica
 						</h1>
@@ -30,7 +30,7 @@ export default function Performance(props) {
 						className={`performance__divider ${
 							props.hosanaOpen || props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen
 								? 'invisible'
-								: ''
+								: 'visible'
 						}`}
 					>
 						||
@@ -42,9 +42,13 @@ export default function Performance(props) {
 					>
 						<h1
 							onClick={props.toggleHosanaOpen}
-							className={`performance__section-header ${
-								props.hosanaOpen ? ' invisible' : ' performance__hosana-header '
-							} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''}`}
+							className={`performance__section-header performance__hosana-header ${
+								props.hosanaOpen ? ' invisible' : 'visible  '
+							} ${
+								props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen
+									? 'invisible'
+									: 'visible'
+							}`}
 						>
 							Hosana
 						</h1>
@@ -55,9 +59,15 @@ export default function Performance(props) {
 						<h1
 							onClick={props.toggleSoloOpen}
 							className={`${
-								props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : ''
+								props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen
+									? 'invisible'
+									: 'visible'
 							}
-                             ${props.soloOpen ? 'invisible' : 'performance__solo-header performance__section-header'}`}
+                             ${
+									props.soloOpen
+										? 'invisible'
+										: 'performance__solo-header performance__section-header visible'
+								}`}
 						>
 							Solo
 						</h1>
@@ -66,7 +76,7 @@ export default function Performance(props) {
 						className={`performance__divider ${
 							props.hosanaOpen || props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen
 								? 'invisible'
-								: ''
+								: 'visible'
 						}`}
 					>
 						||
@@ -77,7 +87,7 @@ export default function Performance(props) {
 							onClick={props.toggleExKathedraOpen}
 							className={`performance__section-header ${
 								props.autocatalyticaOpen || props.soloOpen || props.hosanaOpen ? 'invisible' : ''
-							} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header'}`}
+							} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header visible'}`}
 						>
 							Ex Kathedra
 						</h1>
@@ -88,8 +98,8 @@ export default function Performance(props) {
 				<h1
 					onClick={props.toggleAutocatalyticaOpen}
 					className={`performance__section-header performance__autocatalytica-header ${
-						props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''
-					} ${props.autocatalyticaOpen ? 'invisible' : ''}`}
+						props.hosanaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : 'visible'
+					} ${props.autocatalyticaOpen ? 'invisible' : 'visible'}`}
 				>
 					Autocatalytica
 				</h1>
@@ -97,24 +107,28 @@ export default function Performance(props) {
 					onClick={props.toggleHosanaOpen}
 					className={`performance__section-header ${
 						props.hosanaOpen ? ' invisible' : ' performance__hosana-header '
-					} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : ''}`}
+					} ${props.autocatalyticaOpen || props.soloOpen || props.exKathedraOpen ? 'invisible' : 'visible'}`}
 				>
 					Hosana
 				</h1>
 				<h1
 					onClick={props.toggleSoloOpen}
 					className={`${
-						props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : ''
+						props.autocatalyticaOpen || props.hosanaOpen || props.exKathedraOpen ? 'invisible' : 'visible'
 					}
-                             ${props.soloOpen ? 'invisible' : 'performance__solo-header performance__section-header'}`}
+                             ${
+									props.soloOpen
+										? 'invisible'
+										: 'performance__solo-header performance__section-header visible'
+								}`}
 				>
 					Solo
 				</h1>
 				<h1
 					onClick={props.toggleExKathedraOpen}
 					className={`performance__section-header ${
-						props.autocatalyticaOpen || props.soloOpen || props.hosanaOpen ? 'invisible' : ''
-					} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header'}`}
+						props.autocatalyticaOpen || props.soloOpen || props.hosanaOpen ? 'invisible' : 'visible'
+					} ${props.exKathedraOpen ? 'invisible' : 'performance__ex-kathedra-header visible'}`}
 				>
 					Ex Kathedra
 				</h1>

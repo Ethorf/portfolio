@@ -5,6 +5,10 @@
 	display: flex;
 	flex-direction: column;
 	font-family: 'Montserrat';
+	// border: 1px solid red;
+	position: relative;
+	top: 110px;
+	left: -210px;
 
 	&__album-container {
 		color: white;

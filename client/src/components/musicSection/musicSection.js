@@ -15,7 +15,6 @@ export default function MusicSection(props) {
 	let [performanceHeaderAnimation, setPerformanceHeaderAnimation] = useState(false);
 	let [engineeringHeaderAnimation, setEngineeringHeaderAnimation] = useState(false);
 	let [dividerAnimation, setDividerAnimation] = useState(false);
-	let [allContainerAnimation, setAllContainerAnimation] = useState(false);
 	let [autocatalyticaOpen, setAutocatalyticaOpen] = useState(false);
 	let [hosanaOpen, setHosanaOpen] = useState(false);
 	let [soloOpen, setSoloOpen] = useState(false);
@@ -25,13 +24,13 @@ export default function MusicSection(props) {
 	let performanceHeaderContainerMobile = useRef(null);
 	let engineeringHeaderContainerMobile = useRef(null);
 	let dividerContainer = useRef(null);
-	let allContainer = useRef(null);
 	let largeHeaderFont = '3.3rem';
 	let baseHeaderFont = '2.3rem';
 	let baseDividerFont = '2.4rem';
 	let mobileLargeHeaderFont = '2.5rem';
 	let mobileBaseHeaderFont = '1.5rem';
 	let allContainerMobileTop = '29vh';
+	let animationDuration = 1.4;
 
 	//Toggle Functions
 	const toggleAutocatalyticaOpen = () => {
@@ -122,39 +121,48 @@ export default function MusicSection(props) {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
 					.to(performanceHeaderContainer, {
-						duration: 1.4,
-						x: performanceAnimSize(),
-						justifyContent: 'center',
-						fontSize: largeHeaderFont
+						duration: animationDuration,
+						ease: 'power2.out',
+						left: '-25%'
 					})
 					.play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.2, x: 260, opacity: 0, fontSize: '0.4rem' }).play()
+				dividerTl
+					.to(dividerContainer, { duration: animationDuration, x: 260, autoAlpha: 0, fontSize: '0.4rem' })
+					.play()
 			);
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
-					.to(engineeringHeaderContainer, { duration: 1.4, x: performanceAnimSize(), opacity: 0 })
+					.to(engineeringHeaderContainer, {
+						duration: animationDuration,
+						x: 100,
+						autoAlpha: 0,
+						ease: 'power1.out'
+					})
 					.play()
 			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setPerformanceOpen(true);
-			props.headersContainerMusicOpenAnimation();
 		} else {
 			setPerformanceHeaderAnimation(
-				performanceHeaderTl
-					.to(performanceHeaderContainer, { duration: 1.4, x: 0, fontSize: headerAnimSmallFontSize })
-					.play()
+				performanceHeaderTl.to(performanceHeaderContainer, { duration: animationDuration, left: '0%' }).play()
 			);
 			setEngineeringHeaderAnimation(
-				engineeringHeaderTl.to(engineeringHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
+				engineeringHeaderTl
+					.to(engineeringHeaderContainer, { duration: animationDuration, x: 0, autoAlpha: 1 })
+					.play()
 			);
 			setDividerAnimation(
-				dividerTl.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: baseDividerFont }).play()
+				dividerTl
+					.to(dividerContainer, {
+						duration: animationDuration,
+						x: 1,
+						autoAlpha: 0.9,
+						fontSize: baseDividerFont
+					})
+					.play()
 			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setPerformanceOpen(false);
-			props.headersContainerMusicOpenAnimation();
 		}
 	};
 	const engineeringHeaderOpenAnimation = () => {
@@ -162,52 +170,48 @@ export default function MusicSection(props) {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
 					.to(engineeringHeaderContainer, {
-						duration: 1.4,
-						x: engineeringAnimSize(),
-						justifyContent: 'center',
-						fontSize: largeHeaderFont
+						duration: animationDuration,
+						ease: 'power1.out',
+						left: '-45%'
 					})
 					.play()
 			);
 			setDividerAnimation(
 				dividerTl
-					.to(dividerContainer, { duration: 1.2, x: engineeringAnimSize(), opacity: 0, fontSize: '0.4rem' })
+					.to(dividerContainer, { duration: 1.2, x: engineeringAnimSize(), autoAlpha: 0, fontSize: '0.4rem' })
 					.play()
 			);
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
-					.to(performanceHeaderContainer, { duration: 1.4, x: engineeringAnimSize(), opacity: 0 })
+					.to(performanceHeaderContainer, { duration: animationDuration, y: -200, autoAlpha: 0 })
 					.play()
 			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
 			setEngineeringOpen(true);
-			props.headersContainerMusicOpenAnimation();
 		} else {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
 					.to(engineeringHeaderContainer, {
-						duration: 1.4,
-						x: 0,
-						fontSize: headerAnimSmallFontSize
+						duration: animationDuration,
+						left: '0%'
 					})
 					.play()
 			);
 			setPerformanceHeaderAnimation(
-				performanceHeaderTl.to(performanceHeaderContainer, { duration: 1.4, x: 1, opacity: 1 }).play()
+				performanceHeaderTl
+					.to(performanceHeaderContainer, { duration: animationDuration, y: 0, autoAlpha: 1 })
+					.play()
 			);
 			setDividerAnimation(
 				dividerTl
 					.to(dividerContainer, {
-						duration: 1.4,
+						duration: animationDuration,
 						x: 1,
-						opacity: 0.9,
+						autoAlpha: 0.9,
 						fontSize: baseDividerFont
 					})
 					.play()
 			);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '32%' }).play());
 			setEngineeringOpen(false);
-			props.headersContainerMusicOpenAnimation();
 		}
 	};
 	const composerHeaderOpenAnimationMobile = () => {
@@ -215,7 +219,7 @@ export default function MusicSection(props) {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
 					.to(performanceHeaderContainerMobile, {
-						duration: 1.4,
+						duration: animationDuration,
 						x: composerAnimSizeMobile(),
 						justifyContent: 'center',
 						fontSize: mobileLargeHeaderFont
@@ -227,43 +231,49 @@ export default function MusicSection(props) {
 					.to(dividerContainer, {
 						duration: 1.2,
 						x: composerAnimSizeMobile(),
-						opacity: 0,
+						autoAlpha: 0,
 						fontSize: '0.4rem'
 					})
 					.play()
 			);
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
-					.to(engineeringHeaderContainerMobile, { duration: 1.4, x: composerAnimSizeMobile(), opacity: 0 })
+					.to(engineeringHeaderContainerMobile, {
+						duration: animationDuration,
+						x: composerAnimSizeMobile(),
+						autoAlpha: 0
+					})
 					.play()
 			);
 			setPerformanceOpen(true);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
-			props.musicHeaderFadeOutAnimation();
 			props.toggleBackButtonOpen();
 		} else {
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
-					.to(performanceHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: mobileBaseHeaderFont })
+					.to(performanceHeaderContainerMobile, {
+						duration: animationDuration,
+						x: 0,
+						fontSize: mobileBaseHeaderFont
+					})
 					.play()
 			);
 			setEngineeringHeaderAnimation(
-				engineeringHeaderTl.to(engineeringHeaderContainerMobile, { duration: 1.4, x: 1, opacity: 1 }).play()
+				engineeringHeaderTl
+					.to(engineeringHeaderContainerMobile, { duration: animationDuration, x: 1, autoAlpha: 1 })
+					.play()
 			);
 			setDividerAnimation(
 				dividerTl
-					.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: mobileBaseHeaderFont })
+					.to(dividerContainer, {
+						duration: animationDuration,
+						x: 1,
+						autoAlpha: 0.9,
+						fontSize: mobileBaseHeaderFont
+					})
 					.play()
 			);
 			setPerformanceOpen(false);
-			setAllContainerAnimation(
-				allContainerTl.to(allContainer, { duration: 0.4, top: allContainerMobileTop }).play()
-			);
-
-			props.musicHeaderFadeInAnimation();
 			props.toggleBackButtonOpen();
-
-			// props.headersContainerMusicOpenAnimation();
 		}
 	};
 	const engineeringHeaderOpenAnimationMobile = () => {
@@ -271,7 +281,7 @@ export default function MusicSection(props) {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
 					.to(engineeringHeaderContainerMobile, {
-						duration: 1.4,
+						duration: animationDuration,
 						x: engineerAnimSizeMobile(),
 						justifyContent: 'center',
 						fontSize: mobileLargeHeaderFont
@@ -283,42 +293,49 @@ export default function MusicSection(props) {
 					.to(dividerContainer, {
 						duration: 1.2,
 						x: engineerAnimSizeMobile(),
-						opacity: 0,
+						autoAlpha: 0,
 						fontSize: '0.4rem'
 					})
 					.play()
 			);
 			setPerformanceHeaderAnimation(
 				performanceHeaderTl
-					.to(performanceHeaderContainerMobile, { duration: 1.4, x: engineerAnimSizeMobile(), opacity: 0 })
+					.to(performanceHeaderContainerMobile, {
+						duration: animationDuration,
+						x: engineerAnimSizeMobile(),
+						autoAlpha: 0
+					})
 					.play()
 			);
 			setEngineeringOpen(true);
-			setAllContainerAnimation(allContainerTl.to(allContainer, { duration: 0.4, top: '13%' }).play());
-			props.musicHeaderFadeOutAnimation();
 			props.toggleBackButtonOpen();
 		} else {
 			setEngineeringHeaderAnimation(
 				engineeringHeaderTl
-					.to(engineeringHeaderContainerMobile, { duration: 1.4, x: 0, fontSize: mobileBaseHeaderFont })
+					.to(engineeringHeaderContainerMobile, {
+						duration: animationDuration,
+						x: 0,
+						fontSize: mobileBaseHeaderFont
+					})
 					.play()
 			);
 			setPerformanceHeaderAnimation(
-				performanceHeaderTl.to(performanceHeaderContainerMobile, { duration: 1.4, x: 1, opacity: 1 }).play()
+				performanceHeaderTl
+					.to(performanceHeaderContainerMobile, { duration: animationDuration, x: 1, autoAlpha: 1 })
+					.play()
 			);
 			setDividerAnimation(
 				dividerTl
-					.to(dividerContainer, { duration: 1.4, x: 1, opacity: 0.9, fontSize: mobileBaseHeaderFont })
+					.to(dividerContainer, {
+						duration: animationDuration,
+						x: 1,
+						autoAlpha: 0.9,
+						fontSize: mobileBaseHeaderFont
+					})
 					.play()
 			);
-			setAllContainerAnimation(
-				allContainerTl.to(allContainer, { duration: 0.4, top: allContainerMobileTop }).play()
-			);
 			setEngineeringOpen(false);
-			props.musicHeaderFadeInAnimation();
 			props.toggleBackButtonOpen();
-
-			// setBothOpen(true);
 		}
 	};
 	const backButton = () => {
@@ -328,42 +345,29 @@ export default function MusicSection(props) {
 			engineeringHeaderOpenAnimation();
 		}
 	};
-	const backButtonMobile = () => {
-		if (performanceOpen) {
-			composerHeaderOpenAnimationMobile();
-			props.musicHeaderFadeInAnimation();
-		} else {
-			engineeringHeaderOpenAnimationMobile();
-		}
-	};
 	return (
-		<div
-			ref={(div) => (allContainer = div)}
-			className={`musicSection ${props.musicSectionOpen ? '' : 'invisible'}`}
-		>
-			<div
-				className={`musicSection__back-home-container ${performanceOpen || engineeringOpen ? '' : 'invisible'}`}
-			>
-				<h3 onClick={backButton} className={`musicSection__back-button`}>
-					Back
-				</h3>
-				<h3 onClick={backButtonMobile} className={`musicSection__back-button-mobile`}>
-					Back
-				</h3>
-				<h3 className={`musicSection__small-divider`}>||</h3>
-				<a href="http://www.ethorf.com" className={`musicSection__home-button`}>
-					Home
-				</a>
-			</div>
+		<div className={`musicSection ${props.musicSectionOpen ? 'visible' : 'invisible'}`}>
 			{/* Headers start */}
-			<div className={`musicSection__headers-container`}>
-				<div className={`musicSection__section-header-container`} onClick={performanceHeaderOpenAnimation}>
-					<h1
-						ref={(div) => (performanceHeaderContainer = div)}
-						className={`musicSection__sections-header musicSection__performance-header`}
-					>
-						Performance
-					</h1>
+			<div
+				className={`musicSection__headers-container 
+				`}
+			>
+				<h4
+					className={` ${
+						performanceOpen || engineeringOpen ? 'visible' : 'invisible'
+					} musicSection__back-button`}
+					onClick={backButton}
+				>
+					{'<<'}
+				</h4>
+				<div
+					ref={(div) => (performanceHeaderContainer = div)}
+					className={`musicSection__performance-section-header-container musicSection__section-header-container
+					${performanceOpen ? 'music-section-open-left-underline' : ''}
+					`}
+					onClick={performanceOpen ? null : performanceHeaderOpenAnimation}
+				>
+					<h1 className={`musicSection__performance-header-title`}>Performance</h1>
 				</div>
 				<div
 					className={`musicSection__section-header-container-mobile`}
@@ -382,14 +386,16 @@ export default function MusicSection(props) {
 				>
 					| |
 				</h2>
-				<div className={`musicSection__header-container`} onClick={engineeringHeaderOpenAnimation}>
-					<h1
-						ref={(div) => (engineeringHeaderContainer = div)}
-						className={`musicSection__sections-header musicSection__engineering-header
-                    `}
-					>
-						Engineering
-					</h1>
+
+				<div
+					className={`musicSection__section-header-container musicSection__engineering-section-header-container
+					${engineeringOpen ? 'music-section-open-left-underline' : ''}
+					
+					`}
+					onClick={engineeringOpen ? null : engineeringHeaderOpenAnimation}
+					ref={(div) => (engineeringHeaderContainer = div)}
+				>
+					<h1 className={`musicSection__engineering-header-title`}>Engineering</h1>
 				</div>
 				<div className={`musicSection__header-container-mobile`} onClick={engineeringHeaderOpenAnimationMobile}>
 					<h1

@@ -10,11 +10,11 @@ import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';
 
 export default function Solo(props) {
 	return (
-		<div className={`solo expanded-section ${props.soloOpen ? '' : 'invisible'}`}>
+		<div className={`solo expanded-section ${props.soloOpen ? 'visible' : 'invisible'}`}>
 			<div className={`records__header-back-container`}>
 				<h1 className={`solo-header`}>Solo</h1>
 				<h3 className={`records__back-button`} onClick={props.toggleSoloOpen}>
-					Back
+					{'<<'}
 				</h3>
 			</div>
 			<h2 className={`records__section-header`}>Bio</h2>

@@ -8,11 +8,11 @@ import SpotifyIcon from '../../assets/Icons/silver/spotify-silver.png';
 
 export default function Hosana(props) {
 	return (
-		<div className={`hosana expanded-section ${props.hosanaOpen ? '' : 'invisible'}`}>
+		<div className={`hosana expanded-section ${props.hosanaOpen ? 'visible' : 'invisible'}`}>
 			<div className={`records__header-back-container`}>
 				<h1 className={`hosana-header`}>Hosana</h1>
 				<h3 className={`records__back-button`} onClick={props.toggleHosanaOpen}>
-					Back
+					{'<<'}
 				</h3>
 			</div>
 			<h2 className={`records__section-header records__bio-header`}>Bio</h2>

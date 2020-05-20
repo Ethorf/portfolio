@@ -68,7 +68,7 @@ function Main() {
 					.to(webHeaderContainer, {
 						duration: 0.7,
 						left: '-10%',
-						y: -110,
+						y: '-100px',
 						ease: 'power1.out',
 						position: 'absolute'
 					})
@@ -132,11 +132,7 @@ function Main() {
 					.to(musicHeaderContainer, {
 						duration: 0.4,
 						ease: 'power1.out',
-						position: 'absolute'
-					})
-					.to(musicHeaderContainer, {
-						duration: 0.2,
-						ease: 'power1.out',
+						position: 'absolute',
 						fontSize: '25px'
 					})
 					.play()
@@ -422,7 +418,7 @@ function Main() {
 
 				`}
 				>
-					back
+					{`${webSectionOpen ? '<<' : '>>'}`}
 				</h3>
 			</header>
 
@@ -431,14 +427,15 @@ function Main() {
 					onClick={webSectionOpen ? '' : webHeaderOpenAnimation}
 					ref={(h2) => (webHeaderContainer = h2)}
 					a
-					className={`main__web-section-header main__section-header 
+					className={`main__web-section-header main__section-header-container
 					${webSectionOpen ? 'main__section-open-left-underline' : ''}
-					
 					`}
 				>
 					<h2
 						ref={(h2) => (webHeader = h2)}
-						className={`main__web-header-title ${webSectionOpen ? '' : 'hover-underline-left'}`}
+						className={`main__web-header-title
+						 ${webSectionOpen ? 'default-cursor' : 'hover-underline-left'}
+						 `}
 					>
 						Full-stack Web Developer
 					</h2>
@@ -449,12 +446,14 @@ function Main() {
 				<div
 					onClick={musicSectionOpen ? '' : musicHeaderOpenAnimation}
 					ref={(h2) => (musicHeaderContainer = h2)}
-					className={`main__music-section-header main__section-header
+					className={`main__music-section-header main__section-header-container
 					${musicSectionOpen ? 'main__section-open-right-underline' : ''}
 					
 					`}
 				>
-					<h2 className={` main__music-header-title`}>Guitarist, Composer, Engineer</h2>
+					<h2 className={`main__music-header-title ${musicSectionOpen ? 'default-cursor' : ''} `}>
+						Guitarist, Composer, Engineer
+					</h2>
 				</div>
 			</div>
 			{/* Mobile Headers */}
@@ -462,7 +461,7 @@ function Main() {
 				<div
 					onClick={webHeaderOpenAnimationMobile}
 					ref={(h2) => (webHeaderContainerMobile = h2)}
-					className={`main__web-section-header main__section-header`}
+					className={`main__web-section-header main__section-header-container`}
 				>
 					<h2 className={`main__web-header-title`}>Developer</h2>
 				</div>
@@ -473,7 +472,7 @@ function Main() {
 				<div
 					onClick={musicHeaderOpenAnimationMobile}
 					ref={(h2) => (musicHeaderContainerMobile = h2)}
-					className={`main__music-section-header main__section-header`}
+					className={`main__music-section-header main__section-header-container`}
 				>
 					<h2 className={`main__music-header-title`}>Musician</h2>
 				</div>

@@ -1,21 +1,53 @@
-export const webAnimSize = () => {
+export const webAnimYAxis = () => {
+	let y = 0;
+	if (window.innerWidth >= 1200) {
+		y = '-100px';
+	} else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+		y = '-110px';
+	} else {
+		y = '-50px';
+	}
+	return y;
+};
+export const webAnimXAxis = () => {
 	let x = 0;
-	if (window.innerWidth >= 1800) {
-		x = '17vw';
-	} else if (window.innerWidth >= 1500 && window.innerWidth < 1799) {
-		x = '18.5vw';
-	} else if (window.innerWidth >= 1350 && window.innerWidth < 1500) {
-		x = '17vw';
-	} else if (window.innerWidth >= 1200 && window.innerWidth < 1349) {
-		x = '24vw';
-	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
-		x = '22vw';
-	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
-		x = '24vw';
-	} else if (window.innerWidth >= 426 && window.innerWidth < 767) {
-		x = '20vw';
+	if (window.innerWidth >= 1200) {
+		x = '-10%';
+	} else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+		x = '-5%';
+	} else {
+		x = '3%';
 	}
 	return x;
+};
+export const musicAnimYAxis = () => {
+	let y = 0;
+	if (window.innerWidth >= 768) {
+		y = '-90px';
+	} else {
+		y = '-50px';
+	}
+	return y;
+};
+export const musicAnimXAxis = () => {
+	let x = 0;
+	if (window.innerWidth >= 1200) {
+		x = '-5%';
+	} else if (window.innerWidth >= 768 && window.innerWidth <= 1199) {
+		x = '2%';
+	} else {
+		x = '3%';
+	}
+	return x;
+};
+export const engineerAnimYAxis = () => {
+	let y = 0;
+	if (window.innerWidth >= 768) {
+		y = '-70px';
+	} else {
+		y = '-50px';
+	}
+	return y;
 };
 export const headersBigFontSize = () => {
 	let size;
@@ -65,32 +97,6 @@ export const musicAnimSize = () => {
 	}
 	return x;
 };
-export const webAnimSizeMobile = () => {
-	let x = 0;
-	if (window.innerWidth >= 600 && window.innerWidth < 767) {
-		x = '14vw';
-	} else if (window.innerWidth >= 425 && window.innerWidth < 599) {
-		x = '17vw';
-	} else if (window.innerWidth >= 375 && window.innerWidth < 425) {
-		x = '17vw';
-	} else if (window.innerWidth < 374) {
-		x = '19vw';
-	}
-	return x;
-};
-export const musicAnimSizeMobile = () => {
-	let x = 0;
-	if (window.innerWidth >= 600 && window.innerWidth < 767) {
-		x = '-14vw';
-	} else if (window.innerWidth >= 425 && window.innerWidth < 599) {
-		x = '-18vw';
-	} else if (window.innerWidth >= 375 && window.innerWidth < 425) {
-		x = '-20vw';
-	} else if (window.innerWidth >= 320 && window.innerWidth < 374) {
-		x = '-25vw';
-	}
-	return x;
-};
 
 export const dividerNormalSize = () => {
 	let x = 0;
@@ -98,8 +104,8 @@ export const dividerNormalSize = () => {
 		x = '2.8rem';
 	} else if (window.innerWidth >= 993 && window.innerWidth < 1199) {
 		x = '2.4rem';
-	} else if (window.innerWidth >= 768 && window.innerWidth < 992) {
-		x = '2rem';
+	} else {
+		x = '1.8rem';
 	}
 	return x;
 };

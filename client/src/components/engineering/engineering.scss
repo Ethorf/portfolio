@@ -44,6 +44,8 @@
 	}
 
 	@include mobile-small-only() {
+		left: 1px;
+		top: 60px;
 		&__sections-header-container {
 			width: 90vw;
 		}
@@ -106,6 +108,7 @@
 	@include tablet-only() {
 		display: flex;
 		width: 90%;
+		left: 1px;
 
 		&__sections-header {
 			display: flex;

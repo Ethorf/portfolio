@@ -93,6 +93,35 @@
 		transform: scaleX(1);
 	}
 }
+@mixin hover-underline-left-music-section() {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 120%;
+		height: 2px;
+		bottom: -6px;
+		left: -60%;
+		background: rgb(2, 0, 36);
+		background: linear-gradient(
+			90deg,
+			rgba(2, 0, 36, 1) 0%,
+			rgba(22, 7, 37, 1) 1%,
+			rgba(243, 229, 230, 0.8) 18%,
+			rgba(255, 241, 241, 0.8) 95%,
+			rgba(122, 122, 122, 0.36878501400560226) 100%
+		);
+		opacity: 0;
+		transform: scaleX(0);
+		transition: all 0.7s ease-in-out 0s;
+	}
+	&:hover:before {
+		opacity: 0.9;
+		left: 0;
+		transform: scaleX(1);
+	}
+}
 
 .bandcamp {
 	&:hover {
@@ -194,7 +223,7 @@
 	}
 	100% {
 		opacity: 0.6;
-		width: 95%;
+		width: 87%;
 		right: 26%;
 	}
 }

@@ -4,7 +4,7 @@
 .musicSection {
 	color: silver;
 	position: absolute;
-	top: 200px;
+	top: 180px;
 	z-index: 7;
 	display: flex;
 	flex-direction: column;
@@ -13,15 +13,18 @@
 	font-family: 'Maven Pro';
 	transition: all 2s;
 	opacity: 1;
+	margin: 0;
 	// border: 1px solid red;
 
 	&__headers-container {
 		display: flex;
-		flex-direction: row;
+		margin: 0;
+		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
 		position: absolute;
+		left: 5%;
 		z-index: 15;
 		color: whitesmoke;
 		font-family: 'Lekton';
@@ -29,141 +32,73 @@
 		font-size: 1.4rem;
 	}
 	&__performance-section-header-container {
-		// border: 1px solid red;
 		position: relative;
-		left: 0%;
+		transition: all 1s;
+		margin: 0% 0;
 	}
 	&__engineering-section-header-container {
-		// border: 1px solid red;
 		position: relative;
-		left: 0%;
+		left: 5%;
 	}
-	&__performance-header-title {
-		@include hover-underline-left;
-
-		&:hover {
-			cursor: pointer;
-		}
-	}
+	&__performance-header-title,
 	&__engineering-header-title {
-		// @include hover-underline-right;
+		margin: 5% 0;
 		&:hover {
 			cursor: pointer;
 		}
-	}
-	&__back-home-container {
-		display: flex;
-		align-items: center;
-		font-family: 'Lekton';
-		justify-content: space-between;
-		width: 10%;
-		height: 8%;
-		transition: all 0.5s;
 	}
 	&__back-button {
 		position: absolute;
-		left: 1%;
+		left: -3%;
 		font-size: 0.9em;
-		bottom: 14%;
+		bottom: 49%;
+		color: grey;
 		&:hover {
 			color: white;
 			cursor: pointer;
 		}
-	}
-	&__back-button-mobile {
-		display: none;
-	}
-	&__home-button {
-		margin: 1% 0;
-		font-size: 1.4rem;
-		text-decoration: none;
-		color: silver;
-		font-size: 1.2rem;
-		font-weight: 600;
-		&:hover {
-			color: white;
-			cursor: pointer;
-		}
-	}
-	&__small-divider {
-		font-family: 'Lekton';
-		color: white;
 	}
 	&__divider {
-		font-size: 2.6rem;
-		margin: 1vh 2vw;
+		font-size: 01rem;
+		margin: 0 2vw;
 		font-weight: 400;
-		font-family: 'Poppins';
-	}
-	&__sections-header-mobile {
 		display: none;
 	}
 
 	@include mobile-small-only() {
-		top: 30vh;
+		top: 140px;
 
-		&__sections-header {
-			display: none;
-		}
 		&__divider {
+			display: flex;
+			font-family: 'Poppins';
 			font-size: 1.7rem;
 		}
-		&__sections-header-mobile {
-			display: flex;
-			font-size: 1.5rem;
-			margin-top: 3vh;
-		}
-		&__divider-mobile {
-			display: flex;
-		}
-		&__back-home-container {
-			width: 40%;
-			margin-top: 3vh;
-			justify-content: space-evenly;
-		}
 		&__headers-container {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			width: 90%;
-			color: whitesmoke;
-			margin-top: 4vh;
-			margin-left: -5vw;
-			padding: 0;
-			font-family: 'Poppins';
-		}
-		&__engineering-header-mobile {
-			margin: 0;
-		}
-		&__back-button-mobile {
-			margin: 1% 0;
-			display: flex;
-			position: relative;
-			z-index: 12;
+			left: 34px;
 		}
 		&__back-button {
-			display: none;
-			width: 0%;
+			left: -7%;
+			font-size: 0.9rem;
+			bottom: 46px;
+			color: grey;
+		}
+		&__performance-header-title,
+		&__engineering-header-title {
+			margin: 7% 0;
+			font-size: 1.9rem;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		&__engineering-section-header-container {
+			position: relative;
+			left: 7%;
 		}
 	}
 	@include mobile-only() {
-		&__back-button {
-			display: none;
-		}
-		&__back-button-mobile {
-			margin: 1% 0;
-		}
-		&__headers-container {
-			width: 79%;
-			margin-top: -2vh;
-			font-size: 1.5rem;
-		}
-		&__back-home-container {
-			width: 25%;
-		}
 	}
 	@include tablet-only() {
-		top: 25%;
+		top: 200px;
 
 		&__sections-header {
 			font-size: 2.3rem;
@@ -172,8 +107,11 @@
 			font-size: 2rem;
 			margin: 1vh 2vw;
 		}
-		&__back-home-container {
-			width: 20%;
+		&__back-button {
+			left: -34px;
+		}
+		&__headers-container {
+			left: 8%;
 		}
 	}
 }
@@ -186,12 +124,12 @@
 	&:before {
 		content: '';
 		position: absolute;
-		width: 180%;
+		width: 170%;
 		height: 2px;
-		bottom: 28px;
-		left: -10%;
+		bottom: 10px;
+		left: -2%;
 		opacity: 0.6;
-		animation: section-left 3s 1;
+		animation: music-section-left 3s 1;
 		background: rgb(2, 0, 36);
 		background: linear-gradient(
 			90deg,
@@ -202,4 +140,17 @@
 		);
 		transition: all 0.7s ease-in-out 0s;
 	}
+}
+@keyframes music-section-left {
+	0% {
+		opacity: 0;
+		width: 2%;
+	}
+	100% {
+		opacity: 0.6;
+		width: 170%;
+	}
+}
+.hover-underline-music-section {
+	@include hover-underline-left-music-section;
 }

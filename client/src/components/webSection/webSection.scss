@@ -66,23 +66,55 @@
 	}
 
 	@include mobile-small-only() {
-		top: 30%;
+		top: 120px;
 
 		&__not-your-thoughts-image {
 			display: none;
 		}
+		&__not-your-thoughts-header {
+			font-size: 1.7rem;
+			text-align: right;
+		}
 		&__not-your-thoughts-description {
-			width: 120%;
+			width: 110%;
+			margin-top: 0;
+			text-align: right;
+		}
+		&__projects-header {
+			color: white;
+			margin-bottom: 30px;
+			font-size: 1.4rem;
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				width: 150%;
+				height: 2px;
+				bottom: -8px;
+				right: -2%;
+				background: rgb(2, 0, 36);
+				background: linear-gradient(
+					90deg,
+					rgba(2, 0, 36, 0.6993172268907564) 1%,
+					rgba(243, 229, 230, 1) 7%,
+					rgba(237, 223, 225, 1) 85%,
+					rgba(22, 7, 37, 1) 100%
+				);
+				transition: all 0.7s ease-in-out 0s;
+			}
 		}
 	}
 	@include tablet-only() {
-		top: 24vh;
+		top: 124px;
 
 		&__not-your-thoughts-image {
 			width: 60vw;
 		}
 		&__not-your-thoughts-description {
 			width: 100%;
+		}
+		&__projects-header {
+			font-size: 1.6rem;
 		}
 	}
 	@include laptop-small() {

@@ -15,9 +15,10 @@ import './main.scss';
 import {
 	headersSmallFontSize,
 	headersBigFontSize,
-	webAnimSize,
-	webAnimSizeMobile,
-	musicAnimSizeMobile,
+	webAnimYAxis,
+	webAnimXAxis,
+	musicAnimXAxis,
+	musicAnimYAxis,
 	musicAnimSize,
 	dividerNormalSize
 } from './functions/animation-functions.js';
@@ -65,25 +66,22 @@ function Main() {
 		if (webSectionOpen === false) {
 			setWebHeaderAnimation(
 				webHeaderTl
-					.to(webHeaderContainer, {
-						duration: 0.7,
-						left: '-10%',
-						y: '-100px',
-						ease: 'power1.out',
-						position: 'absolute'
+					.to(musicHeaderContainer, {
+						duration: 0.8,
+						x: 200,
+						autoAlpha: 0,
+						ease: 'power1.out'
 					})
 					.to(webHeaderContainer, {
-						duration: 0.4,
-						ease: 'power1.out',
-						fontSize: '26px'
+						duration: 0.7,
+						left: webAnimXAxis(),
+						y: webAnimYAxis(),
+						ease: 'power1.out'
 					})
 					.play()
 			);
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: dur, x: 260, autoAlpha: 0, fontSize: '0.4rem' }).play()
-			);
-			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainer, { duration: 0.8, x: webAnimSize(), autoAlpha: 0 }).play()
 			);
 			setWebSectionOpen(true);
 			setBothOpen(false);
@@ -92,10 +90,7 @@ function Main() {
 			faceAnimationClose();
 		} else {
 			setWebHeaderAnimation(
-				webHeaderTl
-					.to(webHeaderContainer, { duration: 0.8, left: '0%', position: 'relative', y: 0 })
-					.to(webHeaderContainer, { duration: 0.5, fontSize: headersSmallFontSize() })
-					.play()
+				webHeaderTl.to(webHeaderContainer, { duration: 0.8, left: '0%', position: 'relative', y: 0 }).play()
 			);
 			setMusicHeaderAnimation(
 				musicHeaderTl
@@ -105,7 +100,7 @@ function Main() {
 			);
 			setDividerAnimation(
 				dividerTl
-					.to(dividerContainer, { duration: 1.2, x: 1, autoAlpha: 0.9, fontSize: dividerNormalSize() })
+					.to(dividerContainer, { duration: 1.2, x: 0, autoAlpha: 1, fontSize: dividerNormalSize() })
 					.play()
 			);
 			setWebSectionOpen(false);
@@ -117,23 +112,19 @@ function Main() {
 	};
 	const musicHeaderOpenAnimation = () => {
 		if (musicSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainer, { duration: 1.2, x: musicAnimSize(), autoAlpha: 0 }).play()
-			);
 			setMusicHeaderAnimation(
 				musicHeaderTl
-					.to(musicHeaderContainer, {
-						duration: 0.7,
-						// x: musicAnimSize(),
-						right: '-5%',
-						ease: 'power1.out',
-						y: -90
+					.to(webHeaderContainer, {
+						duration: 0.8,
+						x: -200,
+						autoAlpha: 0,
+						ease: 'power1.out'
 					})
 					.to(musicHeaderContainer, {
-						duration: 0.4,
-						ease: 'power1.out',
-						position: 'absolute',
-						fontSize: '25px'
+						duration: 0.7,
+						right: musicAnimXAxis(),
+						y: musicAnimYAxis(),
+						ease: 'power1.out'
 					})
 					.play()
 			);
@@ -172,97 +163,6 @@ function Main() {
 			nameSmallAnimation();
 			faceAnimationOpen();
 		}
-	};
-	const webHeaderOpenAnimationMobile = () => {
-		if (webSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl
-					.to(webHeaderContainerMobile, {
-						duration: 1.2,
-						x: webAnimSizeMobile()
-					})
-					.play()
-			);
-			setDividerAnimation(
-				dividerTl
-					.to(dividerContainerMobile, {
-						duration: 1.2,
-						x: webAnimSizeMobile(),
-						autoAlpha: 0,
-						fontSize: '0.4rem'
-					})
-					.play()
-			);
-			setMusicHeaderAnimation(
-				musicHeaderTl
-					.to(musicHeaderContainerMobile, { duration: 1.2, x: webAnimSizeMobile(), autoAlpha: 0 })
-					.play()
-			);
-			setWebSectionOpen(true);
-			setBothOpen(false);
-			setBackButtonOpen(true);
-			// nameSmallAnimation();
-		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: dur, x: 1 }).play());
-			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainerMobile, { duration: dur, x: 1, autoAlpha: 1 }).play()
-			);
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: dur, x: 1, autoAlpha: 0.9, fontSize: '1.8rem' }).play()
-			);
-			setWebSectionOpen(false);
-			setBothOpen(true);
-			setBackButtonOpen(false);
-			// nameSmallAnimation();
-		}
-	};
-	const musicHeaderOpenAnimationMobile = () => {
-		if (musicSectionOpen === false) {
-			setWebHeaderAnimation(
-				webHeaderTl.to(webHeaderContainerMobile, { duration: 1.2, x: musicAnimSizeMobile, opacity: 0 }).play()
-			);
-			setMusicHeaderAnimation(
-				musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: musicAnimSizeMobile }).play()
-			);
-			setDividerAnimation(
-				dividerTl
-					.to(dividerContainerMobile, {
-						duration: 1.2,
-						x: musicAnimSizeMobile,
-						opacity: 0,
-						fontSize: '0.4rem'
-					})
-					.play()
-			);
-			setMusicSectionOpen(true);
-			setBothOpen(false);
-			setBackButtonOpen(true);
-		} else {
-			setWebHeaderAnimation(webHeaderTl.to(webHeaderContainerMobile, { duration: 1, x: 0, opacity: 1 }).play());
-			setMusicHeaderAnimation(musicHeaderTl.to(musicHeaderContainerMobile, { duration: 1, x: 0 }).play());
-			setDividerAnimation(
-				dividerTl.to(dividerContainerMobile, { duration: 1, x: 0, opacity: 0.9, fontSize: '1.8rem' }).play()
-			);
-			setMusicSectionOpen(false);
-			setBothOpen(true);
-			setBackButtonOpen(false);
-		}
-	};
-	const musicHeaderFadeOutAnimation = () => {
-		setMusicHeaderAnimation(
-			musicHeaderTl
-				.to(headersContainerMobile, { duration: 0.5, opacity: 0, y: '-10vh' })
-				.to(headersContainerMobile, { display: 'none' })
-				.play()
-		);
-	};
-	const musicHeaderFadeInAnimation = () => {
-		setMusicHeaderAnimation(
-			musicHeaderTl
-				.to(headersContainerMobile, { display: 'flex' })
-				.to(headersContainerMobile, { duration: 1, opacity: 1, y: 0 })
-				.play()
-		);
 	};
 	//Face Anims
 	const faceAnimationOpen = () => {
@@ -332,24 +232,15 @@ function Main() {
 			toggleHeadersOpen();
 		}
 	};
-	const headersContainerMusicOpenAnimation = () => {
-		if (headersOpen) {
-			setHeadersAnimation(headersTl.to(headersContainer, { top: '0%', duration: 0.5, opacity: 0 }).play());
-			toggleHeadersOpen();
-		} else {
-			setHeadersAnimation(headersTl.to(headersContainer, { top: '20%', duration: 0.5, opacity: 1 }).play());
-			toggleHeadersOpen();
-		}
-	};
 	const nameSmallAnimation = () => {
 		if (nameSmall) {
-			nameTl.to(nameContainer, { duration: 1.2, fontSize: '3.4rem', top: '50%', autoAlpha: 1 }).play();
+			nameTl.to(nameContainer, { duration: 1.2, top: '50%', autoAlpha: 1 }).play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 1 });
 			toggleNameSmall();
 			setBackButtonOpen(true);
 		} else {
 			nameTl
-				.to(nameContainer, { duration: 1.2, fontSize: '2.2rem', top: '-50%' })
+				.to(nameContainer, { duration: 1.2, top: '-50%' })
 				.to(nameContainer, { duration: 0.2, autoAlpha: 0 })
 				.play();
 			faceTl.to(faceContainer, { duration: 1.2, opacity: 0 });
@@ -358,27 +249,17 @@ function Main() {
 		}
 	};
 	const backButton = () => {
-		if (window.innerWidth < 767) {
-			if (webSectionOpen) {
-				webHeaderOpenAnimationMobile();
-			} else {
-				musicHeaderOpenAnimationMobile();
-			}
-		} else if (window.innerWidth >= 767) {
-			if (webSectionOpen) {
-				webHeaderOpenAnimation();
-				webHeaderOpenAnimationMobile();
-			} else {
-				musicHeaderOpenAnimation();
-				musicHeaderOpenAnimationMobile();
-			}
+		if (webSectionOpen) {
+			webHeaderOpenAnimation();
+		} else {
+			musicHeaderOpenAnimation();
 		}
 	};
 	useEffect(() => {
 		headersLoadAnimation();
 		faceAnimationOpen();
 	}, []);
-	console.log(backButtonOpen);
+	// console.log(window.innerWidth);
 	return (
 		<div className="main">
 			<div className="grid__quadrant grid__top-left"></div>
@@ -437,7 +318,7 @@ function Main() {
 						 ${webSectionOpen ? 'default-cursor' : 'hover-underline-left'}
 						 `}
 					>
-						Full-stack Web Developer
+						{window.innerWidth < 768 ? 'Developer' : ' Full-stack Web Developer'}
 					</h2>
 				</div>
 				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainer = h2)}>
@@ -451,15 +332,19 @@ function Main() {
 					
 					`}
 				>
-					<h2 className={`main__music-header-title ${musicSectionOpen ? 'default-cursor' : ''} `}>
-						Guitarist, Composer, Engineer
+					<h2
+						className={`main__music-header-title ${
+							musicSectionOpen ? 'default-cursor' : 'hover-underline-right'
+						} `}
+					>
+						{window.innerWidth < 768 ? 'Musician' : 'Guitarist, Composer, Engineer'}
 					</h2>
 				</div>
 			</div>
-			{/* Mobile Headers */}
+			{/* Mobile Headers 
 			<div ref={(div) => (headersContainerMobile = div)} className={`main__headers-container-mobile`}>
 				<div
-					onClick={webHeaderOpenAnimationMobile}
+					onClick={webHeaderOpenAnimation}
 					ref={(h2) => (webHeaderContainerMobile = h2)}
 					className={`main__web-section-header main__section-header-container`}
 				>
@@ -477,13 +362,11 @@ function Main() {
 					<h2 className={`main__music-header-title`}>Musician</h2>
 				</div>
 			</div>
+			*/}
 			<WebSection webSectionOpen={webSectionOpen} />
 			<MusicSection
-				headersContainerMusicOpenAnimation={headersContainerMusicOpenAnimation}
 				musicSectionOpen={musicSectionOpen}
 				nameSmallAnimation={nameSmallAnimation}
-				musicHeaderFadeInAnimation={musicHeaderFadeInAnimation}
-				musicHeaderFadeOutAnimation={musicHeaderFadeOutAnimation}
 				faceAnimationClose={faceAnimationClose}
 				faceAnimationOpen={faceAnimationOpen}
 				toggleBackButtonOpen={toggleBackButtonOpen}

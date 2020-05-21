@@ -18,6 +18,7 @@
 	}
 	@include tablet-only() {
 		width: 80%;
+		margin-top: -170px;
 	}
 	@include laptop-small() {
 		width: 80%;
@@ -132,6 +133,8 @@
 		margin-right: -8vw;
 	}
 	@include mobile-small-only() {
+		top: 80px;
+
 		&__all-sections-header-container-mobile {
 			display: flex;
 			flex-direction: column;
@@ -143,7 +146,7 @@
 			display: none;
 		}
 		&__section-header {
-			font-size: 2.4rem;
+			font-size: 2.3rem;
 			position: relative;
 			z-index: 10;
 			margin: 2vh 0;

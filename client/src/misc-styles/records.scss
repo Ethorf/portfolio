@@ -55,7 +55,7 @@
 	}
 	&__section-header {
 		margin: 2vh 0;
-		font-size: 2.5rem;
+		font-size: 2rem;
 		color: white;
 	}
 	&__link-icon {
@@ -91,7 +91,10 @@
 		font-size: 1rem;
 		position: relative;
 		left: -2%;
+		color: grey;
+		transition: all 1s;
 		&:hover {
+			transition: all 1s;
 			color: white;
 			cursor: pointer;
 		}
@@ -107,7 +110,7 @@
 		}
 		&__section-header {
 			margin-top: 4vh;
-			font-size: 2.1rem;
+			font-size: 1.6rem;
 		}
 		&__album-artwork {
 			height: 40vh;
@@ -119,6 +122,10 @@
 		}
 		&__bio-header {
 			margin-top: 3vh;
+			font-size: 1.6rem;
+		}
+		&__bio-description {
+			width: 90%;
 		}
 		&__header-open {
 			font-size: 3.1rem;
@@ -148,10 +155,14 @@
 		}
 	}
 	@include tablet-only() {
+		top: -100px;
 		&__back-button {
 			margin-top: 1vh;
 		}
 		&__video {
+			width: 90%;
+		}
+		&__bio-description {
 			width: 90%;
 		}
 	}

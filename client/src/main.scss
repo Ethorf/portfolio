@@ -89,7 +89,7 @@
 		&:before {
 			content: '';
 			position: absolute;
-			width: 210%;
+			width: 160%;
 			height: 2px;
 			bottom: -0px;
 			left: -10%;
@@ -97,19 +97,19 @@
 			background: linear-gradient(
 				90deg,
 				rgba(2, 0, 36, 0.6993172268907564) 1%,
-				rgba(243, 229, 230, 1) 7%,
-				rgba(237, 223, 225, 1) 85%,
+				rgba(243, 229, 230, 0.7) 7%,
+				rgba(237, 223, 225, 0.7) 85%,
 				rgba(22, 7, 37, 1) 100%
 			);
 			transition: all 0.7s ease-in-out 0s;
 		}
 	}
 	&__ethorf-header-right {
-		right: 3%;
+		right: 4%;
 		&:before {
 			content: '';
 			position: absolute;
-			width: 150%;
+			width: 160%;
 			height: 2px;
 			bottom: -0px;
 			right: -10%;
@@ -117,14 +117,13 @@
 			background: linear-gradient(
 				90deg,
 				rgba(2, 0, 36, 0.6993172268907564) 1%,
-				rgba(243, 229, 230, 1) 7%,
-				rgba(237, 223, 225, 1) 85%,
+				rgba(243, 229, 230, 0.7) 7%,
+				rgba(237, 223, 225, 0.7) 85%,
 				rgba(22, 7, 37, 1) 100%
 			);
 			transition: all 0.7s ease-in-out 0s;
 		}
 	}
-
 	&__face-img {
 		position: absolute;
 		z-index: 2;
@@ -148,7 +147,6 @@
 	}
 	&__back-button-left {
 		left: 1%;
-		// right: 14%;
 	}
 	&__back-button-right {
 		right: 1%;
@@ -207,7 +205,7 @@
 		&:before {
 			content: '';
 			position: absolute;
-			width: 95%;
+			width: 87%;
 			height: 2px;
 			bottom: 20px;
 			right: 26%;
@@ -233,19 +231,14 @@
 		z-index: 3;
 		margin: 0vh 1%;
 	}
-	&__web-header-title {
-		&:hover {
-			cursor: pointer;
-		}
-	}
+	&__web-header-title,
 	&__music-header-title {
 		position: relative;
-		@include hover-underline-right;
 		&:hover {
 			cursor: pointer;
 		}
 	}
-	/////// below headers stuff starts \\\\\\
+	//// below headers stuff starts \\\\\\
 
 	&__bio-resume-contact-container {
 		display: flex;
@@ -309,9 +302,22 @@
 	}
 	@include mobile-small-only() {
 		&__header {
-			font-size: 2rem;
+			font-size: 1.8rem;
 			align-items: center;
 			top: 52%;
+		}
+		&__ethorf-header {
+			font-size: 1.5rem;
+		}
+		&__ethorf-header-left {
+			left: 10%;
+		}
+		&__ethorf-header-right {
+			right: 10%;
+		}
+		&__web-header-title,
+		&__music-header-title {
+			font-size: 1.7rem;
 		}
 		&__face-img {
 			top: 11%;
@@ -320,32 +326,20 @@
 			top: 13%;
 		}
 		&__back-button {
-			top: 5%;
+			top: 0px;
+			margin-right: 6px;
 		}
 		&__headers-container {
-			display: none;
+			top: 100px;
 		}
 		&__header-container {
 			height: 15%;
 		}
-		&__headers-container-mobile {
-			width: 100%;
-			display: flex;
-			opacity: 1;
-			// border: 1px solid red;
-			font-size: 1.2rem;
-			justify-content: center;
-			align-items: center;
-			transition: all 1s;
-			position: absolute;
-			top: 18%;
-			z-index: 6;
-		}
 		&__bio-resume-contact-container {
-			top: 32%;
+			top: 180px;
 		}
 		&__section-divider {
-			font-size: 2rem;
+			font-size: 1.8rem;
 		}
 		&__section-header {
 			font-size: 18px;
@@ -364,14 +358,6 @@
 		}
 	}
 	@include mobile-only() {
-		&__section-divider {
-			font-size: 2.1rem;
-			margin: 0 2vw;
-			height: 8vh;
-		}
-		&__header {
-			margin-left: 0;
-		}
 	}
 	@include tablet-only {
 		&__header {
@@ -388,7 +374,7 @@
 			display: none;
 		}
 		&__bio-resume-contact-container {
-			top: 32%;
+			top: 260px;
 		}
 		&__section-divider {
 			font-size: 2rem;
@@ -396,6 +382,20 @@
 		&__section-header {
 			font-size: 16px;
 			align-items: center;
+		}
+		&__web-header-title,
+		&__music-header-title {
+			font-size: 1.5rem;
+		}
+		&__ethorf-header {
+			top: 10px;
+			font-size: 1.7rem;
+		}
+		&__ethorf-header-left {
+			left: 4%;
+		}
+		&__ethorf-header-right {
+			right: 4%;
 		}
 		&__bio-header,
 		&__resume {
@@ -411,28 +411,40 @@
 	}
 	@include laptop-small() {
 		&__header {
-			font-size: 3.3rem;
-			align-items: center;
+			font-size: 3.1rem;
 		}
 		&__face-img {
 			height: 14%;
-			top: 10%;
+			top: 80px;
 		}
 		&__headers-container-mobile {
 			display: none;
 		}
-		&__section-divider {
-			font-size: 2.4rem;
+		&__headers-container {
+			top: 160px;
 		}
-		&__bio-header {
+		&__section-divider {
+			font-size: 2.2rem;
+		}
+		&__ethorf-header {
+			font-size: 1.8rem;
+		}
+		&__back-button {
+			top: 4px;
+		}
+		&__ &__bio-header {
 			margin-top: 3%;
 			font-size: 1.9rem;
+		}
+		&__web-header-title,
+		&__music-header-title {
+			font-size: 28px;
 		}
 		&__resume {
 			font-size: 1.9rem;
 		}
 		&__section-header {
-			font-size: 21px;
+			font-size: 20px;
 		}
 		&__bio-description {
 			width: 80%;
@@ -460,4 +472,7 @@
 }
 .hover-underline-left {
 	@include hover-underline-left;
+}
+.hover-underline-right {
+	@include hover-underline-right;
 }

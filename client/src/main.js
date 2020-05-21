@@ -14,7 +14,6 @@ import './main.scss';
 // Function Imports
 import {
 	headersSmallFontSize,
-	headersBigFontSize,
 	webAnimYAxis,
 	webAnimXAxis,
 	musicAnimXAxis,
@@ -52,13 +51,9 @@ function Main() {
 	let webHeader = useRef(null);
 	let webHeaderContainer = useRef(null);
 	let musicHeaderContainer = useRef(null);
-	let webHeaderContainerMobile = useRef(null);
-	let musicHeaderContainerMobile = useRef(null);
-	let headersContainerMobile = useRef(null);
 	let faceContainer = useRef(null);
 	let dividerContainer = useRef(null);
 	let bioContainer = useRef(null);
-	let dividerContainerMobile = useRef(null);
 	const dur = 1.3;
 
 	//Animation Execution Functions
@@ -341,28 +336,6 @@ function Main() {
 					</h2>
 				</div>
 			</div>
-			{/* Mobile Headers 
-			<div ref={(div) => (headersContainerMobile = div)} className={`main__headers-container-mobile`}>
-				<div
-					onClick={webHeaderOpenAnimation}
-					ref={(h2) => (webHeaderContainerMobile = h2)}
-					className={`main__web-section-header main__section-header-container`}
-				>
-					<h2 className={`main__web-header-title`}>Developer</h2>
-				</div>
-				<h2 className={`main__section-divider`} ref={(h2) => (dividerContainerMobile = h2)}>
-					||{' '}
-				</h2>
-
-				<div
-					onClick={musicHeaderOpenAnimationMobile}
-					ref={(h2) => (musicHeaderContainerMobile = h2)}
-					className={`main__music-section-header main__section-header-container`}
-				>
-					<h2 className={`main__music-header-title`}>Musician</h2>
-				</div>
-			</div>
-			*/}
 			<WebSection webSectionOpen={webSectionOpen} />
 			<MusicSection
 				musicSectionOpen={musicSectionOpen}

@@ -1,9 +1,24 @@
 import React, { useState, useRef } from 'react';
 import { TimelineMax } from 'gsap';
 import './musicSection.scss';
-import Performance from '../performance/performance.js';
-import Engineering from '../engineering/engineering.js';
 import { engineerAnimYAxis } from '../../functions/animation-functions.js';
+import Loadable from 'react-loadable';
+
+function MyLoadingComponent({ error }) {
+	if (error) {
+		return <div>Error!</div>;
+	} else {
+		return <div>Loading...</div>;
+	}
+}
+const LoadablePerformance = Loadable({
+	loader: () => import('../performance/performance.js'),
+	loading: MyLoadingComponent
+});
+const LoadableEngineering = Loadable({
+	loader: () => import('../engineering/engineering.js'),
+	loading: MyLoadingComponent
+});
 
 export default function MusicSection(props) {
 	const engineeringHeaderTl = new TimelineMax({ paused: true });
@@ -152,7 +167,7 @@ export default function MusicSection(props) {
 					</h1>
 				</div>
 			</div>
-			<Performance
+			<LoadablePerformance
 				toggleAutocatalyticaOpen={toggleAutocatalyticaOpen}
 				toggleHosanaOpen={toggleHosanaOpen}
 				toggleSoloOpen={toggleSoloOpen}
@@ -164,7 +179,7 @@ export default function MusicSection(props) {
 				soloOpen={soloOpen}
 				exKathedraOpen={exKathedraOpen}
 			/>
-			<Engineering open={engineeringOpen} headersContainerAnimation={props.headersContainerAnimation} />
+			<LoadableEngineering open={engineeringOpen} headersContainerAnimation={props.headersContainerAnimation} />
 		</div>
 	);
 }

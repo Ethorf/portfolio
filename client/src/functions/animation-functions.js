@@ -42,8 +42,10 @@ export const musicAnimXAxis = () => {
 };
 export const engineerAnimYAxis = () => {
 	let y = 0;
-	if (window.innerWidth >= 768) {
+	if (window.innerWidth >= 993) {
 		y = '-70px';
+	} else if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+		y = '-44px';
 	} else {
 		y = '-50px';
 	}

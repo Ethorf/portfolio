@@ -108,7 +108,16 @@
 			margin: 1vh 2vw;
 		}
 		&__back-button {
+			top: -15px;
 			left: -34px;
+		}
+		&__performance-header-title,
+		&__engineering-header-title {
+			margin: 4% 0;
+			font-size: 1.9rem;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 		&__headers-container {
 			left: 8%;

@@ -408,6 +408,17 @@
 			font-size: 1.2rem;
 			line-height: 1.2;
 		}
+
+		&__section-open-left-underline {
+			&:before {
+				bottom: 20px;
+			}
+		}
+		&__section-open-right-underline {
+			&:before {
+				bottom: 18px;
+			}
+		}
 	}
 	@include laptop-small() {
 		&__header {

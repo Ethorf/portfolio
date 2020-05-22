@@ -1,12 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { gsap, TimelineMax } from 'gsap';
+import Loadable from 'react-loadable';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 //Asset Imports
 import Face from './assets/EricFacePopup-cropped.png';
 import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
 //Component Imports
-import WebSection from './components/webSection/webSection.js';
 import MusicSection from './components/musicSection/musicSection.js';
+
 import SocialButtons from './components/socialButtons/socialButtons';
 import Contact from './components/contact/contact.js';
 //Scss
@@ -23,6 +24,18 @@ import {
 } from './functions/animation-functions.js';
 
 gsap.registerPlugin(CSSPlugin);
+
+function MyLoadingComponent({ error }) {
+	if (error) {
+		return <div>Error!</div>;
+	} else {
+		return <div>Loading...</div>;
+	}
+}
+const LoadableWebSection = Loadable({
+	loader: () => import('./components/webSection/webSection.js'),
+	loading: MyLoadingComponent
+});
 
 function Main() {
 	const nameTl = new TimelineMax({ paused: true });
@@ -336,7 +349,7 @@ function Main() {
 					</h2>
 				</div>
 			</div>
-			<WebSection webSectionOpen={webSectionOpen} />
+			<LoadableWebSection webSectionOpen={webSectionOpen} />
 			<MusicSection
 				musicSectionOpen={musicSectionOpen}
 				nameSmallAnimation={nameSmallAnimation}

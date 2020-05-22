@@ -20,6 +20,7 @@
 	"homepage": "https://github.com/Ethorf/portfolio#readme",
 	"dependencies": {
 		"build": "^0.1.4",
+		"compression": "^1.7.4",
 		"express": "^4.17.1",
 		"express-favicon": "^2.0.1",
 		"express-generator": "^4.16.1",

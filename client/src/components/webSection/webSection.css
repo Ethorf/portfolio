@@ -1,0 +1,337 @@
+.invisible {
+  opacity: 0;
+  display: none;
+  width: 0.01vw;
+  overflow: hidden;
+  color: black;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+  position: relative;
+  margin-top: 20%;
+}
+
+@font-face {
+  font-family: 'October Guard';
+  src: url("../assets/fonts/octoberguard.ttf") format("truetype");
+}
+
+.bandcamp:hover {
+  content: url("../assets/Icons/silver/bandcamp-light-silver.png");
+}
+
+.soundcloud:hover {
+  content: url("../assets/Icons/silver/soundcloud-light-silver.png");
+}
+
+.spotify:hover {
+  content: url("../assets/Icons/silver/spotify-light-silver.png");
+}
+
+.linkedin:hover {
+  content: url("../assets/Icons/silver/linkedin-light-silver.png");
+}
+
+.github:hover {
+  content: url("../assets/Icons/silver/GitHub-light-silver.png");
+}
+
+.instagram:hover {
+  content: url("../assets/Icons/silver/instagram-light-silver.png");
+}
+
+.invisible {
+  opacity: 0;
+  display: none;
+  width: 0.01vw;
+  overflow: hidden;
+  color: black;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  -webkit-animation: dnonefadeout 3s 1;
+          animation: dnonefadeout 3s 1;
+}
+
+@-webkit-keyframes dnonefadeout {
+  0% {
+    display: -webkit-box;
+    display: flex;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    display: -webkit-box;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dnonefadeout {
+  0% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.visible {
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+  -webkit-animation: dnonefadein 3s 1;
+          animation: dnonefadein 3s 1;
+  opacity: 1;
+}
+
+@-webkit-keyframes dnonefadein {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: -webkit-box;
+    display: flex;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dnonefadein {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes section-left {
+  0% {
+    opacity: 0;
+    width: 0%;
+    left: 30%;
+    width: 2%;
+  }
+  100% {
+    opacity: 0.6;
+    width: 105%;
+    left: 26%;
+  }
+}
+
+@keyframes section-left {
+  0% {
+    opacity: 0;
+    width: 0%;
+    left: 30%;
+    width: 2%;
+  }
+  100% {
+    opacity: 0.6;
+    width: 105%;
+    left: 26%;
+  }
+}
+
+@-webkit-keyframes section-right {
+  0% {
+    opacity: 0;
+    width: 0%;
+    right: 30%;
+    width: 2%;
+  }
+  100% {
+    opacity: 0.6;
+    width: 87%;
+    right: 26%;
+  }
+}
+
+@keyframes section-right {
+  0% {
+    opacity: 0;
+    width: 0%;
+    right: 30%;
+    width: 2%;
+  }
+  100% {
+    opacity: 0.6;
+    width: 87%;
+    right: 26%;
+  }
+}
+
+.default-cursor:hover:hover {
+  cursor: default;
+}
+
+.invisible {
+  opacity: 0;
+  display: none;
+  width: 0.01vw;
+  overflow: hidden;
+  color: black;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+  position: relative;
+  margin-top: 20%;
+}
+
+.webSection {
+  color: silver;
+  position: absolute;
+  top: 25%;
+  right: 13%;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 70%;
+  font-family: 'Montserrat';
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+
+.webSection__projects-header {
+  color: white;
+  margin-bottom: 5%;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.webSection__projects-header:before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  bottom: -8px;
+  right: -30%;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, color-stop(1%, rgba(2, 0, 36, 0.699317)), color-stop(7%, #f3e5e6), color-stop(85%, #eddfe1), to(#160725));
+  background: linear-gradient(90deg, rgba(2, 0, 36, 0.699317) 1%, #f3e5e6 7%, #eddfe1 85%, #160725 100%);
+  -webkit-transition: all 0.7s ease-in-out 0s;
+  transition: all 0.7s ease-in-out 0s;
+}
+
+.webSection__not-your-thoughts-header {
+  font-size: 2.3rem;
+  font-family: 'Syncopate';
+  text-decoration: none;
+  text-align: center;
+  color: silver;
+  margin-bottom: 2vh;
+}
+
+.webSection__not-your-thoughts-header:hover {
+  color: white;
+}
+
+.webSection__not-your-thoughts-description {
+  text-align: right;
+  font-size: 1.3rem;
+  width: 80%;
+}
+
+.webSection__not-your-thoughts-image {
+  width: 80%;
+  padding: 0.5vw;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.webSection__button-img {
+  margin-bottom: 2vh;
+  height: 7vh;
+}
+
+@media screen and (max-width: 767px) {
+  .webSection {
+    top: 120px;
+  }
+  .webSection__not-your-thoughts-image {
+    display: none;
+  }
+  .webSection__not-your-thoughts-header {
+    font-size: 1.7rem;
+    text-align: right;
+  }
+  .webSection__not-your-thoughts-description {
+    width: 110%;
+    margin-top: 0;
+    text-align: right;
+  }
+  .webSection__projects-header {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    position: relative;
+  }
+  .webSection__projects-header:before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 2px;
+    bottom: -8px;
+    right: -2%;
+    background: #020024;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1%, rgba(2, 0, 36, 0.699317)), color-stop(7%, #f3e5e6), color-stop(85%, #eddfe1), to(#160725));
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0.699317) 1%, #f3e5e6 7%, #eddfe1 85%, #160725 100%);
+    -webkit-transition: all 0.7s ease-in-out 0s;
+    transition: all 0.7s ease-in-out 0s;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .webSection {
+    top: 124px;
+  }
+  .webSection__not-your-thoughts-image {
+    width: 60vw;
+  }
+  .webSection__not-your-thoughts-description {
+    width: 100%;
+  }
+  .webSection__projects-header {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+  .webSection__not-your-thoughts-image {
+    width: 60vw;
+  }
+  .webSection__not-your-thoughts-description {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=webSection.css.map */

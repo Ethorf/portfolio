@@ -5,6 +5,7 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'portfolio/client/public');
 const PORT = process.env.PORT || 8080;
 app.use(compression());
+
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));

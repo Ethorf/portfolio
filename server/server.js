@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const publicPath = path.join(__dirname, '..', 'portfolio/client/public');
 const PORT = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'production') {

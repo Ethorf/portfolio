@@ -10,7 +10,7 @@ export default function WebSection(webSectionOpen) {
 	return (
 		<div className={`webSection ${webSectionOpen.webSectionOpen ? 'visible' : 'invisible'}`}>
 			<h1 className={`webSection__projects-header`}>Projects</h1>
-			<div className={`webSection__project-container`}>
+			<div className={`webSection__project-container`} data-aos="fade-in">
 				<a
 					rel="noopener noreferrer"
 					target="_blank"
@@ -29,7 +29,7 @@ export default function WebSection(webSectionOpen) {
 					onMouseOut={(event) => event.target.pause()}
 					loop="true"
 				/>
-				<h3 className={`webSection__not-your-thoughts-description`}>
+				<h3 className={`webSection__not-your-thoughts-description`} data-aos="fade-in">
 					<p>
 						Not Your Thoughts is a mindfulness-based gamified journaling website dedicated to empowering the
 						average human to develop a healthy relationship with the whirlwind of thoughts they find
@@ -48,7 +48,7 @@ export default function WebSection(webSectionOpen) {
 					<img src={GitHubDark} className={`webSection__button-img github`} />
 				</a>
 			</div>
-			<div className={`webSection__project-container`}>
+			<div className={`webSection__project-container`} data-aos="fade-in">
 				<a
 					rel="noopener noreferrer"
 					target="_blank"
@@ -78,7 +78,7 @@ export default function WebSection(webSectionOpen) {
 					<img src={GitHubDark} className={`webSection__button-img github`} />
 				</a>
 			</div>
-			<div className={`webSection__project-container`}>
+			<div className={`webSection__project-container`} data-aos="fade-in">
 				<a
 					rel="noopener noreferrer"
 					target="_blank"
@@ -92,9 +92,10 @@ export default function WebSection(webSectionOpen) {
 					className={`webSection__not-your-thoughts-image webSection__feel-image`}
 					src={bigDealScreenshot}
 					alt="bigDeal preview "
+					data-aos="fade-in"
 				/>
 
-				<h3 className={`webSection__not-your-thoughts-description`}>
+				<h3 className={`webSection__not-your-thoughts-description`} data-aos="fade-in">
 					<p>
 						BigDeal is a web app developed as part of the Hatchways co-op program. Utilizing web-scraping
 						via Puppeteer.js, it allows users to create shopping lists and receive automated price updates

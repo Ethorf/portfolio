@@ -86,10 +86,12 @@
 	}
 	&__ethorf-header-left {
 		left: 3%;
+		position: fixed;
+		background-color: black;
 		&:before {
 			content: '';
 			position: absolute;
-			width: 160%;
+			width: 150%;
 			height: 2px;
 			bottom: -0px;
 			left: -10%;
@@ -106,6 +108,8 @@
 	}
 	&__ethorf-header-right {
 		right: 4%;
+		position: fixed;
+		background-color: black;
 		&:before {
 			content: '';
 			position: absolute;
@@ -147,10 +151,12 @@
 	}
 	&__back-button-left {
 		left: 1%;
+		position: fixed;
 	}
 	&__back-button-right {
 		right: 1%;
 		bottom: -20%;
+		position: fixed;
 	}
 	&__headers-container-mobile {
 		display: none;
@@ -184,10 +190,10 @@
 		&:before {
 			content: '';
 			position: absolute;
-			width: 105%;
+			width: 85%;
 			height: 2px;
 			bottom: 24px;
-			left: 30%;
+			left: 42%;
 			opacity: 0.6;
 			animation: section-left 3s 1;
 			background: rgb(2, 0, 36);
@@ -356,8 +362,6 @@
 			font-size: 1.2rem;
 			line-height: 1.2;
 		}
-	}
-	@include mobile-only() {
 	}
 	@include tablet-only {
 		&__header {

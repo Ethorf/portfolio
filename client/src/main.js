@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { gsap, TimelineMax } from 'gsap';
 import Loadable from 'react-loadable';
 import { CSSPlugin } from 'gsap/CSSPlugin';
+import AOS from 'aos';
 //Asset Imports
 import Face from './assets/EricFacePopup-cropped.png';
 import Resume from './assets//Eric-Thorfinnson-Resume.pdf';
@@ -87,6 +88,9 @@ function Main() {
 						ease: 'power1.out'
 					})
 					.play()
+			);
+			setDividerAnimation(
+				dividerTl.to(dividerContainer, { duration: dur, x: 260, autoAlpha: 0, fontSize: '0.4rem' }).play()
 			);
 			setDividerAnimation(
 				dividerTl.to(dividerContainer, { duration: dur, x: 260, autoAlpha: 0, fontSize: '0.4rem' }).play()
@@ -266,15 +270,16 @@ function Main() {
 	useEffect(() => {
 		headersLoadAnimation();
 		faceAnimationOpen();
+		AOS.init({
+			duration: 1000
+		});
 	}, []);
-	// console.log(window.innerWidth);
 	return (
 		<div className="main">
 			<div className="grid__quadrant grid__top-left"></div>
 			<div className="grid__quadrant grid__top-right"></div>
 			<div className="grid__quadrant grid__bottom-right"></div>
 			<div className="grid__quadrant grid__bottom-left"></div>
-
 			<div className={`main__bg`} />
 			<img ref={(img) => (faceContainer = img)} className={`main__face-img`} src={Face} />
 			<header className="main__header-container">

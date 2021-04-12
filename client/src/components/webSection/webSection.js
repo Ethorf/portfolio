@@ -49,7 +49,10 @@ export default function WebSection(webSectionOpen) {
 					<p>Participated in code reviews and coordinated team-wide daily stand-up meetings - </p>
 					<p>Interfaced with clients to address concerns and troubleshoot bugs -</p>
 					<p>Spearheaded extension LinkedIn integration -</p>
-					<p>Established company-wide development best practices -</p>
+					<p>
+						Developed an automated video personalization feature which receives two URLS, headlessly records
+						a scroll through each, and overlays another video on top -
+					</p>
 				</h3>
 			</div>
 			<h1 className={`webSection__projects-header`}>Projects</h1>
